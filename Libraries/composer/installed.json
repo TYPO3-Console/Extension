@@ -52,7 +52,7 @@
         "dist": {
             "type": "path",
             "url": "/home/travis/build/TYPO3-Console/TYPO3-Console",
-            "reference": "208d61b1ca4b07189f38bc1f7df3feb052a24b62"
+            "reference": "c9612d6f744f3c6b3618c531f7f16b684745cc7a"
         },
         "require": {
             "doctrine/annotations": "^1.4",
@@ -136,9 +136,9 @@
             ],
             "extension-release": [
                 "@extension-build",
-                "sed -i -e 's/\"typo3-console\\/extension\"/\"helhum\\/typo3-console\"/g' ../extension/composer.json",
-                "rm -rf ../extension/composer.lock",
-                "rm -rf ../extension/composer.json.bak",
+                "sed -i.bak -e 's/\"typo3-console\\/extension\"/\"helhum\\/typo3-console\"/g' ../extension/composer.json",
+                "rm ../extension/composer.lock",
+                "rm ../extension/composer.json.bak",
                 "rm -rf ../extension/Libraries/bin/",
                 "rm -rf ../extension/Libraries/helhum/typo3-console/Packages/",
                 "rm -rf ../extension/Libraries/helhum/typo3-console/Resources/Private/ExtensionArtifacts/",
@@ -149,6 +149,9 @@
             ],
             "extension-clean": [
                 "rm -rf ../extension/*"
+            ],
+            "docs:render": [
+                "docker-compose -f render-documentation.yml up"
             ]
         },
         "license": [
