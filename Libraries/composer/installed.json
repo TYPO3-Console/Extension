@@ -52,7 +52,7 @@
         "dist": {
             "type": "path",
             "url": "/home/travis/build/TYPO3-Console/TYPO3-Console",
-            "reference": "df0bba5734474bf648429b379cc7b43d1a3d158e"
+            "reference": "6084d430961feae6ba70fc23ffde9d854fba9188"
         },
         "require": {
             "doctrine/annotations": "^1.4",
@@ -178,7 +178,8 @@
             "issues": "https://github.com/TYPO3-Console/typo3_console/issues"
         },
         "transport-options": {
-            "symlink": false
+            "symlink": false,
+            "relative": false
         }
     },
     {
