@@ -1,0 +1,497 @@
+[
+    {
+        "name": "helhum/config-loader",
+        "version": "v0.12.2",
+        "version_normalized": "0.12.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/helhum/config-loader.git",
+            "reference": "1faf12146c505f3b929b10f09aabb8b675d7842d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/helhum/config-loader/zipball/1faf12146c505f3b929b10f09aabb8b675d7842d",
+            "reference": "1faf12146c505f3b929b10f09aabb8b675d7842d",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7"
+        },
+        "require-dev": {
+            "mikey179/vfsstream": "^1.6",
+            "phpunit/phpunit": "^5.0",
+            "symfony/yaml": "^2.8 || ^3.3 || ^4.0"
+        },
+        "suggest": {
+            "ext-yaml": "For improved performance when parsing yaml files you should use the PECL YAML Parser php extension",
+            "symfony/yaml": "To be able to parse yaml files, you will need symfony/yaml"
+        },
+        "time": "2019-05-30T14:58:15+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Helhum\\ConfigLoader\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "description": "Generic config loader with context and environment support."
+    },
+    {
+        "name": "helhum/typo3-console",
+        "version": "v6.0.0",
+        "version_normalized": "6.0.0.0",
+        "dist": {
+            "type": "path",
+            "url": "/home/travis/build/TYPO3-Console/TYPO3-Console",
+            "reference": "2971209586b2c73d1a160f574e6c28f8be3b4fc4"
+        },
+        "require": {
+            "doctrine/annotations": "^1.4",
+            "helhum/config-loader": ">=0.9 <0.13",
+            "helhum/typo3-console-plugin": "^2.0.2",
+            "php": "^7.2",
+            "symfony/console": "^4.4 || ^5.0",
+            "symfony/process": "^4.4 || ^5.0",
+            "typo3/cms-backend": "^10.4.0",
+            "typo3/cms-core": "^10.4.0",
+            "typo3/cms-extbase": "^10.4.0",
+            "typo3/cms-extensionmanager": "^10.4.0",
+            "typo3/cms-fluid": "^10.4.0",
+            "typo3/cms-frontend": "^10.4.0",
+            "typo3/cms-install": "^10.4.0",
+            "typo3/cms-scheduler": "^10.4.0"
+        },
+        "conflict": {
+            "friendsoftypo3/dbal": "*",
+            "typo3-ter/dbal": "*"
+        },
+        "replace": {
+            "typo3-ter/typo3-console": "self.version"
+        },
+        "require-dev": {
+            "cweagans/composer-patches": "^1.6",
+            "jakub-onderka/php-parallel-lint": "^1.0",
+            "nimut/testing-framework": "5.x-dev",
+            "phpunit/phpunit": "^6",
+            "symfony/filesystem": "^4.4 || ^5.0",
+            "typo3-console/create-reference-command": "@dev",
+            "typo3-console/php-server-command": "^0.2",
+            "typo3/cms-filemetadata": "^10.4.0 || dev-master",
+            "typo3/cms-reports": "^10.4.0 || dev-master"
+        },
+        "bin": [
+            "typo3cms"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.x-dev"
+            },
+            "typo3/cms": {
+                "app-dir": ".Build",
+                "web-dir": ".Build/public"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Helhum\\Typo3Console\\": [
+                    "Classes/Console/",
+                    "Classes/Compatibility/"
+                ]
+            }
+        },
+        "autoload-dev": {
+            "psr-4": {
+                "Helhum\\Typo3Console\\Tests\\": "Tests/Console/"
+            }
+        },
+        "scripts": {
+            "set-version": [
+                "Helhum\\Typo3Console\\Composer\\ScriptHelper::setVersion"
+            ],
+            "extension-verify-composer-json": [
+                "Helhum\\Typo3Console\\Composer\\ScriptHelper::verifyComposerJsonOfExtension"
+            ],
+            "extension-copy": [
+                "@extension-clean",
+                "mkdir -p ../extension",
+                "cp -r Resources/Private/ExtensionArtifacts/* ../extension/"
+            ],
+            "extension-build": [
+                "@extension-copy",
+                "@composer config repositories.console '{\"type\": \"path\", \"url\": \"'$(pwd)'\", \"options\": {\"symlink\": false}}' -d ../extension",
+                "@composer install -d ../extension/"
+            ],
+            "extension-release": [
+                "@extension-build",
+                "sed -i.bak -e 's/\"typo3-console\\/extension\"/\"helhum\\/typo3-console\"/g' ../extension/composer.json",
+                "rm ../extension/composer.lock",
+                "rm ../extension/composer.json.bak",
+                "rm -rf ../extension/Libraries/bin/",
+                "rm -rf ../extension/Libraries/helhum/typo3-console/Packages/",
+                "rm -rf ../extension/Libraries/helhum/typo3-console/Resources/Private/ExtensionArtifacts/",
+                "rm -rf ../extension/Libraries/helhum/typo3-console/Resources/Private/Patches/",
+                "rm -rf ../extension/Libraries/helhum/typo3-console/Tests/",
+                "rm -rf ../extension/Libraries/helhum/typo3-console/.github/",
+                "mv ../extension/Libraries/helhum/typo3-console/Documentation/ ../extension/"
+            ],
+            "extension-clean": [
+                "rm -rf ../extension/*"
+            ],
+            "docs:render": [
+                "docker-compose -f render-documentation.yml up"
+            ]
+        },
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Helmut Hummel",
+                "email": "info@helhum.io",
+                "role": "Developer",
+                "homepage": "http://helhum.io"
+            }
+        ],
+        "description": "A reliable and powerful command line interface for TYPO3 CMS",
+        "homepage": "http://insight.helhum.io/post/104528981610/about-the-beauty-and-power-of-typo3-console",
+        "keywords": [
+            "TYPO3",
+            "cli",
+            "command",
+            "commandline",
+            "console"
+        ],
+        "support": {
+            "issues": "https://github.com/TYPO3-Console/typo3_console/issues"
+        },
+        "transport-options": {
+            "symlink": false,
+            "relative": false
+        }
+    },
+    {
+        "name": "psr/container",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/container.git",
+            "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+            "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2017-02-14T16:28:37+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Container\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common Container Interface (PHP FIG PSR-11)",
+        "homepage": "https://github.com/php-fig/container",
+        "keywords": [
+            "PSR-11",
+            "container",
+            "container-interface",
+            "container-interop",
+            "psr"
+        ]
+    },
+    {
+        "name": "symfony/console",
+        "version": "v4.4.7",
+        "version_normalized": "4.4.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/console.git",
+            "reference": "10bb3ee3c97308869d53b3e3d03f6ac23ff985f7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/console/zipball/10bb3ee3c97308869d53b3e3d03f6ac23ff985f7",
+            "reference": "10bb3ee3c97308869d53b3e3d03f6ac23ff985f7",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3",
+            "symfony/polyfill-mbstring": "~1.0",
+            "symfony/polyfill-php73": "^1.8",
+            "symfony/service-contracts": "^1.1|^2"
+        },
+        "conflict": {
+            "symfony/dependency-injection": "<3.4",
+            "symfony/event-dispatcher": "<4.3|>=5",
+            "symfony/lock": "<4.4",
+            "symfony/process": "<3.3"
+        },
+        "provide": {
+            "psr/log-implementation": "1.0"
+        },
+        "require-dev": {
+            "psr/log": "~1.0",
+            "symfony/config": "^3.4|^4.0|^5.0",
+            "symfony/dependency-injection": "^3.4|^4.0|^5.0",
+            "symfony/event-dispatcher": "^4.3",
+            "symfony/lock": "^4.4|^5.0",
+            "symfony/process": "^3.4|^4.0|^5.0",
+            "symfony/var-dumper": "^4.3|^5.0"
+        },
+        "suggest": {
+            "psr/log": "For using the console logger",
+            "symfony/event-dispatcher": "",
+            "symfony/lock": "",
+            "symfony/process": ""
+        },
+        "time": "2020-03-30T11:41:10+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Console\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Console Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/polyfill-php73",
+        "version": "v1.15.0",
+        "version_normalized": "1.15.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-php73.git",
+            "reference": "0f27e9f464ea3da33cbe7ca3bdf4eb66def9d0f7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/0f27e9f464ea3da33cbe7ca3bdf4eb66def9d0f7",
+            "reference": "0f27e9f464ea3da33cbe7ca3bdf4eb66def9d0f7",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2020-02-27T09:26:54+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.15-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Php73\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ],
+            "classmap": [
+                "Resources/stubs"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill backporting some PHP 7.3+ features to lower PHP versions",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "polyfill",
+            "portable",
+            "shim"
+        ],
+        "funding": [
+            {
+                "url": "https://symfony.com/sponsor",
+                "type": "custom"
+            },
+            {
+                "url": "https://github.com/fabpot",
+                "type": "github"
+            },
+            {
+                "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                "type": "tidelift"
+            }
+        ]
+    },
+    {
+        "name": "symfony/process",
+        "version": "v4.4.7",
+        "version_normalized": "4.4.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/process.git",
+            "reference": "3e40e87a20eaf83a1db825e1fa5097ae89042db3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/process/zipball/3e40e87a20eaf83a1db825e1fa5097ae89042db3",
+            "reference": "3e40e87a20eaf83a1db825e1fa5097ae89042db3",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3"
+        },
+        "time": "2020-03-27T16:54:36+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Process\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Process Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/service-contracts",
+        "version": "v1.1.8",
+        "version_normalized": "1.1.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/service-contracts.git",
+            "reference": "ffc7f5692092df31515df2a5ecf3b7302b3ddacf"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/service-contracts/zipball/ffc7f5692092df31515df2a5ecf3b7302b3ddacf",
+            "reference": "ffc7f5692092df31515df2a5ecf3b7302b3ddacf",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3",
+            "psr/container": "^1.0"
+        },
+        "suggest": {
+            "symfony/service-implementation": ""
+        },
+        "time": "2019-10-14T12:27:06+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Contracts\\Service\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Generic abstractions related to writing services",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "abstractions",
+            "contracts",
+            "decoupling",
+            "interfaces",
+            "interoperability",
+            "standards"
+        ]
+    }
+]
