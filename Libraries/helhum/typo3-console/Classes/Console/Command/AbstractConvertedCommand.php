@@ -14,6 +14,8 @@ namespace Helhum\Typo3Console\Command;
  *
  */
 
+use Helhum\Typo3Console\Exception\ArgumentValidationFailedException;
+use Helhum\Typo3Console\Mvc\Cli\Symfony\Input\ArgvInput;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputDefinition;
@@ -64,7 +66,10 @@ abstract class AbstractConvertedCommand extends Command
             if (!$nativeDefinition->hasArgument($casedName)) {
                 continue;
             }
-            if ($deprecatedValue = $input->getOption($dashedName)) {
+            if ($input instanceof ArgvInput
+                && $input->hasGivenOption($dashedName)
+                && ($deprecatedValue = $input->getOption($dashedName)) !== null
+            ) {
                 $messages[] = '<warning>Using named arguments is deprecated.</warning>';
                 $messages[] = sprintf('<warning>Gracefully setting argument "%s" for given option "%s".</warning>', $casedName, $dashedName);
                 $input->setArgument($casedName, $deprecatedValue);
@@ -76,9 +81,10 @@ abstract class AbstractConvertedCommand extends Command
             if (!$nativeDefinition->hasOption($dashedName)) {
                 continue;
             }
-            if ($deprecatedValue = $input->getArgument($casedName)) {
-                $messages[] = '<warning>Using named arguments is deprecated.</warning>';
-                $messages[] = sprintf('<warning>Gracefully setting argument "%s" for given option "%s".</warning>', $casedName, $dashedName);
+            if ($input instanceof ArgvInput
+                && $input->hasGivenArgument($casedName)
+                && ($deprecatedValue = $input->getArgument($casedName)) !== null
+            ) {
                 $messages[] = '<warning>Specifying argument values for options is deprecated.</warning>';
                 $messages[] = sprintf('<warning>Gracefully setting option "%s" to "%s".</warning>', $dashedName, $deprecatedValue);
                 $input->setOption($dashedName, $deprecatedValue);
@@ -103,12 +109,20 @@ abstract class AbstractConvertedCommand extends Command
             return !array_key_exists($argument, $givenArguments) && $definition->getArgument($argument)->isRequired();
         });
 
-        $argumentValue = null;
         $io = new SymfonyStyle($input, $output);
         foreach ($missingArguments as $missingArgument) {
-            while ($argumentValue === null) {
-                $argumentValue = $io->ask(sprintf('Please specify the required argument "%s"', $missingArgument));
-            }
+            $definition = $this->getDefinition()->getArgument($missingArgument);
+            $argumentValue = $io->ask(
+                $definition->getDescription(),
+                null,
+                function ($value) use ($missingArgument) {
+                    if ($value === null) {
+                        throw new ArgumentValidationFailedException(sprintf('%s must not be empty', $missingArgument));
+                    }
+
+                    return $value;
+                }
+            );
             $input->setArgument($missingArgument, $argumentValue);
         }
     }

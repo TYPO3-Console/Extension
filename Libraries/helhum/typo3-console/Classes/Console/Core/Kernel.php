@@ -14,21 +14,26 @@ namespace Helhum\Typo3Console\Core;
  *
  */
 
-use Composer\Autoload\ClassLoader;
-use Doctrine\Common\Annotations\AnnotationRegistry;
 use Helhum\Typo3Console\CompatibilityClassLoader;
-use Helhum\Typo3Console\Core\Booting\CompatibilityScripts;
 use Helhum\Typo3Console\Core\Booting\RunLevel;
 use Helhum\Typo3Console\Core\Booting\Scripts;
+use Helhum\Typo3Console\Core\Booting\Step;
+use Helhum\Typo3Console\Core\Booting\StepFailedException;
 use Helhum\Typo3Console\Exception;
 use Helhum\Typo3Console\Mvc\Cli\CommandCollection;
 use Helhum\Typo3Console\Mvc\Cli\CommandConfiguration;
+use Helhum\Typo3Console\Mvc\Cli\CommandLoaderCollection;
+use Helhum\Typo3Console\Mvc\Cli\FilteredCommandLoaderCollection;
 use Helhum\Typo3Console\Mvc\Cli\Symfony\Application;
+use Psr\Container\ContainerInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Input\InputInterface;
+use TYPO3\CMS\Core\Console\CommandRegistry;
 use TYPO3\CMS\Core\Core\Bootstrap;
-use TYPO3\CMS\Core\Package\PackageManager;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Core\SystemEnvironmentBuilder;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 /**
  * @internal
@@ -36,28 +41,24 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class Kernel
 {
     /**
-     * @var Bootstrap
-     */
-    private $bootstrap;
-
-    /**
      * @var RunLevel
      */
     private $runLevel;
 
     /**
-     * @var bool
+     * @var CompatibilityClassLoader
      */
-    private $initialized = false;
+    private $classLoader;
+
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
 
     public function __construct(CompatibilityClassLoader $classLoader)
     {
         $this->ensureRequiredEnvironment();
-        $this->bootstrap = Bootstrap::getInstance();
-        $this->bootstrap->initializeClassLoader($classLoader->getTypo3ClassLoader());
-        // Initialize basic annotation loader until TYPO3 does so as well
-        AnnotationRegistry::registerLoader('class_exists');
-        $this->runLevel = new RunLevel($this->bootstrap);
+        $this->classLoader = $classLoader;
     }
 
     /**
@@ -78,37 +79,6 @@ class Kernel
     }
 
     /**
-     * Legacy method called by old composer plugins
-     *
-     * @param ClassLoader $classLoader
-     * @internal
-     * @deprecated will be removed with 6.0
-     */
-    public static function initializeCompatibilityLayer(ClassLoader $classLoader)
-    {
-        new CompatibilityClassLoader($classLoader);
-    }
-
-    /**
-     * This is useful to bootstrap the console application
-     * without actually executing a command (e.g. during composer install)
-     *
-     * @param string $runLevel
-     * @throws Exception
-     * @throws InvalidArgumentException
-     */
-    public function initialize(string $runLevel = null)
-    {
-        if (!$this->initialized) {
-            Scripts::baseSetup($this->bootstrap);
-            $this->initialized = true;
-        }
-        if ($runLevel !== null) {
-            $this->runLevel->runSequence($runLevel);
-        }
-    }
-
-    /**
      * Handle the given command input and return the exit code of the called command
      *
      * @param InputInterface $input
@@ -120,32 +90,58 @@ class Kernel
     {
         $this->initialize();
 
-        $commandCollection = new CommandCollection(
-            $this->runLevel,
-            new CommandConfiguration(GeneralUtility::makeInstance(PackageManager::class))
+        $commandConfiguration = new CommandConfiguration();
+        $consoleCommandCollection = new CommandCollection($commandConfiguration);
+        $consoleCommandCollection->initializeRunLevel($this->runLevel);
+
+        $commandCollection = new CommandLoaderCollection(
+            $consoleCommandCollection,
+            new FilteredCommandLoaderCollection(
+                $this->container->get(CommandRegistry::class),
+                $commandConfiguration->getReplaces()
+            )
         );
 
-        $application = new Application($this->runLevel, CompatibilityScripts::isComposerMode());
+        $application = new Application($this->runLevel, Environment::isComposerMode());
         $application->setCommandLoader($commandCollection);
 
-        // Try to resolve short command names and aliases
-        $givenCommandName = $input->getFirstArgument() ?: 'list';
-        $commandNameCandidate = $commandCollection->find($givenCommandName);
-        if ($this->runLevel->isCommandAvailable($commandNameCandidate)) {
-            $this->runLevel->runSequenceForCommand($commandNameCandidate);
-            // @deprecated will be removed once command controller support is removed
-            if ($this->runLevel->getRunLevelForCommand($commandNameCandidate) !== RunLevel::LEVEL_ESSENTIAL) {
-                $commandCollection->addCommandControllerCommands($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'] ?? []);
-                $commandName = $commandCollection->find($givenCommandName);
-                if ($commandNameCandidate !== $commandName) {
-                    // Mitigate #779 and #778 at least when command controller commands conflict with non low level
-                    // previously registered commands
-                    $this->runLevel->runSequenceForCommand($commandName);
-                }
-            }
-        }
-
         return $application->run($input);
+    }
+
+    /**
+     * Bootstrap the console application
+     *
+     * @throws Exception
+     * @throws InvalidArgumentException
+     */
+    private function initialize(): void
+    {
+        SystemEnvironmentBuilder::run(0, SystemEnvironmentBuilder::REQUESTTYPE_CLI);
+        $failsafeContainer = Bootstrap::init(
+            $this->classLoader->getTypo3ClassLoader(),
+            true
+        );
+        // @TODO: Can be removed, once TYPO3 does not start buffering on CLI within Bootstrap::init()
+        ob_end_flush();
+        Scripts::initializeErrorHandling();
+        $error = null;
+        try {
+            $lateBootService = $failsafeContainer->get(\TYPO3\CMS\Install\Service\LateBootService::class);
+            $this->container = $lateBootService->getContainer();
+            $lateBootService->makeCurrent($this->container);
+            ExtensionManagementUtility::setEventDispatcher($this->container->get(EventDispatcherInterface::class));
+        } catch (\Throwable $e) {
+            $this->container = $failsafeContainer;
+            $error = new StepFailedException(
+                new Step(
+                    'build-container',
+                    function () {
+                    }
+                ),
+                $e
+            );
+        }
+        $this->runLevel = new RunLevel($this->container, $error);
     }
 
     /**

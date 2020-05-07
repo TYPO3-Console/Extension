@@ -27,6 +27,16 @@ class SubProcessException extends \Exception
     /**
      * @var string|null
      */
+    private $previousExceptionMessage;
+
+    /**
+     * @var mixed
+     */
+    private $previousExceptionCode;
+
+    /**
+     * @var string|null
+     */
     private $previousExceptionTrace;
 
     /**
@@ -66,15 +76,31 @@ class SubProcessException extends \Exception
         $previousExceptionOutputMessage = null,
         $previousExceptionErrorMessage = null
     ) {
+        $code = $previousExceptionCode;
+        $message = $previousExceptionMessage;
+        if ($previousExceptionCode !== (int)$previousExceptionCode) {
+            $message = sprintf('[%s] %s', $previousExceptionCode, $previousExceptionMessage);
+            $code = 0;
+        }
         $previousException = $previousExceptionData ? self::createFromArray($previousExceptionData) : null;
-        parent::__construct($previousExceptionMessage, $previousExceptionCode, $previousException);
+        $fullMessage = sprintf('[%s] %s', $previousExceptionClass, $message);
+        parent::__construct($fullMessage, $code, $previousException);
         $this->previousExceptionClass = $previousExceptionClass;
+        $this->previousExceptionMessage = $previousExceptionMessage;
+        $this->previousExceptionCode = $previousExceptionCode;
         $this->previousExceptionTrace = $previousExceptionTrace;
         $this->previousExceptionLine = $previousExceptionLine;
         $this->previousExceptionFile = $previousExceptionFile;
         $this->previousExceptionCommandLine = $previousExceptionCommandLine;
         $this->previousExceptionOutputMessage = $previousExceptionOutputMessage;
         $this->previousExceptionErrorMessage = $previousExceptionErrorMessage;
+
+        $this->line = $previousExceptionLine;
+        $this->file = $previousExceptionFile;
+        array_shift($previousExceptionTrace);
+        $traceReflection = new \ReflectionProperty(\Exception::class, 'trace');
+        $traceReflection->setAccessible(true);
+        $traceReflection->setValue($this, $previousExceptionTrace);
     }
 
     public static function createFromArray($previousExceptionData)
@@ -99,6 +125,22 @@ class SubProcessException extends \Exception
     public function getPreviousExceptionClass()
     {
         return $this->previousExceptionClass;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPreviousExceptionMessage()
+    {
+        return $this->previousExceptionMessage;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPreviousExceptionCode()
+    {
+        return $this->previousExceptionCode;
     }
 
     /**

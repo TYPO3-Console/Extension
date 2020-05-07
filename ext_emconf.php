@@ -11,23 +11,20 @@ $EM_CONF[$_EXTKEY] = [
   'author' => 'Helmut Hummel',
   'author_email' => 'info@helhum.io',
   'author_company' => 'helhum.io',
-  'version' => '5.6.0',
+  'version' => '6.2.0',
   'constraints' => [
     'depends' => [
-      'php' => '7.0.0-7.3.99',
-      'typo3' => '8.7.22-9.5.99',
-      'extbase' => '8.7.22-9.5.99',
-      'extensionmanager' => '8.7.22-9.5.99',
-      'fluid' => '8.7.22-9.5.99',
-      'install' => '8.7.22-9.5.99',
-      'scheduler' => '8.7.22-9.5.99',
+      'php' => '7.2.0-7.4.99',
+      'typo3' => '10.4.0-10.4.99',
+      'extbase' => '10.4.0-10.4.99',
+      'extensionmanager' => '10.4.0-10.4.99',
+      'fluid' => '10.4.0-10.4.99',
+      'install' => '10.4.0-10.4.99',
     ],
     'conflicts' => [
         'dbal' => '',
     ],
     'suggests' => [
     ],
-  ],
-  'autoload' => [
   ],
 ];

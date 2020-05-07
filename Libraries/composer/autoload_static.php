@@ -4,13 +4,23 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit49feed25bb23e42831f377a438013708
+class ComposerStaticInitddc8e8a70694954161a6beb888aa047b
 {
+    public static $files = array (
+        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+            'Symfony\\Polyfill\\Php73\\' => 23,
+            'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Component\\Process\\' => 26,
             'Symfony\\Component\\Console\\' => 26,
+        ),
+        'P' => 
+        array (
+            'Psr\\Container\\' => 14,
         ),
         'H' => 
         array (
@@ -20,6 +30,14 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\Polyfill\\Php73\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
+        ),
+        'Symfony\\Contracts\\Service\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/service-contracts',
+        ),
         'Symfony\\Component\\Process\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
@@ -27,6 +45,10 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
         ),
         'Helhum\\Typo3Console\\' => 
         array (
@@ -72,32 +94,51 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
         'Helhum\\ConfigLoader\\Reader\\PhpFileReader' => __DIR__ . '/..' . '/helhum/config-loader/src/Reader/PhpFileReader.php',
         'Helhum\\ConfigLoader\\Reader\\RootConfigFileReader' => __DIR__ . '/..' . '/helhum/config-loader/src/Reader/RootConfigFileReader.php',
         'Helhum\\ConfigLoader\\Reader\\YamlFileReader' => __DIR__ . '/..' . '/helhum/config-loader/src/Reader/YamlFileReader.php',
-        'Helhum\\Typo3Console\\Annotation\\Command\\Definition\\Argument' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Annotation/Command/Definition/Argument.php',
-        'Helhum\\Typo3Console\\Annotation\\Command\\Definition\\Option' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Annotation/Command/Definition/Option.php',
-        'Helhum\\Typo3Console\\Annotation\\Command\\Definition\\Validate' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Annotation/Command/Definition/Validate.php',
         'Helhum\\Typo3Console\\Command\\AbstractConvertedCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/AbstractConvertedCommand.php',
-        'Helhum\\Typo3Console\\Command\\BackendCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/BackendCommandController.php',
-        'Helhum\\Typo3Console\\Command\\CacheCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/CacheCommandController.php',
+        'Helhum\\Typo3Console\\Command\\Backend\\CreateBackendAdminUserCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Backend/CreateBackendAdminUserCommand.php',
+        'Helhum\\Typo3Console\\Command\\Backend\\LockBackendCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Backend/LockBackendCommand.php',
+        'Helhum\\Typo3Console\\Command\\Backend\\LockBackendForEditorsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Backend/LockBackendForEditorsCommand.php',
+        'Helhum\\Typo3Console\\Command\\Backend\\UnlockBackendCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Backend/UnlockBackendCommand.php',
+        'Helhum\\Typo3Console\\Command\\Backend\\UnlockBackendForEditorsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Backend/UnlockBackendForEditorsCommand.php',
         'Helhum\\Typo3Console\\Command\\Cache\\CacheFlushCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Cache/CacheFlushCommand.php',
-        'Helhum\\Typo3Console\\Command\\CleanupCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/CleanupCommandController.php',
-        'Helhum\\Typo3Console\\Command\\ConfigurationCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/ConfigurationCommandController.php',
-        'Helhum\\Typo3Console\\Command\\DatabaseCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/DatabaseCommandController.php',
+        'Helhum\\Typo3Console\\Command\\Cache\\CacheFlushGroupsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Cache/CacheFlushGroupsCommand.php',
+        'Helhum\\Typo3Console\\Command\\Cache\\CacheFlushTagsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Cache/CacheFlushTagsCommand.php',
+        'Helhum\\Typo3Console\\Command\\Cache\\CacheListGroupsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Cache/CacheListGroupsCommand.php',
+        'Helhum\\Typo3Console\\Command\\Configuration\\ConfigurationRemoveCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Configuration/ConfigurationRemoveCommand.php',
+        'Helhum\\Typo3Console\\Command\\Configuration\\ConfigurationSetCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Configuration/ConfigurationSetCommand.php',
+        'Helhum\\Typo3Console\\Command\\Configuration\\ConfigurationShowActiveCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Configuration/ConfigurationShowActiveCommand.php',
+        'Helhum\\Typo3Console\\Command\\Configuration\\ConfigurationShowCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Configuration/ConfigurationShowCommand.php',
+        'Helhum\\Typo3Console\\Command\\Configuration\\ConfigurationShowLocalCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Configuration/ConfigurationShowLocalCommand.php',
         'Helhum\\Typo3Console\\Command\\Database\\DatabaseExportCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Database/DatabaseExportCommand.php',
-        'Helhum\\Typo3Console\\Command\\Delegation\\ReferenceIndexUpdateDelegate' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Delegation/ReferenceIndexUpdateDelegate.php',
-        'Helhum\\Typo3Console\\Command\\DocumentationCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/DocumentationCommandController.php',
-        'Helhum\\Typo3Console\\Command\\Documentation\\GenerateXsdCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Documentation/GenerateXsdCommand.php',
-        'Helhum\\Typo3Console\\Command\\ExtensionCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/ExtensionCommandController.php',
+        'Helhum\\Typo3Console\\Command\\Database\\DatabaseImportCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Database/DatabaseImportCommand.php',
+        'Helhum\\Typo3Console\\Command\\Database\\DatabaseUpdateSchemaCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Database/DatabaseUpdateSchemaCommand.php',
         'Helhum\\Typo3Console\\Command\\Extension\\DumpAutoloadCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/DumpAutoloadCommand.php',
-        'Helhum\\Typo3Console\\Command\\FrontendCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/FrontendCommandController.php',
-        'Helhum\\Typo3Console\\Command\\HelpCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/HelpCommandController.php',
-        'Helhum\\Typo3Console\\Command\\InstallCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/InstallCommandController.php',
-        'Helhum\\Typo3Console\\Command\\SchedulerCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/SchedulerCommandController.php',
-        'Helhum\\Typo3Console\\Command\\UpgradeCommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/UpgradeCommandController.php',
+        'Helhum\\Typo3Console\\Command\\Extension\\ExtensionListCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionListCommand.php',
+        'Helhum\\Typo3Console\\Command\\Extension\\ExtensionSetupActiveCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionSetupActiveCommand.php',
+        'Helhum\\Typo3Console\\Command\\Extension\\ExtensionSetupCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionSetupCommand.php',
+        'Helhum\\Typo3Console\\Command\\Extension\\ExtensionStateCommandsHelper' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionStateCommandsHelper.php',
+        'Helhum\\Typo3Console\\Command\\Frontend\\FrontendRequestCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Frontend/FrontendRequestCommand.php',
+        'Helhum\\Typo3Console\\Command\\Install\\InstallActionNeedsExecutionCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallActionNeedsExecutionCommand.php',
+        'Helhum\\Typo3Console\\Command\\Install\\InstallDatabaseConnectCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallDatabaseConnectCommand.php',
+        'Helhum\\Typo3Console\\Command\\Install\\InstallDatabaseDataCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallDatabaseDataCommand.php',
+        'Helhum\\Typo3Console\\Command\\Install\\InstallDatabaseSelectCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallDatabaseSelectCommand.php',
+        'Helhum\\Typo3Console\\Command\\Install\\InstallDefaultConfigurationCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallDefaultConfigurationCommand.php',
+        'Helhum\\Typo3Console\\Command\\Install\\InstallEnvironmentAndFoldersCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallEnvironmentAndFoldersCommand.php',
+        'Helhum\\Typo3Console\\Command\\Install\\InstallExtensionSetupIfPossibleCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallExtensionSetupIfPossibleCommand.php',
+        'Helhum\\Typo3Console\\Command\\Install\\InstallFixFolderStructureCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallFixFolderStructureCommand.php',
+        'Helhum\\Typo3Console\\Command\\Install\\InstallGeneratePackageStatesCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallGeneratePackageStatesCommand.php',
+        'Helhum\\Typo3Console\\Command\\Install\\InstallSetupCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallSetupCommand.php',
+        'Helhum\\Typo3Console\\Command\\RelatableCommandInterface' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/RelatableCommandInterface.php',
+        'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeCheckExtensionCompatibilityCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeCheckExtensionCompatibilityCommand.php',
+        'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeCheckExtensionConstraintsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeCheckExtensionConstraintsCommand.php',
+        'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeListCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeListCommand.php',
+        'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradePrepareCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradePrepareCommand.php',
+        'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeRunCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeRunCommand.php',
         'Helhum\\Typo3Console\\CompatibilityClassLoader' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/CompatibilityClassLoader.php',
         'Helhum\\Typo3Console\\Composer\\InstallerScript\\PopulateCommandConfiguration' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScript/PopulateCommandConfiguration.php',
         'Helhum\\Typo3Console\\Composer\\InstallerScripts' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScripts.php',
+        'Helhum\\Typo3Console\\Composer\\PopulateCommands' => __DIR__ . '/../..' . '/Classes/Console/Composer/PopulateCommands.php',
         'Helhum\\Typo3Console\\Composer\\ScriptHelper' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/ScriptHelper.php',
-        'Helhum\\Typo3Console\\Core\\Booting\\CompatibilityScripts' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/CompatibilityScripts.php',
         'Helhum\\Typo3Console\\Core\\Booting\\RunLevel' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/RunLevel.php',
         'Helhum\\Typo3Console\\Core\\Booting\\Scripts' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/Scripts.php',
         'Helhum\\Typo3Console\\Core\\Booting\\Sequence' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/Sequence.php',
@@ -116,6 +157,7 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
         'Helhum\\Typo3Console\\Error\\ExceptionHandler' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Error/ExceptionHandler.php',
         'Helhum\\Typo3Console\\Error\\ExceptionRenderer' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Error/ExceptionRenderer.php',
         'Helhum\\Typo3Console\\Exception' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Exception.php',
+        'Helhum\\Typo3Console\\Exception\\ArgumentValidationFailedException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Exception/ArgumentValidationFailedException.php',
         'Helhum\\Typo3Console\\Exception\\CommandNotAvailableException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Exception/CommandNotAvailableException.php',
         'Helhum\\Typo3Console\\Extension\\ExtensionCompatibilityCheck' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionCompatibilityCheck.php',
         'Helhum\\Typo3Console\\Extension\\ExtensionConfiguration' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionConfiguration.php',
@@ -134,7 +176,6 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
         'Helhum\\Typo3Console\\Install\\Action\\Typo3InstallAction' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Action/Typo3InstallAction.php',
         'Helhum\\Typo3Console\\Install\\Action\\WriteWebServerConfigAction' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Action/WriteWebServerConfigAction.php',
         'Helhum\\Typo3Console\\Install\\CliMessageRenderer' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/CliMessageRenderer.php',
-        'Helhum\\Typo3Console\\Install\\CliSetupRequestHandler' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/CliSetupRequestHandler.php',
         'Helhum\\Typo3Console\\Install\\FolderStructure\\ExtensionFactory' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/FolderStructure/ExtensionFactory.php',
         'Helhum\\Typo3Console\\Install\\InstallStepActionExecutor' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/InstallStepActionExecutor.php',
         'Helhum\\Typo3Console\\Install\\InstallStepResponse' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/InstallStepResponse.php',
@@ -149,32 +190,22 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
         'Helhum\\Typo3Console\\Install\\Upgrade\\UpgradeWizardResult' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Upgrade/UpgradeWizardResult.php',
         'Helhum\\Typo3Console\\Install\\Upgrade\\UpgradeWizardResultRenderer' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Upgrade/UpgradeWizardResultRenderer.php',
         'Helhum\\Typo3Console\\Log\\Writer\\ConsoleWriter' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Log/Writer/ConsoleWriter.php',
-        'Helhum\\Typo3Console\\Mvc\\Cli\\Command' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/Command.php',
-        'Helhum\\Typo3Console\\Mvc\\Cli\\CommandArgumentDefinition' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/CommandArgumentDefinition.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\CommandCollection' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/CommandCollection.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\CommandConfiguration' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/CommandConfiguration.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\CommandDispatcher' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/CommandDispatcher.php',
-        'Helhum\\Typo3Console\\Mvc\\Cli\\CommandReflection' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/CommandReflection.php',
+        'Helhum\\Typo3Console\\Mvc\\Cli\\CommandLoaderCollection' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/CommandLoaderCollection.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\ConsoleOutput' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/ConsoleOutput.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\FailedSubProcessCommandException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/FailedSubProcessCommandException.php',
+        'Helhum\\Typo3Console\\Mvc\\Cli\\FilteredCommandLoaderCollection' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/FilteredCommandLoaderCollection.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\InteractiveProcess' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/InteractiveProcess.php',
-        'Helhum\\Typo3Console\\Mvc\\Cli\\RequestHandler' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/RequestHandler.php',
-        'Helhum\\Typo3Console\\Mvc\\Cli\\Response' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/Response.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\SubProcessException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/SubProcessException.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\Symfony\\Application' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/Symfony/Application.php',
-        'Helhum\\Typo3Console\\Mvc\\Cli\\Symfony\\Command\\CommandControllerCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/Symfony/Command/CommandControllerCommand.php',
-        'Helhum\\Typo3Console\\Mvc\\Cli\\Symfony\\Command\\DummyCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/Symfony/Command/DummyCommand.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\Symfony\\Command\\HelpCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/Symfony/Command/HelpCommand.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\Symfony\\Command\\ListCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/Symfony/Command/ListCommand.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\Symfony\\Descriptor\\TextDescriptor' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/Symfony/Descriptor/TextDescriptor.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\Symfony\\Input\\ArgvInput' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/Symfony/Input/ArgvInput.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\Symfony\\Output\\TrackableOutput' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/Symfony/Output/TrackableOutput.php',
-        'Helhum\\Typo3Console\\Mvc\\Controller\\CommandController' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Controller/CommandController.php',
         'Helhum\\Typo3Console\\Package\\UncachedPackageManager' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Package/UncachedPackageManager.php',
-        'Helhum\\Typo3Console\\Parser\\ParsedClass' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Parser/ParsedClass.php',
-        'Helhum\\Typo3Console\\Parser\\ParsingException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Parser/ParsingException.php',
-        'Helhum\\Typo3Console\\Parser\\PhpParser' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Parser/PhpParser.php',
-        'Helhum\\Typo3Console\\Parser\\PhpParserInterface' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Parser/PhpParserInterface.php',
         'Helhum\\Typo3Console\\Property\\TypeConverter\\ArrayConverter' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Property/TypeConverter/ArrayConverter.php',
         'Helhum\\Typo3Console\\Service\\CacheLowLevelCleaner' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/CacheLowLevelCleaner.php',
         'Helhum\\Typo3Console\\Service\\CacheService' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/CacheService.php',
@@ -185,20 +216,11 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
         'Helhum\\Typo3Console\\Service\\Configuration\\TypesAreNotConvertibleException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Configuration/TypesAreNotConvertibleException.php',
         'Helhum\\Typo3Console\\Service\\Database\\Exception' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Database/Exception.php',
         'Helhum\\Typo3Console\\Service\\Database\\SchemaService' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Database/SchemaService.php',
-        'Helhum\\Typo3Console\\Service\\Delegation\\ReferenceIndexIntegrityDelegateInterface' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Delegation/ReferenceIndexIntegrityDelegateInterface.php',
         'Helhum\\Typo3Console\\Service\\Exception' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Exception.php',
-        'Helhum\\Typo3Console\\Service\\Persistence\\PersistenceContext' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Persistence/PersistenceContext.php',
-        'Helhum\\Typo3Console\\Service\\Persistence\\PersistenceContextInterface' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Persistence/PersistenceContextInterface.php',
-        'Helhum\\Typo3Console\\Service\\Persistence\\PersistenceIntegrityService' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Persistence/PersistenceIntegrityService.php',
-        'Helhum\\Typo3Console\\Service\\Persistence\\TableDoesNotExistException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Persistence/TableDoesNotExistException.php',
-        'Helhum\\Typo3Console\\Service\\XsdGenerator' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/XsdGenerator.php',
-        'Helhum\\Typo3Console\\TYPO3v87\\Cache\\CacheManager' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/TYPO3v87/Cache/CacheManager.php',
-        'Helhum\\Typo3Console\\TYPO3v87\\Core\\Booting\\CompatibilityScripts' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/TYPO3v87/Core/Booting/CompatibilityScripts.php',
-        'Helhum\\Typo3Console\\TYPO3v87\\Install\\CliMessageRenderer' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/TYPO3v87/Install/CliMessageRenderer.php',
-        'Helhum\\Typo3Console\\TYPO3v87\\Install\\InstallStepActionExecutor' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/TYPO3v87/Install/InstallStepActionExecutor.php',
-        'Helhum\\Typo3Console\\TYPO3v87\\Install\\Upgrade\\SilentConfigurationUpgrade' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/TYPO3v87/Install/Upgrade/SilentConfigurationUpgrade.php',
-        'Helhum\\Typo3Console\\TYPO3v87\\Mvc\\Cli\\CommandReflection' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/TYPO3v87/Mvc/Cli/CommandReflection.php',
-        'Helhum\\Typo3Console\\TYPO3v87\\Service\\CacheLowLevelCleaner' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/TYPO3v87/Service/CacheLowLevelCleaner.php',
+        'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
+        'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
+        'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
+        'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
         'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',
@@ -220,21 +242,24 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
         'Symfony\\Component\\Console\\Event\\ConsoleCommandEvent' => __DIR__ . '/..' . '/symfony/console/Event/ConsoleCommandEvent.php',
         'Symfony\\Component\\Console\\Event\\ConsoleErrorEvent' => __DIR__ . '/..' . '/symfony/console/Event/ConsoleErrorEvent.php',
         'Symfony\\Component\\Console\\Event\\ConsoleEvent' => __DIR__ . '/..' . '/symfony/console/Event/ConsoleEvent.php',
-        'Symfony\\Component\\Console\\Event\\ConsoleExceptionEvent' => __DIR__ . '/..' . '/symfony/console/Event/ConsoleExceptionEvent.php',
         'Symfony\\Component\\Console\\Event\\ConsoleTerminateEvent' => __DIR__ . '/..' . '/symfony/console/Event/ConsoleTerminateEvent.php',
         'Symfony\\Component\\Console\\Exception\\CommandNotFoundException' => __DIR__ . '/..' . '/symfony/console/Exception/CommandNotFoundException.php',
         'Symfony\\Component\\Console\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/console/Exception/ExceptionInterface.php',
         'Symfony\\Component\\Console\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/console/Exception/InvalidArgumentException.php',
         'Symfony\\Component\\Console\\Exception\\InvalidOptionException' => __DIR__ . '/..' . '/symfony/console/Exception/InvalidOptionException.php',
         'Symfony\\Component\\Console\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/console/Exception/LogicException.php',
+        'Symfony\\Component\\Console\\Exception\\MissingInputException' => __DIR__ . '/..' . '/symfony/console/Exception/MissingInputException.php',
+        'Symfony\\Component\\Console\\Exception\\NamespaceNotFoundException' => __DIR__ . '/..' . '/symfony/console/Exception/NamespaceNotFoundException.php',
         'Symfony\\Component\\Console\\Exception\\RuntimeException' => __DIR__ . '/..' . '/symfony/console/Exception/RuntimeException.php',
         'Symfony\\Component\\Console\\Formatter\\OutputFormatter' => __DIR__ . '/..' . '/symfony/console/Formatter/OutputFormatter.php',
         'Symfony\\Component\\Console\\Formatter\\OutputFormatterInterface' => __DIR__ . '/..' . '/symfony/console/Formatter/OutputFormatterInterface.php',
         'Symfony\\Component\\Console\\Formatter\\OutputFormatterStyle' => __DIR__ . '/..' . '/symfony/console/Formatter/OutputFormatterStyle.php',
         'Symfony\\Component\\Console\\Formatter\\OutputFormatterStyleInterface' => __DIR__ . '/..' . '/symfony/console/Formatter/OutputFormatterStyleInterface.php',
         'Symfony\\Component\\Console\\Formatter\\OutputFormatterStyleStack' => __DIR__ . '/..' . '/symfony/console/Formatter/OutputFormatterStyleStack.php',
+        'Symfony\\Component\\Console\\Formatter\\WrappableOutputFormatterInterface' => __DIR__ . '/..' . '/symfony/console/Formatter/WrappableOutputFormatterInterface.php',
         'Symfony\\Component\\Console\\Helper\\DebugFormatterHelper' => __DIR__ . '/..' . '/symfony/console/Helper/DebugFormatterHelper.php',
         'Symfony\\Component\\Console\\Helper\\DescriptorHelper' => __DIR__ . '/..' . '/symfony/console/Helper/DescriptorHelper.php',
+        'Symfony\\Component\\Console\\Helper\\Dumper' => __DIR__ . '/..' . '/symfony/console/Helper/Dumper.php',
         'Symfony\\Component\\Console\\Helper\\FormatterHelper' => __DIR__ . '/..' . '/symfony/console/Helper/FormatterHelper.php',
         'Symfony\\Component\\Console\\Helper\\Helper' => __DIR__ . '/..' . '/symfony/console/Helper/Helper.php',
         'Symfony\\Component\\Console\\Helper\\HelperInterface' => __DIR__ . '/..' . '/symfony/console/Helper/HelperInterface.php',
@@ -247,6 +272,7 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
         'Symfony\\Component\\Console\\Helper\\SymfonyQuestionHelper' => __DIR__ . '/..' . '/symfony/console/Helper/SymfonyQuestionHelper.php',
         'Symfony\\Component\\Console\\Helper\\Table' => __DIR__ . '/..' . '/symfony/console/Helper/Table.php',
         'Symfony\\Component\\Console\\Helper\\TableCell' => __DIR__ . '/..' . '/symfony/console/Helper/TableCell.php',
+        'Symfony\\Component\\Console\\Helper\\TableRows' => __DIR__ . '/..' . '/symfony/console/Helper/TableRows.php',
         'Symfony\\Component\\Console\\Helper\\TableSeparator' => __DIR__ . '/..' . '/symfony/console/Helper/TableSeparator.php',
         'Symfony\\Component\\Console\\Helper\\TableStyle' => __DIR__ . '/..' . '/symfony/console/Helper/TableStyle.php',
         'Symfony\\Component\\Console\\Input\\ArgvInput' => __DIR__ . '/..' . '/symfony/console/Input/ArgvInput.php',
@@ -263,6 +289,7 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
         'Symfony\\Component\\Console\\Output\\BufferedOutput' => __DIR__ . '/..' . '/symfony/console/Output/BufferedOutput.php',
         'Symfony\\Component\\Console\\Output\\ConsoleOutput' => __DIR__ . '/..' . '/symfony/console/Output/ConsoleOutput.php',
         'Symfony\\Component\\Console\\Output\\ConsoleOutputInterface' => __DIR__ . '/..' . '/symfony/console/Output/ConsoleOutputInterface.php',
+        'Symfony\\Component\\Console\\Output\\ConsoleSectionOutput' => __DIR__ . '/..' . '/symfony/console/Output/ConsoleSectionOutput.php',
         'Symfony\\Component\\Console\\Output\\NullOutput' => __DIR__ . '/..' . '/symfony/console/Output/NullOutput.php',
         'Symfony\\Component\\Console\\Output\\Output' => __DIR__ . '/..' . '/symfony/console/Output/Output.php',
         'Symfony\\Component\\Console\\Output\\OutputInterface' => __DIR__ . '/..' . '/symfony/console/Output/OutputInterface.php',
@@ -276,10 +303,12 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
         'Symfony\\Component\\Console\\Terminal' => __DIR__ . '/..' . '/symfony/console/Terminal.php',
         'Symfony\\Component\\Console\\Tester\\ApplicationTester' => __DIR__ . '/..' . '/symfony/console/Tester/ApplicationTester.php',
         'Symfony\\Component\\Console\\Tester\\CommandTester' => __DIR__ . '/..' . '/symfony/console/Tester/CommandTester.php',
+        'Symfony\\Component\\Console\\Tester\\TesterTrait' => __DIR__ . '/..' . '/symfony/console/Tester/TesterTrait.php',
         'Symfony\\Component\\Process\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/process/Exception/ExceptionInterface.php',
         'Symfony\\Component\\Process\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/process/Exception/InvalidArgumentException.php',
         'Symfony\\Component\\Process\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/process/Exception/LogicException.php',
         'Symfony\\Component\\Process\\Exception\\ProcessFailedException' => __DIR__ . '/..' . '/symfony/process/Exception/ProcessFailedException.php',
+        'Symfony\\Component\\Process\\Exception\\ProcessSignaledException' => __DIR__ . '/..' . '/symfony/process/Exception/ProcessSignaledException.php',
         'Symfony\\Component\\Process\\Exception\\ProcessTimedOutException' => __DIR__ . '/..' . '/symfony/process/Exception/ProcessTimedOutException.php',
         'Symfony\\Component\\Process\\Exception\\RuntimeException' => __DIR__ . '/..' . '/symfony/process/Exception/RuntimeException.php',
         'Symfony\\Component\\Process\\ExecutableFinder' => __DIR__ . '/..' . '/symfony/process/ExecutableFinder.php',
@@ -291,16 +320,22 @@ class ComposerStaticInit49feed25bb23e42831f377a438013708
         'Symfony\\Component\\Process\\Pipes\\UnixPipes' => __DIR__ . '/..' . '/symfony/process/Pipes/UnixPipes.php',
         'Symfony\\Component\\Process\\Pipes\\WindowsPipes' => __DIR__ . '/..' . '/symfony/process/Pipes/WindowsPipes.php',
         'Symfony\\Component\\Process\\Process' => __DIR__ . '/..' . '/symfony/process/Process.php',
-        'Symfony\\Component\\Process\\ProcessBuilder' => __DIR__ . '/..' . '/symfony/process/ProcessBuilder.php',
         'Symfony\\Component\\Process\\ProcessUtils' => __DIR__ . '/..' . '/symfony/process/ProcessUtils.php',
+        'Symfony\\Contracts\\Service\\ResetInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ResetInterface.php',
+        'Symfony\\Contracts\\Service\\ServiceLocatorTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceLocatorTrait.php',
+        'Symfony\\Contracts\\Service\\ServiceProviderInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceProviderInterface.php',
+        'Symfony\\Contracts\\Service\\ServiceSubscriberInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberInterface.php',
+        'Symfony\\Contracts\\Service\\ServiceSubscriberTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberTrait.php',
+        'Symfony\\Contracts\\Service\\Test\\ServiceLocatorTest' => __DIR__ . '/..' . '/symfony/service-contracts/Test/ServiceLocatorTest.php',
+        'Symfony\\Polyfill\\Php73\\Php73' => __DIR__ . '/..' . '/symfony/polyfill-php73/Php73.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit49feed25bb23e42831f377a438013708::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit49feed25bb23e42831f377a438013708::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit49feed25bb23e42831f377a438013708::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitddc8e8a70694954161a6beb888aa047b::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitddc8e8a70694954161a6beb888aa047b::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitddc8e8a70694954161a6beb888aa047b::$classMap;
 
         }, null, ClassLoader::class);
     }

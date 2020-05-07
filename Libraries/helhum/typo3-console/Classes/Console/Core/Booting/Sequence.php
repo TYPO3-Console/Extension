@@ -15,7 +15,6 @@ namespace Helhum\Typo3Console\Core\Booting;
  */
 
 use Helhum\Typo3Console\Exception;
-use TYPO3\CMS\Core\Core\Bootstrap;
 
 /**
  * A boot sequence, consisting of individual steps, each of them initializing a
@@ -44,7 +43,7 @@ class Sequence
     }
 
     /**
-     * Adds the given step to this sequence, to be executed after then step specified
+     * Adds the given step to this sequence, to be executed after the step specified
      * by $previousStepIdentifier. If no previous step is specified, the new step
      * is added to the list of steps executed right at the start of the sequence.
      *
@@ -52,9 +51,23 @@ class Sequence
      * @param string $previousStepIdentifier The preceding step
      * @return void
      */
-    public function addStep(Step $step, $previousStepIdentifier = 'start')
+    public function addStep(Step $step, $previousStepIdentifier = 'start'): void
     {
         $this->steps[$previousStepIdentifier][] = $step;
+    }
+
+    /**
+     * Prepends the given step to this sequence, to be executed before then step specified
+     * by $prependStepIdentifier. If no prepended step is specified, the new step
+     * is added to the list of steps executed right before the start of the sequence.
+     *
+     * @param \Helhum\Typo3Console\Core\Booting\Step $step The new step to add
+     * @param string $prependStepIdentifier The preceding step
+     * @return void
+     */
+    public function prependStep(Step $step, $prependStepIdentifier = 'start'): void
+    {
+        array_unshift($this->steps[$prependStepIdentifier], $step);
     }
 
     /**
@@ -64,7 +77,7 @@ class Sequence
      * @throws Exception
      * @return void
      */
-    public function removeStep($stepIdentifier)
+    public function removeStep($stepIdentifier): void
     {
         $removedOccurrences = 0;
         foreach ($this->steps as $previousStepIdentifier => $steps) {
@@ -83,15 +96,14 @@ class Sequence
     /**
      * Executes all steps of this sequence
      *
-     * @param Bootstrap $bootstrap
      * @throws StepFailedException
      * @return void
      */
-    public function invoke(Bootstrap $bootstrap)
+    public function invoke()
     {
         if (isset($this->steps['start'])) {
             foreach ($this->steps['start'] as $step) {
-                $this->invokeStep($step, $bootstrap);
+                $this->invokeStep($step);
             }
         }
     }
@@ -101,21 +113,20 @@ class Sequence
      * to be executed after the given step.
      *
      * @param Step $step The step to invoke
-     * @param Bootstrap $bootstrap
      * @throws StepFailedException
      * @return void
      */
-    protected function invokeStep(Step $step, Bootstrap $bootstrap)
+    protected function invokeStep(Step $step)
     {
         $identifier = $step->getIdentifier();
         try {
-            $step($bootstrap);
+            $step();
         } catch (\Throwable $e) {
             throw new StepFailedException($step, $e);
         }
         if (isset($this->steps[$identifier])) {
             foreach ($this->steps[$identifier] as $followingStep) {
-                $this->invokeStep($followingStep, $bootstrap);
+                $this->invokeStep($followingStep);
             }
         }
     }

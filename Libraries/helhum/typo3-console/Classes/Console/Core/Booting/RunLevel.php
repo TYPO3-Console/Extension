@@ -14,15 +14,16 @@ namespace Helhum\Typo3Console\Core\Booting;
  *
  */
 
+use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
-use TYPO3\CMS\Core\Core\Bootstrap;
+use TYPO3\CMS\Core\Core\Environment;
 
 class RunLevel
 {
-    const LEVEL_ESSENTIAL = 'buildEssentialSequence';
-    const LEVEL_COMPILE = 'buildEssentialSequence';
-    const LEVEL_MINIMAL = 'buildBasicRuntimeSequence';
-    const LEVEL_FULL = 'buildExtendedRuntimeSequence';
+    public const LEVEL_ESSENTIAL = 'buildEssentialSequence';
+    public const LEVEL_COMPILE = 'buildEssentialSequence';
+    public const LEVEL_MINIMAL = 'buildBasicRuntimeSequence';
+    public const LEVEL_FULL = 'buildExtendedRuntimeSequence';
 
     /**
      * @var array
@@ -35,18 +36,19 @@ class RunLevel
     private $executedSteps = [];
 
     /**
-     * @var Bootstrap
-     */
-    private $bootstrap;
-
-    /**
      * @var StepFailedException
      */
     private $error;
 
-    public function __construct(Bootstrap $bootstrap)
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
+
+    public function __construct(ContainerInterface $container, ?StepFailedException $lowLevelError)
     {
-        $this->bootstrap = $bootstrap;
+        $this->container = $container;
+        $this->error = $lowLevelError;
     }
 
     /**
@@ -94,7 +96,7 @@ class RunLevel
     {
         $sequence = $this->buildSequenceForCommand($commandIdentifier);
         try {
-            $sequence->invoke($this->bootstrap);
+            $sequence->invoke();
         } catch (StepFailedException $e) {
             $failedStep = $e->getFailedStep();
             if ($this->isLowLevelStep($failedStep)) {
@@ -109,7 +111,7 @@ class RunLevel
     /**
      * @return StepFailedException|null
      */
-    public function getError()
+    public function getError(): ?StepFailedException
     {
         return $this->error;
     }
@@ -139,7 +141,7 @@ class RunLevel
      */
     public function runSequence(string $runLevel)
     {
-        $this->buildSequence($runLevel)->invoke($this->bootstrap);
+        $this->buildSequence($runLevel)->invoke();
     }
 
     /**
@@ -149,7 +151,7 @@ class RunLevel
      */
     public function getMaximumAvailableRunLevel(): string
     {
-        if (!file_exists(PATH_site . 'typo3conf/PackageStates.php') || !file_exists(PATH_site . 'typo3conf/LocalConfiguration.php')) {
+        if (!file_exists(Environment::getPublicPath() . '/typo3conf/PackageStates.php') || !file_exists(Environment::getPublicPath() . '/typo3conf/LocalConfiguration.php')) {
             return self::LEVEL_COMPILE;
         }
 
@@ -173,9 +175,10 @@ class RunLevel
      */
     private function buildSequenceForCommand(string $commandIdentifier): Sequence
     {
-        $sequence = $this->buildSequence($this->getRunLevelForCommand($commandIdentifier));
+        $sequence = $this->buildSequence($runLevel = $this->getRunLevelForCommand($commandIdentifier));
         $this->addStepsForCommand($sequence, $commandIdentifier);
         $this->removeStepsForCommand($sequence, $commandIdentifier);
+        $this->container->get('boot.state')->runLevel = $runLevel;
 
         return $sequence;
     }
@@ -203,13 +206,7 @@ class RunLevel
      */
     private function buildEssentialSequence(string $identifier): Sequence
     {
-        $sequence = new Sequence($identifier);
-        $this->addStep($sequence, 'helhum.typo3console:coreconfiguration');
-        $this->addStep($sequence, 'helhum.typo3console:providecleanclassimplementations');
-        $this->addStep($sequence, 'helhum.typo3console:disabledcaching');
-        $this->addStep($sequence, 'helhum.typo3console:errorhandling');
-
-        return $sequence;
+        return new Sequence($identifier);
     }
 
     /**
@@ -236,9 +233,6 @@ class RunLevel
     {
         $sequence = $this->buildBasicRuntimeSequence(self::LEVEL_FULL);
 
-        $this->addStep($sequence, 'helhum.typo3console:caching');
-        // @deprecated helhum.typo3console:database can be removed when TYPO3 8 support is removed
-        $this->addStep($sequence, 'helhum.typo3console:database');
         $this->addStep($sequence, 'helhum.typo3console:persistence');
         $this->addStep($sequence, 'helhum.typo3console:authentication');
 
@@ -261,44 +255,30 @@ class RunLevel
         }
 
         switch ($stepIdentifier) {
-            // Part of essential sequence
-            case 'helhum.typo3console:coreconfiguration':
-                $this->executedSteps[$stepIdentifier] = self::LEVEL_ESSENTIAL;
-                $sequence->addStep(new Step($stepIdentifier, [Scripts::class, 'initializeConfigurationManagement']));
-                break;
-            case 'helhum.typo3console:providecleanclassimplementations':
-                $this->executedSteps[$stepIdentifier] = self::LEVEL_ESSENTIAL;
-                $sequence->addStep(new Step($stepIdentifier, [Scripts::class, 'provideCleanClassImplementations']), 'helhum.typo3console:coreconfiguration');
-                break;
-            case 'helhum.typo3console:disabledcaching':
-                $this->executedSteps[$stepIdentifier] = self::LEVEL_ESSENTIAL;
-                $sequence->addStep(new Step($stepIdentifier, [Scripts::class, 'initializeDisabledCaching']), 'helhum.typo3console:coreconfiguration');
-                break;
-            case 'helhum.typo3console:errorhandling':
-                $this->executedSteps[$stepIdentifier] = self::LEVEL_ESSENTIAL;
-                $sequence->addStep(new Step($stepIdentifier, [Scripts::class, 'initializeErrorHandling']));
-                break;
-
             // Part of basic runtime
             case 'helhum.typo3console:extensionconfiguration':
                 $this->executedSteps[$stepIdentifier] = self::LEVEL_MINIMAL;
-                $sequence->addStep(new Step($stepIdentifier, [Scripts::class, 'initializeExtensionConfiguration']));
+                $sequence->addStep(
+                    new Step(
+                        $stepIdentifier,
+                        function () {
+                            Scripts::initializeExtensionConfiguration($this->container);
+                        }
+                    )
+                );
                 break;
 
             // Part of full runtime
-            case 'helhum.typo3console:caching':
-                $this->executedSteps[$stepIdentifier] = self::LEVEL_FULL;
-                unset($this->executedSteps['helhum.typo3console:disabledcaching']);
-                $sequence->removeStep('helhum.typo3console:disabledcaching');
-                $sequence->addStep(new Step($stepIdentifier, [Scripts::class, 'initializeCaching']), 'helhum.typo3console:coreconfiguration');
-                break;
-            case 'helhum.typo3console:database':
-                // @deprecated can be removed if TYPO3 8 support is removed
-                $this->executedSteps[$stepIdentifier] = self::LEVEL_FULL;
-                $sequence->addStep(new Step($stepIdentifier, [CompatibilityScripts::class, 'initializeDatabaseConnection']), 'helhum.typo3console:errorhandling');
-                break;
             case 'helhum.typo3console:persistence':
-                $sequence->addStep(new Step($stepIdentifier, [Scripts::class, 'initializePersistence']), 'helhum.typo3console:extensionconfiguration');
+                $this->executedSteps[$stepIdentifier] = self::LEVEL_FULL;
+                $sequence->addStep(
+                    new Step(
+                        $stepIdentifier,
+                        function () {
+                            Scripts::initializePersistence($this->container);
+                        }
+                    )
+                );
                 break;
             case 'helhum.typo3console:authentication':
                 $this->executedSteps[$stepIdentifier] = self::LEVEL_FULL;

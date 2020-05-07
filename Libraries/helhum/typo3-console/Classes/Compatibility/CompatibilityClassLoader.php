@@ -4,7 +4,6 @@ namespace Helhum\Typo3Console;
 
 use Composer\Autoload\ClassLoader;
 use TYPO3\CMS\Core\Core\Bootstrap;
-use function Composer\Autoload\includeFile;
 
 /**
  * If detected TYPO3 version does not match the main supported version,
@@ -35,7 +34,7 @@ class CompatibilityClassLoader
     public function __construct(ClassLoader $originalClassLoader)
     {
         $this->originalClassLoader = $this->typo3ClassLoader = $originalClassLoader;
-        $this->handleExtensionCompatibility();
+        $this->handleExtensionCompatibility($originalClassLoader);
         $this->handleTypo3Compatibility();
     }
 
@@ -47,7 +46,7 @@ class CompatibilityClassLoader
         }
         $compatibilityClassName = str_replace('Helhum\\Typo3Console\\', $this->compatibilityNamespace, $class);
         if ($file = $this->originalClassLoader->findFile($compatibilityClassName)) {
-            includeFile($file);
+            \Composer\Autoload\includeFile($file);
             class_alias($compatibilityClassName, $class);
 
             return true;
@@ -61,7 +60,7 @@ class CompatibilityClassLoader
         return $this->typo3ClassLoader;
     }
 
-    private function handleExtensionCompatibility()
+    private function handleExtensionCompatibility(ClassLoader $originalClassLoader)
     {
         if (class_exists(Bootstrap::class)) {
             return;
@@ -70,15 +69,13 @@ class CompatibilityClassLoader
         putenv('TYPO3_PATH_ROOT=' . $rootPath);
         $_ENV['TYPO3_PATH_ROOT'] = $rootPath;
         $_SERVER['TYPO3_PATH_ROOT'] = $rootPath;
+        $originalClassLoader->unregister();
         $this->typo3ClassLoader = require $typo3AutoLoadFile;
+        $originalClassLoader->register(true);
     }
 
     private function handleTypo3Compatibility()
     {
-        if (!method_exists(Bootstrap::class, 'setCacheHashOptions')) {
-            return;
-        }
-        $this->compatibilityNamespace = 'Helhum\\Typo3Console\\TYPO3v87\\';
-        spl_autoload_register([$this, 'loadClass'], true, true);
+        // Currently no compat necessary
     }
 }

@@ -146,6 +146,8 @@ class CommandDispatcher
         // Later, very early in booting the error reporting is set to an appropriate value anyway
         $phpArguments[] = '-d';
         $phpArguments[] = 'error_reporting=0';
+        $phpArguments[] = '-d';
+        $phpArguments[] = 'display_errors=0';
         array_unshift($commandLine, ...$phpArguments);
         array_unshift($commandLine, $php);
 
@@ -222,7 +224,6 @@ class CommandDispatcher
             );
         } else {
             $process = new Process($commandLine, null, $envVars, $input, 0);
-            $process->inheritEnvironmentVariables();
         }
 
         return $process;

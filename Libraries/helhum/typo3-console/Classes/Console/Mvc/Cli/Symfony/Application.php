@@ -29,15 +29,18 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\StreamableInputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Information\Typo3Version;
 
 /**
  * Represents the complete console application
  */
 class Application extends BaseApplication
 {
-    const TYPO3_CONSOLE_VERSION = '5.6.0';
+    const TYPO3_CONSOLE_VERSION = '6.2.0';
     const COMMAND_NAME = 'typo3cms';
 
     /**
@@ -56,6 +59,17 @@ class Application extends BaseApplication
         $this->runLevel = $runLevel;
         $this->composerManaged = $composerManaged;
         $this->setAutoExit(false);
+    }
+
+    public function getLongVersion(): string
+    {
+        return parent::getLongVersion()
+            . chr(10)
+            . sprintf(
+                'TYPO3 CMS <info>%s</info> (<comment>Application Context:</comment> <info>%s</info>)',
+                (new Typo3Version())->getVersion(),
+                Environment::getContext()
+            );
     }
 
     /**
@@ -128,7 +142,7 @@ class Application extends BaseApplication
         return $this->runLevel->isCommandAvailable($command->getName());
     }
 
-    public function renderException(\Exception $exception, OutputInterface $output)
+    public function renderException($exception, OutputInterface $output)
     {
         if ($exception instanceof CommandNotAvailableException) {
             $helper = new SymfonyStyle(new ArgvInput(), $output);
@@ -152,6 +166,11 @@ class Application extends BaseApplication
         }
 
         (new ExceptionRenderer())->render($exception, $output, $this);
+    }
+
+    public function renderThrowable(\Throwable $e, OutputInterface $output): void
+    {
+        $this->renderException($e, $output);
     }
 
     /**
@@ -195,6 +214,10 @@ class Application extends BaseApplication
 
     private function ensureCommandAvailable(Command $command)
     {
+        $commandName = $command->getName();
+        if ($this->runLevel->isCommandAvailable($commandName)) {
+            $this->runLevel->runSequenceForCommand($commandName);
+        }
         if (!$this->runLevel->getError() && !$this->isCommandAvailable($command)) {
             throw new CommandNotAvailableException($command->getName());
         }
@@ -252,5 +275,16 @@ class Application extends BaseApplication
         $output->getFormatter()->setStyle('ins', new OutputFormatterStyle('green'));
         $output->getFormatter()->setStyle('del', new OutputFormatterStyle('red'));
         $output->getFormatter()->setStyle('code', new OutputFormatterStyle(null, null, ['bold']));
+
+        // Reverting https://github.com/symfony/symfony/pull/33897 until this is resolved: https://github.com/symfony/symfony/issues/36565
+        if (function_exists('posix_isatty') && getenv('SHELL_INTERACTIVE') === false && $input->isInteractive()) {
+            $inputStream = null;
+            if ($input instanceof StreamableInputInterface) {
+                $inputStream = $input->getStream();
+            }
+            if (!@posix_isatty($inputStream)) {
+                $input->setInteractive(false);
+            }
+        }
     }
 }

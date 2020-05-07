@@ -43,10 +43,8 @@ class PopulateCommandConfiguration implements InstallerScript
             $installPath = ($installPath ?: $basePath);
             $packageName = $package->getName();
             $packageType = $package->getType();
-            if (in_array($packageType, ['metapackage', 'typo3-cms-extension', 'typo3-cms-framework'], true)) {
-                // Commands in TYPO3 extensions are scanned for anyway at a later point.
-                // With that we ensure not showing commands for extensions that aren't active.
-                // Since meta packages have no code, thus cannot include any commands, we ignore them as well.
+            if ($packageType === 'metapackage') {
+                // Meta packages can be skipped
                 continue;
             }
             $packageConfig = $this->getConfigFromPackage($installPath, $packageName);
@@ -88,10 +86,6 @@ class PopulateCommandConfiguration implements InstallerScript
     private function getConfigFromPackage(string $installPath, string $packageName): array
     {
         $commandConfiguration = [];
-        if (file_exists($commandConfigurationFile = $installPath . '/Configuration/Console/Commands.php')) {
-            trigger_error($packageName . ': Configuration/Console/Commands.php for registering commands is deprecated and will be removed with 6.0. Register Symfony commands in Configuration/Commands.php instead.', E_USER_DEPRECATED);
-            $commandConfiguration = require $commandConfigurationFile;
-        }
         if (file_exists($commandConfigurationFile = $installPath . '/Configuration/Commands.php')) {
             $commandConfiguration['commands'] = require $commandConfigurationFile;
         }

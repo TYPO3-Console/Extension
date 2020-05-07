@@ -3,10 +3,6 @@
         "local": {
             "type": "path",
             "url": "Packages/*"
-        },
-        "testing-framework": {
-            "type": "vcs",
-            "url": "https://github.com/helhum/TYPO3-testing-framework.git"
         }
     },
     "name": "helhum/typo3-console",
@@ -32,36 +28,31 @@
     ],
     "license": "GPL-2.0-or-later",
     "require": {
-        "php": ">=7.0.0 <7.4",
+        "php": "^7.2",
         "helhum/typo3-console-plugin": "^2.0.2",
 
-        "typo3/cms-backend": "~8.7.22 || ~9.5.0",
-        "typo3/cms-core": "~8.7.22 || ~9.5.0",
-        "typo3/cms-extbase": "~8.7.22 || ~9.5.0",
-        "typo3/cms-extensionmanager": "~8.7.22 || ~9.5.0",
-        "typo3/cms-fluid": "~8.7.22 || ~9.5.0",
-        "typo3/cms-frontend": "~8.7.22 || ~9.5.0",
-        "typo3/cms-install": "~8.7.22 || ~9.5.0",
-        "typo3/cms-saltedpasswords": "*",
-        "typo3/cms-scheduler": "~8.7.22 || ~9.5.0",
+        "typo3/cms-backend": "^10.4.1",
+        "typo3/cms-core": "^10.4.1",
+        "typo3/cms-extbase": "^10.4.1",
+        "typo3/cms-extensionmanager": "^10.4.1",
+        "typo3/cms-fluid": "^10.4.1",
+        "typo3/cms-frontend": "^10.4.1",
+        "typo3/cms-install": "^10.4.1",
 
         "doctrine/annotations": "^1.4",
-        "symfony/console": "^3.4.4 || ^4.0",
-        "symfony/process": "^3.4.4 || ^4.0",
+        "symfony/console": "^4.4 || ^5.0",
+        "symfony/process": "^4.4 || ^5.0",
         "helhum/config-loader": ">=0.9 <0.13"
     },
     "require-dev": {
-        "typo3/cms-reports": "~8.7.22 || ~9.5.0 || dev-master",
-        "typo3/cms-filemetadata": "~8.7.22 || ~9.5.0 || dev-master",
-
-        "typo3-console/convert-command-controller-command": "@dev",
+        "typo3/cms-reports": "^10.4.1 || dev-master",
+        "typo3/cms-filemetadata": "^10.4.1 || dev-master",
         "typo3-console/create-reference-command": "@dev",
         "typo3-console/php-server-command": "^0.2",
-        "symfony/filesystem": "^3.2",
-        "nimut/testing-framework": "dev-allow-php73",
-        "cweagans/composer-patches": "^1.6",
-        "jakub-onderka/php-parallel-lint": "^1.0",
-        "doctrine/dbal": "< 2.8"
+        "symfony/expression-language": "^4.4 || ^5.0",
+        "symfony/filesystem": "^4.4 || ^5.0",
+        "nimut/testing-framework": "5.x-dev",
+        "php-parallel-lint/php-parallel-lint": "^1.2"
     },
     "conflict": {
         "typo3-ter/dbal": "*",
@@ -112,9 +103,9 @@
         ],
         "extension-release": [
             "@extension-build",
-            "sed -i -e 's/\"typo3-console\\/extension\"/\"helhum\\/typo3-console\"/g' ../extension/composer.json",
-            "rm -rf ../extension/composer.lock",
-            "rm -rf ../extension/composer.json.bak",
+            "sed -i.bak -e 's/\"typo3-console\\/extension\"/\"helhum\\/typo3-console\"/g' ../extension/composer.json",
+            "rm ../extension/composer.lock",
+            "rm ../extension/composer.json.bak",
             "rm -rf ../extension/Libraries/bin/",
             "rm -rf ../extension/Libraries/helhum/typo3-console/Packages/",
             "rm -rf ../extension/Libraries/helhum/typo3-console/Resources/Private/ExtensionArtifacts/",
@@ -125,6 +116,9 @@
         ],
         "extension-clean": [
             "rm -rf ../extension/*"
+        ],
+        "docs:render": [
+            "docker-compose -f render-documentation.yml up"
         ]
     },
     "extra": {

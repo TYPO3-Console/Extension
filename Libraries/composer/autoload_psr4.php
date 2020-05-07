@@ -6,8 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Symfony\\Polyfill\\Php73\\' => array($vendorDir . '/symfony/polyfill-php73'),
+    'Symfony\\Contracts\\Service\\' => array($vendorDir . '/symfony/service-contracts'),
     'Symfony\\Component\\Process\\' => array($vendorDir . '/symfony/process'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
+    'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Helhum\\Typo3Console\\' => array($baseDir . '/Classes/Console', $vendorDir . '/helhum/typo3-console/Classes/Console', $vendorDir . '/helhum/typo3-console/Classes/Compatibility'),
     'Helhum\\ConfigLoader\\' => array($vendorDir . '/helhum/config-loader/src'),
 );

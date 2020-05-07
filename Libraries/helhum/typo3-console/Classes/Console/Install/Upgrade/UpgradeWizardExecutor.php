@@ -14,13 +14,12 @@ namespace Helhum\Typo3Console\Install\Upgrade;
  *
  */
 
-use Helhum\Typo3Console\Tests\Unit\Install\Upgrade\Fixture\DummyUpgradeWizard;
 use Symfony\Component\Console\Output\BufferedOutput;
-use TYPO3\CMS\Core\Registry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Install\Updates\AbstractUpdate;
+use TYPO3\CMS\Install\Service\UpgradeWizardsService;
 use TYPO3\CMS\Install\Updates\ChattyInterface;
-use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
+use TYPO3\CMS\Install\Updates\ConfirmableInterface;
+use TYPO3\CMS\Install\Updates\RepeatableInterface;
 
 /**
  * Executes a single upgrade wizard
@@ -33,91 +32,78 @@ class UpgradeWizardExecutor
      */
     private $factory;
 
-    public function __construct(UpgradeWizardFactory $factory = null)
+    /**
+     * @var UpgradeWizardsService
+     */
+    private $upgradeWizardsService;
+
+    public function __construct(UpgradeWizardFactory $factory = null, UpgradeWizardsService $upgradeWizardsService = null)
     {
-        $this->factory = $factory ?: new UpgradeWizardFactory();
+        $this->factory = $factory ?? new UpgradeWizardFactory();
+        $this->upgradeWizardsService = $upgradeWizardsService ?? GeneralUtility::makeInstance(UpgradeWizardsService::class);
     }
 
-    public function executeWizard(string $identifier, array $rawArguments = [], bool $force = false): UpgradeWizardResult
+    public function executeWizard(string $identifier, array $arguments = [], bool $force = false): UpgradeWizardResult
     {
         $upgradeWizard = $this->factory->create($identifier);
-        $dbQueries = [];
+        $identifier = $upgradeWizard->getIdentifier();
         $messages = [];
-        // Create new buffered output to be able to capture it later on
+        $hasPerformed = $userHasDecided = $requiresConfirmation = $succeeded = false;
+        $userWantsExecution = true;
         $output = new BufferedOutput();
+        $isWizardDone = $this->upgradeWizardsService->isWizardDone($identifier);
+
+        if ($upgradeWizard instanceof ConfirmableInterface) {
+            $userHasDecided = isset($arguments['confirm']);
+            $requiresConfirmation = $upgradeWizard->getConfirmation()->isRequired();
+            $userWantsExecution = !empty($arguments['confirm']);
+        }
         if ($upgradeWizard instanceof ChattyInterface) {
             $upgradeWizard->setOutput($output);
         }
 
-        $wizardImplementsInterface = $upgradeWizard instanceof UpgradeWizardInterface && !$upgradeWizard instanceof AbstractUpdate;
-        if ($force) {
-            if ($wizardImplementsInterface) {
-                GeneralUtility::makeInstance(Registry::class)->set('installUpdate', $upgradeWizard->getIdentifier(), 0);
+        $checkForUpdateNecessary = $userWantsExecution && (!$isWizardDone || $force);
+        if ($checkForUpdateNecessary && $upgradeWizard->updateNecessary()) {
+            $succeeded = $upgradeWizard->executeUpdate();
+            $hasPerformed = true;
+        }
+        $messages[] = $output->fetch();
+        if ($succeeded) {
+            $messages[] = sprintf('<em>Successfully executed upgrade wizard "%s".</em>', $identifier);
+        }
+        if ($hasPerformed && !$succeeded) {
+            $messages[] = sprintf('<error>Upgrade wizard "%s" had errors during execution.</error>', $identifier);
+        }
+        if ($hasPerformed && $force && $isWizardDone) {
+            $messages[] = sprintf('<info>Upgrade wizard "%s" was executed (forced).</info>', $identifier);
+        }
+        if (!$hasPerformed && !$force && $isWizardDone) {
+            $messages[] = sprintf('<info>Upgrade wizard "%s" was skipped because it is marked as done.</info>', $identifier);
+        }
+        if (!$hasPerformed && $checkForUpdateNecessary) {
+            $messages[] = sprintf('<info>Upgrade wizard "%s" was skipped because no operation is needed.</info>', $identifier);
+        }
+        if ($userHasDecided && !$hasPerformed) {
+            if ($requiresConfirmation && !$isWizardDone) {
+                $messages[] = sprintf('<error>Skipped wizard "%s" but it needs confirmation!</error>', $identifier);
             } else {
-                $closure = \Closure::bind(function () use ($upgradeWizard) {
-                    /** @var DummyUpgradeWizard $upgradeWizard here to avoid annoying (and wrong) protected method inspection in PHPStorm */
-                    $upgradeWizard->markWizardAsDone(0);
-                }, null, $upgradeWizard);
-                $closure();
+                $messages[] = sprintf('<info>Skipped wizard "%s" and marked as executed.</info>', $identifier);
             }
         }
-
-        if (!$wizardImplementsInterface && !$upgradeWizard->shouldRenderWizard()) {
-            return new UpgradeWizardResult(false, $dbQueries, $messages);
+        if (!$isWizardDone && ($succeeded || ($checkForUpdateNecessary && !$hasPerformed)) && !$upgradeWizard instanceof RepeatableInterface) {
+            $this->upgradeWizardsService->markWizardAsDone($identifier);
+        }
+        if (!$isWizardDone && $userHasDecided && !$hasPerformed && !$requiresConfirmation) {
+            $this->upgradeWizardsService->markWizardAsDone($identifier);
         }
 
-        if ($wizardImplementsInterface && !$upgradeWizard->updateNecessary()) {
-            $messages[] = $output->fetch();
-
-            return new UpgradeWizardResult(false, $dbQueries, $messages);
-        }
-
-        // OMG really?
-        @GeneralUtility::_GETset(
-            [
-                'values' => [
-                    $identifier => $this->processRawArguments($identifier, $rawArguments),
-                    'TYPO3\\CMS\\Install\\Updates\\' . $identifier => $this->processRawArguments($identifier, $rawArguments),
-                ],
-            ],
-            'install'
-        );
-
-        if ($wizardImplementsInterface) {
-            $hasPerformed = $upgradeWizard->executeUpdate();
-            GeneralUtility::makeInstance(Registry::class)->set('installUpdate', get_class($upgradeWizard), 1);
-            $messages[] = $output->fetch();
-        } else {
-            $message = '';
-            $hasPerformed = $upgradeWizard->performUpdate($dbQueries, $message);
-            if ($message !== '') {
-                $messages[] = $message;
-            }
-        }
-
-        return new UpgradeWizardResult($hasPerformed, $dbQueries, $messages);
+        return new UpgradeWizardResult($hasPerformed, $messages, $succeeded);
     }
 
     public function wizardNeedsExecution(string $identifier): bool
     {
         $upgradeWizard = $this->factory->create($identifier);
 
-        if ($upgradeWizard instanceof UpgradeWizardInterface && !$upgradeWizard instanceof AbstractUpdate) {
-            return $upgradeWizard->updateNecessary();
-        }
-
-        return $upgradeWizard->shouldRenderWizard();
-    }
-
-    private function processRawArguments(string $identifier, array $rawArguments = [])
-    {
-        $processedArguments = [];
-        foreach ($rawArguments as $argument) {
-            parse_str($argument, $processedArgument);
-            $processedArguments = array_replace_recursive($processedArguments, $processedArgument);
-        }
-        $argumentNamespace = str_replace('TYPO3\\CMS\\Install\\Updates\\', '', $identifier);
-
-        return isset($processedArguments[$argumentNamespace]) ? $processedArguments[$argumentNamespace] : $processedArguments;
+        return $upgradeWizard->updateNecessary();
     }
 }

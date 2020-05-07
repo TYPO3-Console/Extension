@@ -15,6 +15,7 @@ namespace Helhum\Typo3Console\Hook;
  */
 
 use Helhum\Typo3Console\Mvc\Cli\Symfony\Application;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Messaging\AbstractMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -23,12 +24,14 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class ExtensionInstallation
 {
-    const BINARY_PATH = 'typo3conf/ext/typo3_console/Libraries/helhum/typo3-console/';
+    const BINARY_PATH = '/typo3conf/ext/typo3_console/Libraries/helhum/typo3-console/';
     const COPY_FAILED_MESSAGE_TITLE = 'Could not copy %s script to TYPO3 root directory (%s)!';
     const COPY_FAILED_MESSAGE = 'Check the permissions of your root directory. Is there a file or directory named %s inside this directory?';
     const COPY_SUCCESS_MESSAGE = 'Successfully copied the %s script to TYPO3 root directory. Let\'s dance!';
     const EXTKEY = 'typo3_console';
     const EM_FLASH_MESSAGE_QUEUE_ID = 'extbase.flashmessages.tx_extensionmanager_tools_extensionmanagerextensionmanager';
+    // Replicate Application::COMMAND_NAME to avoid class loading issues in non composer mode
+    const COMMAND_NAME = 'typo3cms';
 
     /**
      * Actions to take after extension has been installed
@@ -40,10 +43,10 @@ class ExtensionInstallation
         if (self::EXTKEY !== $keyOfInstalledExtension) {
             return;
         }
-        $scriptName = $this->isWindowsOs() ? 'Scripts/' . Application::COMMAND_NAME . '.bat' : Application::COMMAND_NAME;
-        $success = $this->safeCopy(PATH_site . self::BINARY_PATH . $scriptName, PATH_site . basename($scriptName));
+        $scriptName = $this->isWindowsOs() ? 'Scripts/' . self::COMMAND_NAME . '.bat' : self::COMMAND_NAME;
+        $success = $this->safeCopy(Environment::getPublicPath() . self::BINARY_PATH . $scriptName, Environment::getPublicPath() . '/' . basename($scriptName));
         if (!$success) {
-            self::addFlashMessage(sprintf(self::COPY_FAILED_MESSAGE, $scriptName), sprintf(self::COPY_FAILED_MESSAGE_TITLE, $scriptName, PATH_site), AbstractMessage::WARNING);
+            self::addFlashMessage(sprintf(self::COPY_FAILED_MESSAGE, $scriptName), sprintf(self::COPY_FAILED_MESSAGE_TITLE, $scriptName, Environment::getPublicPath()), AbstractMessage::WARNING);
         } else {
             self::addFlashMessage(sprintf(self::COPY_SUCCESS_MESSAGE, $scriptName));
         }

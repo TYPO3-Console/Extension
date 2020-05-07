@@ -1,4 +1,13 @@
 {
+    "extra": {
+        "Hint": "This composer.json is automatically generated and invalid after the process. Don't rely on its content whatsoever.",
+        "typo3/cms": {
+            "extension-key": "typo3_console",
+            "Package": {
+                "partOfMinimalUsableSystem": true
+            }
+        }
+    },
     "repositories": {
         "console": {
             "type": "path",
@@ -38,7 +47,7 @@
         },
         "classmap-authoritative": true,
         "platform": {
-            "php": "7.0.8"
+            "php": "7.2.0"
         }
     },
     "autoload": {
@@ -50,7 +59,7 @@
     },
     "require": {
         "helhum/typo3-console": "@dev",
-        "typo3/cms-core": "~8.7.22 || ~9.5.0"
+        "typo3/cms-core": "^10.4.1"
     },
     "replace": {
         "helhum/typo3-console-plugin": "*",
@@ -62,7 +71,6 @@
         "typo3/cms-fluid": "*",
         "typo3/cms-frontend": "*",
         "typo3/cms-install": "*",
-        "typo3/cms-scheduler": "*",
         "typo3/cms-saltedpasswords": "*",
 
         "doctrine/annotations": "*",
@@ -70,12 +78,7 @@
         "symfony/debug": "*",
         "symfony/polyfill-mbstring": "*"
     },
-    "extra": {
-        "typo3/cms": {
-            "extension-key": "typo3_console",
-            "Package": {
-                "partOfMinimalUsableSystem": true
-            }
-        }
+    "scripts": {
+        "post-autoload-dump": "Helhum\\Typo3Console\\Composer\\PopulateCommands::populate"
     }
 }

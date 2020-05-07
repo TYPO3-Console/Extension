@@ -16,6 +16,7 @@ namespace Helhum\Typo3Console\Extension;
 
 use Helhum\Typo3Console\Database\Schema\SchemaUpdateType;
 use Helhum\Typo3Console\Install\FolderStructure\ExtensionFactory;
+use Helhum\Typo3Console\Service\CacheService;
 use Helhum\Typo3Console\Service\Database\SchemaService;
 use TYPO3\CMS\Core\Package\PackageInterface;
 use TYPO3\CMS\Core\Package\PackageManager;
@@ -52,10 +53,24 @@ class ExtensionSetup
         SchemaService $schemaService = null,
         ExtensionConfiguration $extensionConfiguration = null
     ) {
-        $this->extensionFactory = $extensionFactory ?: new ExtensionFactory(GeneralUtility::makeInstance(PackageManager::class));
-        $this->extensionInstaller = $extensionInstaller ?: GeneralUtility::makeInstance(ObjectManager::class)->get(InstallUtility::class);
-        $this->schemaService = $schemaService ?: GeneralUtility::makeInstance(ObjectManager::class)->get(SchemaService::class);
-        $this->extensionConfiguration = $extensionConfiguration ?: new ExtensionConfiguration();
+        $this->extensionFactory = $extensionFactory ?? new ExtensionFactory(GeneralUtility::makeInstance(PackageManager::class));
+        $this->extensionInstaller = $extensionInstaller ?? GeneralUtility::makeInstance(ObjectManager::class)->get(InstallUtility::class);
+        $this->schemaService = $schemaService ?? GeneralUtility::makeInstance(ObjectManager::class)->get(SchemaService::class);
+        $this->extensionConfiguration = $extensionConfiguration ?? new ExtensionConfiguration();
+    }
+
+    public function updateCaches()
+    {
+        $cacheService = new CacheService();
+        $cacheService->flush();
+        $this->extensionInstaller->reloadCaches();
+    }
+
+    public function deactivateExtensions(array $packageKeys)
+    {
+        foreach ($packageKeys as $extensionKey) {
+            $this->extensionInstaller->uninstall($extensionKey);
+        }
     }
 
     /**
@@ -78,9 +93,12 @@ class ExtensionSetup
         foreach ($packages as $package) {
             $relativeExtensionPath = PathUtility::stripPathSitePrefix($package->getPackagePath());
             $extensionKey = $package->getPackageKey();
-            $this->callInstaller('importStaticSqlFile', [$relativeExtensionPath]);
-            $this->callInstaller('importT3DFile', [$relativeExtensionPath]);
-            $this->callInstaller('emitAfterExtensionInstallSignal', [$extensionKey]);
+            $this->callInstaller('importStaticSqlFile', [$extensionKey, $relativeExtensionPath]);
+            if (class_exists(\TYPO3\CMS\Impexp\Import::class)) {
+                $this->callInstaller('importT3DFile', [$extensionKey, $relativeExtensionPath]);
+            }
+            // TODO: call event dispatcher
+//            $this->callInstaller('emitAfterExtensionInstallSignal', [$extensionKey]);
         }
     }
 
