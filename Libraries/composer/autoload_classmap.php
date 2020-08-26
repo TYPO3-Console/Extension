@@ -83,6 +83,7 @@ return array(
     'Helhum\\Typo3Console\\Composer\\PopulateCommands' => $baseDir . '/Classes/Console/Composer/PopulateCommands.php',
     'Helhum\\Typo3Console\\Composer\\ScriptHelper' => $vendorDir . '/helhum/typo3-console/Classes/Console/Composer/ScriptHelper.php',
     'Helhum\\Typo3Console\\Composer\\Util\\PackageSorter' => $vendorDir . '/helhum/typo3-console/Classes/Console/Composer/Util/PackageSorter.php',
+    'Helhum\\Typo3Console\\Core\\Booting\\ContainerBuildFailedException' => $vendorDir . '/helhum/typo3-console/Classes/Console/Core/Booting/ContainerBuildFailedException.php',
     'Helhum\\Typo3Console\\Core\\Booting\\RunLevel' => $vendorDir . '/helhum/typo3-console/Classes/Console/Core/Booting/RunLevel.php',
     'Helhum\\Typo3Console\\Core\\Booting\\Scripts' => $vendorDir . '/helhum/typo3-console/Classes/Console/Core/Booting/Scripts.php',
     'Helhum\\Typo3Console\\Core\\Booting\\Sequence' => $vendorDir . '/helhum/typo3-console/Classes/Console/Core/Booting/Sequence.php',

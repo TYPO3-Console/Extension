@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit04a51bb739f06c368c10d49cdb13f017
+class ComposerStaticInitb3a3f450cb00ec1a1311ea6d8d5e1e0e
 {
     public static $files = array (
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
@@ -146,6 +146,7 @@ class ComposerStaticInit04a51bb739f06c368c10d49cdb13f017
         'Helhum\\Typo3Console\\Composer\\PopulateCommands' => __DIR__ . '/../..' . '/Classes/Console/Composer/PopulateCommands.php',
         'Helhum\\Typo3Console\\Composer\\ScriptHelper' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/ScriptHelper.php',
         'Helhum\\Typo3Console\\Composer\\Util\\PackageSorter' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/Util/PackageSorter.php',
+        'Helhum\\Typo3Console\\Core\\Booting\\ContainerBuildFailedException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/ContainerBuildFailedException.php',
         'Helhum\\Typo3Console\\Core\\Booting\\RunLevel' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/RunLevel.php',
         'Helhum\\Typo3Console\\Core\\Booting\\Scripts' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/Scripts.php',
         'Helhum\\Typo3Console\\Core\\Booting\\Sequence' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/Sequence.php',
@@ -345,9 +346,9 @@ class ComposerStaticInit04a51bb739f06c368c10d49cdb13f017
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit04a51bb739f06c368c10d49cdb13f017::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit04a51bb739f06c368c10d49cdb13f017::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit04a51bb739f06c368c10d49cdb13f017::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitb3a3f450cb00ec1a1311ea6d8d5e1e0e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitb3a3f450cb00ec1a1311ea6d8d5e1e0e::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitb3a3f450cb00ec1a1311ea6d8d5e1e0e::$classMap;
 
         }, null, ClassLoader::class);
     }

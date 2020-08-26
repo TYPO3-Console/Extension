@@ -47,12 +47,12 @@
     },
     {
         "name": "helhum/typo3-console",
-        "version": "dev-971304487fc9f14bf44ea06be9203098d350a58c",
-        "version_normalized": "dev-971304487fc9f14bf44ea06be9203098d350a58c",
+        "version": "dev-facd5dee53ee1b55ec9b3e28d6277f3f44dfeb55",
+        "version_normalized": "dev-facd5dee53ee1b55ec9b3e28d6277f3f44dfeb55",
         "dist": {
             "type": "path",
             "url": "/home/travis/build/TYPO3-Console/TYPO3-Console",
-            "reference": "971304487fc9f14bf44ea06be9203098d350a58c"
+            "reference": "facd5dee53ee1b55ec9b3e28d6277f3f44dfeb55"
         },
         "require": {
             "doctrine/annotations": "^1.4",
