@@ -306,13 +306,31 @@ return array (
   32 => 
   array (
     'vendor' => 'typo3_console',
+    'class' => 'Helhum\\Typo3Console\\Command\\InstallTool\\LockInstallToolCommand',
+    'runLevel' => 'buildEssentialSequence',
+    'name' => 'install:lock',
+    'nameSpacedName' => 'typo3_console:install:lock',
+    'service' => false,
+  ),
+  33 => 
+  array (
+    'vendor' => 'typo3_console',
+    'class' => 'Helhum\\Typo3Console\\Command\\InstallTool\\UnlockInstallToolCommand',
+    'runLevel' => 'buildEssentialSequence',
+    'name' => 'install:unlock',
+    'nameSpacedName' => 'typo3_console:install:unlock',
+    'service' => false,
+  ),
+  34 => 
+  array (
+    'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeCheckExtensionCompatibilityCommand',
     'runLevel' => 'buildEssentialSequence',
     'name' => 'upgrade:checkextensioncompatibility',
     'nameSpacedName' => 'typo3_console:upgrade:checkextensioncompatibility',
     'service' => false,
   ),
-  33 => 
+  35 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeCheckExtensionConstraintsCommand',
@@ -321,7 +339,7 @@ return array (
     'nameSpacedName' => 'typo3_console:upgrade:checkextensionconstraints',
     'service' => false,
   ),
-  34 => 
+  36 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeListCommand',
@@ -333,7 +351,7 @@ return array (
     'nameSpacedName' => 'typo3_console:upgrade:list',
     'service' => false,
   ),
-  35 => 
+  37 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradePrepareCommand',
@@ -342,7 +360,7 @@ return array (
     'nameSpacedName' => 'typo3_console:upgrade:prepare',
     'service' => false,
   ),
-  36 => 
+  38 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeRunCommand',

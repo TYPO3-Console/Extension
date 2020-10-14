@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit4e3bb07498802be6ac88ff262f33fb33
+class ComposerStaticInitdcb7232b6c61eaa86b5270303e9abc3f
 {
     public static $files = array (
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
@@ -124,6 +124,8 @@ class ComposerStaticInit4e3bb07498802be6ac88ff262f33fb33
         'Helhum\\Typo3Console\\Command\\Extension\\ExtensionSetupCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionSetupCommand.php',
         'Helhum\\Typo3Console\\Command\\Extension\\ExtensionStateCommandsHelper' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionStateCommandsHelper.php',
         'Helhum\\Typo3Console\\Command\\Frontend\\FrontendRequestCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Frontend/FrontendRequestCommand.php',
+        'Helhum\\Typo3Console\\Command\\InstallTool\\LockInstallToolCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/InstallTool/LockInstallToolCommand.php',
+        'Helhum\\Typo3Console\\Command\\InstallTool\\UnlockInstallToolCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/InstallTool/UnlockInstallToolCommand.php',
         'Helhum\\Typo3Console\\Command\\Install\\InstallActionNeedsExecutionCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallActionNeedsExecutionCommand.php',
         'Helhum\\Typo3Console\\Command\\Install\\InstallDatabaseConnectCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallDatabaseConnectCommand.php',
         'Helhum\\Typo3Console\\Command\\Install\\InstallDatabaseDataCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallDatabaseDataCommand.php',
@@ -346,9 +348,9 @@ class ComposerStaticInit4e3bb07498802be6ac88ff262f33fb33
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit4e3bb07498802be6ac88ff262f33fb33::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit4e3bb07498802be6ac88ff262f33fb33::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit4e3bb07498802be6ac88ff262f33fb33::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitdcb7232b6c61eaa86b5270303e9abc3f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitdcb7232b6c61eaa86b5270303e9abc3f::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitdcb7232b6c61eaa86b5270303e9abc3f::$classMap;
 
         }, null, ClassLoader::class);
     }

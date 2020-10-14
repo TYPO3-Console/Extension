@@ -61,6 +61,8 @@ return array(
     'Helhum\\Typo3Console\\Command\\Extension\\ExtensionSetupCommand' => $vendorDir . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionSetupCommand.php',
     'Helhum\\Typo3Console\\Command\\Extension\\ExtensionStateCommandsHelper' => $vendorDir . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionStateCommandsHelper.php',
     'Helhum\\Typo3Console\\Command\\Frontend\\FrontendRequestCommand' => $vendorDir . '/helhum/typo3-console/Classes/Console/Command/Frontend/FrontendRequestCommand.php',
+    'Helhum\\Typo3Console\\Command\\InstallTool\\LockInstallToolCommand' => $vendorDir . '/helhum/typo3-console/Classes/Console/Command/InstallTool/LockInstallToolCommand.php',
+    'Helhum\\Typo3Console\\Command\\InstallTool\\UnlockInstallToolCommand' => $vendorDir . '/helhum/typo3-console/Classes/Console/Command/InstallTool/UnlockInstallToolCommand.php',
     'Helhum\\Typo3Console\\Command\\Install\\InstallActionNeedsExecutionCommand' => $vendorDir . '/helhum/typo3-console/Classes/Console/Command/Install/InstallActionNeedsExecutionCommand.php',
     'Helhum\\Typo3Console\\Command\\Install\\InstallDatabaseConnectCommand' => $vendorDir . '/helhum/typo3-console/Classes/Console/Command/Install/InstallDatabaseConnectCommand.php',
     'Helhum\\Typo3Console\\Command\\Install\\InstallDatabaseDataCommand' => $vendorDir . '/helhum/typo3-console/Classes/Console/Command/Install/InstallDatabaseDataCommand.php',
