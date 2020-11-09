@@ -4,11 +4,11 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitdcb7232b6c61eaa86b5270303e9abc3f
+class ComposerStaticInit82753f3ebf6bac1a081eb7ea41733b2a
 {
     public static $files = array (
-        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -69,6 +69,8 @@ class ComposerStaticInitdcb7232b6c61eaa86b5270303e9abc3f
     );
 
     public static $classMap = array (
+        'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Helhum\\ConfigLoader\\CachedConfigurationLoader' => __DIR__ . '/..' . '/helhum/config-loader/src/CachedConfigurationLoader.php',
         'Helhum\\ConfigLoader\\Config' => __DIR__ . '/..' . '/helhum/config-loader/src/Config.php',
         'Helhum\\ConfigLoader\\ConfigurationExporter' => __DIR__ . '/..' . '/helhum/config-loader/src/ConfigurationExporter.php',
@@ -348,9 +350,9 @@ class ComposerStaticInitdcb7232b6c61eaa86b5270303e9abc3f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitdcb7232b6c61eaa86b5270303e9abc3f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitdcb7232b6c61eaa86b5270303e9abc3f::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitdcb7232b6c61eaa86b5270303e9abc3f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit82753f3ebf6bac1a081eb7ea41733b2a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit82753f3ebf6bac1a081eb7ea41733b2a::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit82753f3ebf6bac1a081eb7ea41733b2a::$classMap;
 
         }, null, ClassLoader::class);
     }

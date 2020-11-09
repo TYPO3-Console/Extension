@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Helhum\\ConfigLoader\\CachedConfigurationLoader' => $vendorDir . '/helhum/config-loader/src/CachedConfigurationLoader.php',
     'Helhum\\ConfigLoader\\Config' => $vendorDir . '/helhum/config-loader/src/Config.php',
     'Helhum\\ConfigLoader\\ConfigurationExporter' => $vendorDir . '/helhum/config-loader/src/ConfigurationExporter.php',
