@@ -58,7 +58,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/travis/build/TYPO3-Console/TYPO3-Console",
-                "reference": "018be1a8b6891e65245c7b4ab5cd8512de18117c"
+                "reference": "28202b60571aaccf392e8ae1fcf5877b0ba0139d"
             },
             "require": {
                 "doctrine/annotations": "^1.4",
