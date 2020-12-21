@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit6f8e47a619f6a1b5d78ed6e33137e757
+class ComposerStaticInitd92d388e7f92f033b199e9aec3bd5ea5
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -145,6 +145,7 @@ class ComposerStaticInit6f8e47a619f6a1b5d78ed6e33137e757
         'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradePrepareCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradePrepareCommand.php',
         'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeRunCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeRunCommand.php',
         'Helhum\\Typo3Console\\CompatibilityClassLoader' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/CompatibilityClassLoader.php',
+        'Helhum\\Typo3Console\\Compatibility\\EmConfReader' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Compatibility/EmConfReader.php',
         'Helhum\\Typo3Console\\Composer\\InstallerScript\\PopulateCommandConfiguration' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScript/PopulateCommandConfiguration.php',
         'Helhum\\Typo3Console\\Composer\\InstallerScripts' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScripts.php',
         'Helhum\\Typo3Console\\Composer\\PopulateCommands' => __DIR__ . '/../..' . '/Classes/Console/Composer/PopulateCommands.php',
@@ -230,6 +231,7 @@ class ComposerStaticInit6f8e47a619f6a1b5d78ed6e33137e757
         'Helhum\\Typo3Console\\Service\\Database\\Exception' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Database/Exception.php',
         'Helhum\\Typo3Console\\Service\\Database\\SchemaService' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Database/SchemaService.php',
         'Helhum\\Typo3Console\\Service\\Exception' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Exception.php',
+        'Helhum\\Typo3Console\\TYPO3v104\\Mvc\\Cli\\Typo3CommandRegistry' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/TYPO3v104/Mvc/Cli/Typo3CommandRegistry.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
@@ -351,9 +353,9 @@ class ComposerStaticInit6f8e47a619f6a1b5d78ed6e33137e757
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit6f8e47a619f6a1b5d78ed6e33137e757::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit6f8e47a619f6a1b5d78ed6e33137e757::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit6f8e47a619f6a1b5d78ed6e33137e757::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd92d388e7f92f033b199e9aec3bd5ea5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd92d388e7f92f033b199e9aec3bd5ea5::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitd92d388e7f92f033b199e9aec3bd5ea5::$classMap;
 
         }, null, ClassLoader::class);
     }
