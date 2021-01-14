@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'bd378dc605dda8ea2a3c0a78fe54cfebf29a1362',
+    'reference' => '75130998b14cc32afa57c15ac39d8309c0a343f3',
     'name' => 'typo3-console/extension',
   ),
   'versions' => 
@@ -58,7 +58,7 @@ private static $installed = array (
       array (
         0 => '6.x-dev',
       ),
-      'reference' => 'c81bd4443063be73cb10f8cd057fd9078797bf17',
+      'reference' => 'd544baf62293fb86929fc2e5754afa566d003fa8',
     ),
     'helhum/typo3-console-plugin' => 
     array (
@@ -115,21 +115,21 @@ private static $installed = array (
     ),
     'symfony/polyfill-php73' => 
     array (
-      'pretty_version' => 'v1.20.0',
-      'version' => '1.20.0.0',
+      'pretty_version' => 'v1.22.0',
+      'version' => '1.22.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '8ff431c517be11c78c48a39a66d37431e26a6bed',
+      'reference' => 'a678b42e92f86eca04b7fa4c0f6f19d097fb69e2',
     ),
     'symfony/polyfill-php80' => 
     array (
-      'pretty_version' => 'v1.20.0',
-      'version' => '1.20.0.0',
+      'pretty_version' => 'v1.22.0',
+      'version' => '1.22.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'e70aa8b064c5b72d3df2abd5ab1e90464ad009de',
+      'reference' => 'dc3063ba22c2a1fd2f45ed856374d79114998f91',
     ),
     'symfony/process' => 
     array (
@@ -156,7 +156,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'bd378dc605dda8ea2a3c0a78fe54cfebf29a1362',
+      'reference' => '75130998b14cc32afa57c15ac39d8309c0a343f3',
     ),
     'typo3-ter/typo3-console' => 
     array (
