@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '75130998b14cc32afa57c15ac39d8309c0a343f3',
+    'reference' => '782ee8010c3a5040c134e4e2e54cb62cdb50335c',
     'name' => 'typo3-console/extension',
   ),
   'versions' => 
@@ -35,7 +35,7 @@
       array (
         0 => '6.x-dev',
       ),
-      'reference' => 'd544baf62293fb86929fc2e5754afa566d003fa8',
+      'reference' => 'caef614cb68b468f18c3c3bf333862e79caebbc5',
     ),
     'helhum/typo3-console-plugin' => 
     array (
@@ -69,12 +69,12 @@
     ),
     'symfony/console' => 
     array (
-      'pretty_version' => 'v4.4.18',
-      'version' => '4.4.18.0',
+      'pretty_version' => 'v4.4.19',
+      'version' => '4.4.19.0',
       'aliases' => 
       array (
       ),
-      'reference' => '12e071278e396cc3e1c149857337e9e192deca0b',
+      'reference' => '24026c44fc37099fa145707fecd43672831b837a',
     ),
     'symfony/debug' => 
     array (
@@ -92,8 +92,8 @@
     ),
     'symfony/polyfill-php73' => 
     array (
-      'pretty_version' => 'v1.22.0',
-      'version' => '1.22.0.0',
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
       'aliases' => 
       array (
       ),
@@ -101,8 +101,8 @@
     ),
     'symfony/polyfill-php80' => 
     array (
-      'pretty_version' => 'v1.22.0',
-      'version' => '1.22.0.0',
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
       'aliases' => 
       array (
       ),
@@ -110,12 +110,12 @@
     ),
     'symfony/process' => 
     array (
-      'pretty_version' => 'v4.4.18',
-      'version' => '4.4.18.0',
+      'pretty_version' => 'v4.4.19',
+      'version' => '4.4.19.0',
       'aliases' => 
       array (
       ),
-      'reference' => '075316ff72233ce3d04a9743414292e834f2cb4a',
+      'reference' => '7e950b6366d4da90292c2e7fa820b3c1842b965a',
     ),
     'symfony/service-contracts' => 
     array (
@@ -133,7 +133,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '75130998b14cc32afa57c15ac39d8309c0a343f3',
+      'reference' => '782ee8010c3a5040c134e4e2e54cb62cdb50335c',
     ),
     'typo3-ter/typo3-console' => 
     array (
