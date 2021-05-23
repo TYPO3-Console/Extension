@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '53a2ecfcde43415843f267945f11a1300bc0533f',
+    'reference' => 'eb40a73f6b2a3df661c9a7945e7543214c0e7604',
     'name' => 'typo3-console/extension',
   ),
   'versions' => 
@@ -62,7 +62,7 @@
       array (
         0 => '6.x-dev',
       ),
-      'reference' => 'ba958f0f3fae0f0c81630ab45dc1e1958a173c42',
+      'reference' => '8bef61ef18ebe4046380e5a19f5e1a716ac88a61',
     ),
     'helhum/typo3-console-plugin' => 
     array (
@@ -160,7 +160,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '53a2ecfcde43415843f267945f11a1300bc0533f',
+      'reference' => 'eb40a73f6b2a3df661c9a7945e7543214c0e7604',
     ),
     'typo3-ter/typo3-console' => 
     array (
