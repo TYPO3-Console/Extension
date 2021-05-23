@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'ad90aaaf5f15109a337f3d3f231b38e488998087',
+    'reference' => '0f728f2425841eb7fc0c71f89cd50f942af47050',
     'name' => 'typo3-console/extension',
   ),
   'versions' => 
@@ -87,7 +87,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'cb3f6b86ef233b27ffbafb46ebce23bc54e85217',
+      'reference' => '7e6f346f7239c0615e7185cc2876c13b506f2790',
     ),
     'helhum/typo3-console-plugin' => 
     array (
@@ -185,7 +185,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'ad90aaaf5f15109a337f3d3f231b38e488998087',
+      'reference' => '0f728f2425841eb7fc0c71f89cd50f942af47050',
     ),
     'typo3-ter/typo3-console' => 
     array (
