@@ -30,6 +30,26 @@ class ListCommand extends \Symfony\Component\Console\Command\ListCommand
     {
         parent::configure();
         $this->amendDefinition($this->getDefinition());
+        $this->setDescription('List commands');
+        $this->setHelp(
+            <<<'EOF'
+The <info>%command.name%</info> command lists all commands:
+
+  <info>%command.full_name%</info>
+
+You can also display the commands for a specific namespace:
+
+  <info>%command.full_name% test</info>
+
+You can also output the information in other formats by using the <comment>--format</comment> option:
+
+  <info>%command.full_name% --format=xml</info>
+
+It's also possible to get raw list of commands (useful for embedding command runner):
+
+  <info>%command.full_name% --raw</info>
+EOF
+        );
     }
 
     public function getNativeDefinition()
@@ -60,8 +80,9 @@ class ListCommand extends \Symfony\Component\Console\Command\ListCommand
         if (!$application instanceof Application) {
             return 0;
         }
+        $io = new SymfonyStyle($input, $output);
+        $messages = [];
         if (!$input->getArgument('namespace') && !$application->isFullyCapable() && !$input->getOption('all')) {
-            $outputHelper = new SymfonyStyle($input, $output);
             $messages = [
                 '',
                 sprintf(
@@ -78,11 +99,30 @@ class ListCommand extends \Symfony\Component\Console\Command\ListCommand
                     $_SERVER['PHP_SELF']
                 ),
             ];
-
-            $outputHelper->getErrorStyle()->writeln($messages);
+        }
+        $exceptions = [];
+        if (($erroredCommands = $application->getErroredCommands()) && (!$application->hasErrors() || $input->getOption('all'))) {
+            $messages[] = '';
+            $messages[] = '<error>Some commands could not be configured and are missing in this list:</error>';
+            foreach ($erroredCommands as $command) {
+                $messages[] = sprintf(
+                    '<error>Command name: "%s", error: "%s"</error>',
+                    $command->getName(),
+                    $command->getException()->getMessage()
+                );
+                $exceptions[] = $command->getException();
+            }
+        }
+        if ($messages !== []) {
+            $io->getErrorStyle()->writeln($messages);
+        }
+        if ($output->isVerbose()) {
+            foreach ($exceptions as $exception) {
+                $application->renderThrowable($exception, $output);
+            }
         }
 
-        return 0;
+        return $exceptions === [] ? 0 : 1;
     }
 
     private function amendDefinition(InputDefinition $definition): InputDefinition

@@ -15,16 +15,14 @@ namespace Helhum\Typo3Console\Core;
  */
 
 use Helhum\Typo3Console\CompatibilityClassLoader;
+use Helhum\Typo3Console\Core\Booting\ContainerBuildFailedException;
 use Helhum\Typo3Console\Core\Booting\RunLevel;
 use Helhum\Typo3Console\Core\Booting\Scripts;
-use Helhum\Typo3Console\Core\Booting\Step;
-use Helhum\Typo3Console\Core\Booting\StepFailedException;
 use Helhum\Typo3Console\Exception;
 use Helhum\Typo3Console\Mvc\Cli\CommandCollection;
 use Helhum\Typo3Console\Mvc\Cli\CommandConfiguration;
-use Helhum\Typo3Console\Mvc\Cli\CommandLoaderCollection;
-use Helhum\Typo3Console\Mvc\Cli\FilteredCommandLoaderCollection;
 use Helhum\Typo3Console\Mvc\Cli\Symfony\Application;
+use Helhum\Typo3Console\Mvc\Cli\Typo3CommandRegistry;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
@@ -91,16 +89,23 @@ class Kernel
         $this->initialize();
 
         $commandConfiguration = new CommandConfiguration();
-        $consoleCommandCollection = new CommandCollection($commandConfiguration);
-        $consoleCommandCollection->initializeRunLevel($this->runLevel);
-
-        $commandCollection = new CommandLoaderCollection(
-            $consoleCommandCollection,
-            new FilteredCommandLoaderCollection(
-                $this->container->get(CommandRegistry::class),
-                $commandConfiguration->getReplaces()
-            )
+        $commandCollection = new CommandCollection(
+            $commandConfiguration,
+            new Typo3CommandRegistry($this->container->get(CommandRegistry::class))
         );
+        $commandCollection->initializeRunLevel($this->runLevel);
+
+        // Try to resolve short command names and aliases
+        $givenCommandName = $input->getFirstArgument() ?: 'list';
+        $commandName = $commandCollection->find($givenCommandName);
+        if ($this->runLevel->isCommandAvailable($commandName)) {
+            $this->runLevel->runSequenceForCommand($commandName);
+            if ($this->runLevel->getError()) {
+                // If a booting error occurred, we cannot boot further,
+                // thus can assume booting is "done".
+                $this->container->get('boot.state')->done = true;
+            }
+        }
 
         $application = new Application($this->runLevel, Environment::isComposerMode());
         $application->setCommandLoader($commandCollection);
@@ -132,14 +137,7 @@ class Kernel
             ExtensionManagementUtility::setEventDispatcher($this->container->get(EventDispatcherInterface::class));
         } catch (\Throwable $e) {
             $this->container = $failsafeContainer;
-            $error = new StepFailedException(
-                new Step(
-                    'build-container',
-                    function () {
-                    }
-                ),
-                $e
-            );
+            $error = new ContainerBuildFailedException($e);
         }
         $this->runLevel = new RunLevel($this->container, $error);
     }

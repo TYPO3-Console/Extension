@@ -23,6 +23,7 @@ class RunLevel
     public const LEVEL_ESSENTIAL = 'buildEssentialSequence';
     public const LEVEL_COMPILE = 'buildEssentialSequence';
     public const LEVEL_MINIMAL = 'buildBasicRuntimeSequence';
+    private const LEVEL_UNCACHED = 'buildExtendedUncachedRuntimeSequence';
     public const LEVEL_FULL = 'buildExtendedRuntimeSequence';
 
     /**
@@ -109,10 +110,18 @@ class RunLevel
     }
 
     /**
+     * @param string|null $commandIdentifier
      * @return StepFailedException|null
      */
-    public function getError(): ?StepFailedException
+    public function getError(string $commandIdentifier = null): ?StepFailedException
     {
+        if ($commandIdentifier !== null
+            && $this->error instanceof ContainerBuildFailedException
+            && $this->isLowLevelCommand($commandIdentifier)
+        ) {
+            return null;
+        }
+
         return $this->error;
     }
 
@@ -165,7 +174,19 @@ class RunLevel
     public function isCommandAvailable($commandIdentifier): bool
     {
         return $this->getMaximumAvailableRunLevel() === self::LEVEL_FULL
-            || $this->getRunLevelForCommand($commandIdentifier) === self::LEVEL_COMPILE;
+            || $this->isLowLevelCommand($commandIdentifier);
+    }
+
+    /**
+     * @param string $commandIdentifier
+     * @return bool
+     */
+    public function isLowLevelCommand($commandIdentifier): bool
+    {
+        $options = $this->getOptionsForCommand($commandIdentifier);
+        $runLevel = $options['runLevel'] ?? self::LEVEL_FULL;
+
+        return $runLevel === self::LEVEL_COMPILE;
     }
 
     /**
@@ -225,13 +246,26 @@ class RunLevel
     }
 
     /**
-     * Fully capable system with database, persistence configuration (TCA) and authentication available
+     * Fully capable system with database, persistence configuration (TCA) and authentication available,
+     * but not activating core caches
      *
+     * @param string $identifier
      * @return Sequence
      */
-    private function buildExtendedRuntimeSequence(): Sequence
+    private function buildExtendedUncachedRuntimeSequence(string $identifier = self::LEVEL_UNCACHED): Sequence
     {
-        $sequence = $this->buildBasicRuntimeSequence(self::LEVEL_FULL);
+        return $this->buildExtendedRuntimeSequence($identifier);
+    }
+
+    /**
+     * Fully capable system with database, persistence configuration (TCA) and authentication available
+     *
+     * @param string $identifier
+     * @return Sequence
+     */
+    private function buildExtendedRuntimeSequence(string $identifier = self::LEVEL_FULL): Sequence
+    {
+        $sequence = $this->buildBasicRuntimeSequence($identifier);
 
         $this->addStep($sequence, 'helhum.typo3console:persistence');
         $this->addStep($sequence, 'helhum.typo3console:authentication');
@@ -277,7 +311,8 @@ class RunLevel
                         function () {
                             Scripts::initializePersistence($this->container);
                         }
-                    )
+                    ),
+                    'helhum.typo3console:extensionconfiguration'
                 );
                 break;
             case 'helhum.typo3console:authentication':
@@ -298,7 +333,7 @@ class RunLevel
     public function getRunLevelForCommand(string $commandIdentifier): string
     {
         if ($this->isInternalCommand($commandIdentifier)) {
-            return $this->getMaximumAvailableRunLevel() === self::LEVEL_COMPILE ? self::LEVEL_COMPILE : self::LEVEL_MINIMAL;
+            return $this->getMaximumAvailableRunLevel() === self::LEVEL_COMPILE ? self::LEVEL_COMPILE : self::LEVEL_UNCACHED;
         }
         $options = $this->getOptionsForCommand($commandIdentifier);
 

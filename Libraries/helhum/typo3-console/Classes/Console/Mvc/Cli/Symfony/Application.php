@@ -18,6 +18,7 @@ use Helhum\Typo3Console\Core\Booting\RunLevel;
 use Helhum\Typo3Console\Core\Booting\StepFailedException;
 use Helhum\Typo3Console\Error\ExceptionRenderer;
 use Helhum\Typo3Console\Exception\CommandNotAvailableException;
+use Helhum\Typo3Console\Mvc\Cli\Symfony\Command\ErroredCommand;
 use Helhum\Typo3Console\Mvc\Cli\Symfony\Command\HelpCommand;
 use Helhum\Typo3Console\Mvc\Cli\Symfony\Command\ListCommand;
 use Helhum\Typo3Console\Mvc\Cli\Symfony\Input\ArgvInput;
@@ -40,7 +41,7 @@ use TYPO3\CMS\Core\Information\Typo3Version;
  */
 class Application extends BaseApplication
 {
-    const TYPO3_CONSOLE_VERSION = '6.2.0';
+    const TYPO3_CONSOLE_VERSION = '6.4.0';
     const COMMAND_NAME = 'typo3cms';
 
     /**
@@ -52,6 +53,11 @@ class Application extends BaseApplication
      * @var bool
      */
     private $composerManaged;
+
+    /**
+     * @var ErroredCommand[]
+     */
+    private $erroredCommands = [];
 
     public function __construct(RunLevel $runLevel = null, bool $composerManaged = true)
     {
@@ -122,27 +128,18 @@ class Application extends BaseApplication
      */
     public function isCommandAvailable(Command $command): bool
     {
-        if (!$this->isFullyCapable()
-            && in_array($command->getName(), [
-                // Although these commands are technically available
-                // they call other hidden commands in sub processes
-                // that need all capabilities. Therefore we disable these commands here.
-                // This can be removed, once they implement Symfony commands directly.
-                'upgrade:all',
-                'upgrade:list',
-                'upgrade:wizard',
-            ], true)
-        ) {
-            return false;
-        }
-        if ($command->getName() === 'cache:flushcomplete') {
-            return true;
-        }
-
-        return $this->runLevel->isCommandAvailable($command->getName());
+        return $this->runLevel->isCommandAvailable($command->getName()) || $this->runLevel->isInternalCommand($command->getName());
     }
 
-    public function renderException($exception, OutputInterface $output)
+    /**
+     * @return ErroredCommand[]
+     */
+    public function getErroredCommands(): array
+    {
+        return $this->erroredCommands;
+    }
+
+    public function renderThrowable(\Throwable $exception, OutputInterface $output): void
     {
         if ($exception instanceof CommandNotAvailableException) {
             $helper = new SymfonyStyle(new ArgvInput(), $output);
@@ -168,9 +165,13 @@ class Application extends BaseApplication
         (new ExceptionRenderer())->render($exception, $output, $this);
     }
 
-    public function renderThrowable(\Throwable $e, OutputInterface $output): void
+    public function add(Command $command)
     {
-        $this->renderException($e, $output);
+        if ($command instanceof ErroredCommand) {
+            $this->erroredCommands[$command->getName()] = $command;
+        }
+
+        return parent::add($command);
     }
 
     /**
@@ -187,7 +188,7 @@ class Application extends BaseApplication
 
         $exitCode = parent::doRunCommand($command, $input, $output);
 
-        if ($bootingError = $this->runLevel->getError()) {
+        if ($bootingError = $this->runLevel->getError($command->getName())) {
             $messages = [
                 sprintf(
                     'An error occurred while executing "%s".',
@@ -214,10 +215,6 @@ class Application extends BaseApplication
 
     private function ensureCommandAvailable(Command $command)
     {
-        $commandName = $command->getName();
-        if ($this->runLevel->isCommandAvailable($commandName)) {
-            $this->runLevel->runSequenceForCommand($commandName);
-        }
         if (!$this->runLevel->getError() && !$this->isCommandAvailable($command)) {
             throw new CommandNotAvailableException($command->getName());
         }
@@ -225,7 +222,7 @@ class Application extends BaseApplication
 
     private function ensureStableEnvironmentForCommand(Command $command, bool $environmentIsVerbose)
     {
-        $bootingError = $this->runLevel->getError();
+        $bootingError = $this->runLevel->getError($command->getName());
         if ($bootingError && ($environmentIsVerbose || !$this->runLevel->isInternalCommand($command->getName()))) {
             throw $bootingError->getPrevious();
         }

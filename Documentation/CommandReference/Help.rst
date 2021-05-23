@@ -13,15 +13,15 @@ help
 ====
 
 
-**Displays help for a command**
+**Display help for a command**
 
 The `help` command displays help for a given command:
 
-  `php typo3cms help list`
+  `typo3cms help list`
 
 You can also output the help in other formats by using the **--format** option:
 
-  `php typo3cms help --format=xml list`
+  `typo3cms help --format=xml list`
 
 To display the list of available commands, please use the `list` command.
 

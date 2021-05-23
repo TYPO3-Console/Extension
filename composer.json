@@ -11,7 +11,7 @@
     "repositories": {
         "console": {
             "type": "path",
-            "url": "/home/travis/build/TYPO3-Console/TYPO3-Console",
+            "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
             "options": {
                 "symlink": false
             }
@@ -59,7 +59,7 @@
     },
     "require": {
         "helhum/typo3-console": "@dev",
-        "typo3/cms-core": "^10.4.1"
+        "typo3/cms-core": "^10.4.1 || >=11.0.0 <11.2"
     },
     "replace": {
         "helhum/typo3-console-plugin": "*",
