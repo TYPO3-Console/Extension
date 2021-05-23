@@ -373,7 +373,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "2546717dde626603fc19a9d69c67961dd72ff4f8"
+                "reference": "cb3f6b86ef233b27ffbafb46ebce23bc54e85217"
             },
             "require": {
                 "doctrine/annotations": "^1.4",
