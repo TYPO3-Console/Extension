@@ -373,7 +373,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "cbd56f0803a2e382df8fce63bbed8f54d6c43baa"
+                "reference": "46293c273acf6017a0e4a5f52b7eceb5cedf9155"
             },
             "require": {
                 "doctrine/annotations": "^1.4",
@@ -382,13 +382,13 @@
                 "php": "^7.2",
                 "symfony/console": "^4.4 || ^5.0",
                 "symfony/process": "^4.4 || ^5.0",
-                "typo3/cms-backend": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-core": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-extbase": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-extensionmanager": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-fluid": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-frontend": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-install": "^10.4.1 || >=11.0.0 <11.2"
+                "typo3/cms-backend": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-core": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-extbase": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-extensionmanager": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-fluid": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-frontend": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-install": "^10.4.1 || >=11.2.0 <11.3"
             },
             "conflict": {
                 "friendsoftypo3/dbal": "*",
@@ -404,8 +404,8 @@
                 "symfony/filesystem": "^4.4 || ^5.0",
                 "typo3-console/create-reference-command": "@dev",
                 "typo3-console/php-server-command": "^0.2",
-                "typo3/cms-filemetadata": "^10.4.1 || >=11.0.0 <11.2 || dev-master",
-                "typo3/cms-reports": "^10.4.1 || >=11.0.0 <11.2 || dev-master"
+                "typo3/cms-filemetadata": "^10.4.1 || >=11.2.0 <11.3 || dev-master",
+                "typo3/cms-reports": "^10.4.1 || >=11.2.0 <11.3 || dev-master"
             },
             "bin": [
                 "typo3cms"
