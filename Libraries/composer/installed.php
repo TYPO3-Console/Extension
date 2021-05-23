@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '782ee8010c3a5040c134e4e2e54cb62cdb50335c',
+    'reference' => '046f4e65c2ea4b95d94e1579fec9bff146d2c38b',
     'name' => 'typo3-console/extension',
   ),
   'versions' => 
@@ -17,6 +17,33 @@
       array (
         0 => '*',
       ),
+    ),
+    'doctrine/cache' => 
+    array (
+      'pretty_version' => '1.11.2',
+      'version' => '1.11.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9c53086695937c50c47936ed86d96150ffbcf60d',
+    ),
+    'doctrine/dbal' => 
+    array (
+      'pretty_version' => '2.10.4',
+      'version' => '2.10.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '47433196b6390d14409a33885ee42b6208160643',
+    ),
+    'doctrine/event-manager' => 
+    array (
+      'pretty_version' => '1.1.1',
+      'version' => '1.1.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '41370af6a30faa9dc0368c4a6814d596e81aba7f',
     ),
     'helhum/config-loader' => 
     array (
@@ -35,7 +62,7 @@
       array (
         0 => '6.x-dev',
       ),
-      'reference' => 'caef614cb68b468f18c3c3bf333862e79caebbc5',
+      'reference' => '26c2dc124a835236542804ba78b04bfc5e9f3555',
     ),
     'helhum/typo3-console-plugin' => 
     array (
@@ -46,12 +73,12 @@
     ),
     'psr/container' => 
     array (
-      'pretty_version' => '1.0.0',
-      'version' => '1.0.0.0',
+      'pretty_version' => '1.1.1',
+      'version' => '1.1.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'b7ce3b176482dbbc1245ebf52b181af44c2cf55f',
+      'reference' => '8622567409010282b7aeebe4bb841fe98b58dcaf',
     ),
     'psr/log' => 
     array (
@@ -69,12 +96,12 @@
     ),
     'symfony/console' => 
     array (
-      'pretty_version' => 'v4.4.19',
-      'version' => '4.4.19.0',
+      'pretty_version' => 'v4.4.24',
+      'version' => '4.4.24.0',
       'aliases' => 
       array (
       ),
-      'reference' => '24026c44fc37099fa145707fecd43672831b837a',
+      'reference' => '1b15ca1b1bedda86f98064da9ff5d800560d4c6d',
     ),
     'symfony/debug' => 
     array (
@@ -110,12 +137,12 @@
     ),
     'symfony/process' => 
     array (
-      'pretty_version' => 'v4.4.19',
-      'version' => '4.4.19.0',
+      'pretty_version' => 'v4.4.22',
+      'version' => '4.4.22.0',
       'aliases' => 
       array (
       ),
-      'reference' => '7e950b6366d4da90292c2e7fa820b3c1842b965a',
+      'reference' => 'f5481b22729d465acb1cea3455fc04ce84b0148b',
     ),
     'symfony/service-contracts' => 
     array (
@@ -133,7 +160,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '782ee8010c3a5040c134e4e2e54cb62cdb50335c',
+      'reference' => '046f4e65c2ea4b95d94e1579fec9bff146d2c38b',
     ),
     'typo3-ter/typo3-console' => 
     array (
