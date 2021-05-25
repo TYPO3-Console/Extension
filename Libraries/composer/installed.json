@@ -373,10 +373,9 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "4f97a37428e2079065f16519a2aa53438949242d"
+                "reference": "2245bd25c2df3056fd781dfa992093d5d839ad3c"
             },
             "require": {
-                "doctrine/annotations": "^1.4",
                 "doctrine/dbal": "<2.13",
                 "helhum/config-loader": ">=0.9 <0.13",
                 "php": "^7.2",
