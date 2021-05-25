@@ -373,7 +373,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "2245bd25c2df3056fd781dfa992093d5d839ad3c"
+                "reference": "73717f86f160ea56ead8928357d49a316116c7c7"
             },
             "require": {
                 "doctrine/dbal": "<2.13",
@@ -388,10 +388,6 @@
                 "typo3/cms-fluid": "^10.4.1 || >=11.2.0 <11.3",
                 "typo3/cms-frontend": "^10.4.1 || >=11.2.0 <11.3",
                 "typo3/cms-install": "^10.4.1 || >=11.2.0 <11.3"
-            },
-            "conflict": {
-                "friendsoftypo3/dbal": "*",
-                "typo3-ter/dbal": "*"
             },
             "replace": {
                 "typo3-ter/typo3-console": "self.version"
