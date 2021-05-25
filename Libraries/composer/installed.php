@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'd15a3ef52d613a3740d71e95c4ad501c7d7e8a16',
+    'reference' => 'da629b539bdfa9dd62d348c8a4583b44e31f4522',
     'name' => 'typo3-console/extension',
   ),
   'versions' => 
@@ -20,12 +20,12 @@
     ),
     'doctrine/cache' => 
     array (
-      'pretty_version' => '1.11.2',
-      'version' => '1.11.2.0',
+      'pretty_version' => '1.11.3',
+      'version' => '1.11.3.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9c53086695937c50c47936ed86d96150ffbcf60d',
+      'reference' => '3bb5588cec00a0268829cc4a518490df6741af9d',
     ),
     'doctrine/dbal' => 
     array (
@@ -61,7 +61,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '9d2f316880a52b604075f4734d51338e6dd3480d',
+      'reference' => '9286f8e18b44cce9f264c36c32b0341c1f6257e4',
     ),
     'helhum/typo3-console-plugin' => 
     array (
@@ -159,7 +159,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'd15a3ef52d613a3740d71e95c4ad501c7d7e8a16',
+      'reference' => 'da629b539bdfa9dd62d348c8a4583b44e31f4522',
     ),
     'typo3-ter/typo3-console' => 
     array (

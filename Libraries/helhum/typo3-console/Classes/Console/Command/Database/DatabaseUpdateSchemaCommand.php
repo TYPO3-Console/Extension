@@ -60,6 +60,8 @@ To avoid shell matching all types with wildcards should be quoted.
 <b>Example:</b>
 
   <code>%command.full_name% "*.add,*.change"</code>
+  <code>%command.full_name% "*.add" --raw</code>
+  <code>%command.full_name% "*" --verbose</code>
 EOH
         );
         $this->setDefinition(
@@ -76,6 +78,12 @@ EOH
                     InputOption::VALUE_NONE,
                     'If set the updates are only collected and shown, but not executed'
                 ),
+                new InputOption(
+                    'raw',
+                    '',
+                    InputOption::VALUE_NONE,
+                    'If set, only the SQL statements, that are required to update the schema, are printed'
+                ),
             ]
         );
     }
@@ -87,6 +95,7 @@ EOH
 
         $schemaUpdateTypes = explode(',', $input->getArgument('schemaUpdateTypes'));
         $dryRun = $input->getOption('dry-run');
+        $raw = $input->getOption('raw');
         $verbose = $output->isVerbose();
 
         /** @deprecated */
@@ -101,6 +110,16 @@ EOH
         }
 
         $result = $schemaService->updateSchema($expandedSchemaUpdateTypes, $dryRun);
+
+        if ($raw) {
+            foreach ($result->getPerformedUpdates() as $updatesTypes) {
+                foreach ($updatesTypes as $updates) {
+                    $output->writeln($updates . ';' . PHP_EOL);
+                }
+            }
+
+            return 0;
+        }
 
         if ($result->hasPerformedUpdates()) {
             $output->writeln(sprintf(
@@ -120,7 +139,7 @@ EOH
         if ($result->hasErrors()) {
             $output->writeln('');
             $output->writeln('<error>The following errors occurred:</error>');
-            $schemaUpdateResultRenderer->renderErrors($result, $consoleOutput, $verbose);
+            $schemaUpdateResultRenderer->renderErrors($result, $consoleOutput, true);
 
             return 1;
         }

@@ -42,6 +42,8 @@ To avoid shell matching all types with wildcards should be quoted.
 **Example:**
 
   `typo3cms database:updateschema "*.add,*.change"`
+  `typo3cms database:updateschema "*.add" --raw`
+  `typo3cms database:updateschema "*" --verbose`
 
 Arguments
 ~~~~~~~~~
@@ -56,6 +58,14 @@ Options
 
 `--dry-run`
    If set the updates are only collected and shown, but not executed
+
+- Accept value: no
+- Is value required: no
+- Is multiple: no
+- Default: false
+
+`--raw`
+   If set, only the SQL statements, that are required to update the schema, are printed
 
 - Accept value: no
 - Is value required: no

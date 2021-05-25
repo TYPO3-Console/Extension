@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "doctrine/cache",
-            "version": "1.11.2",
-            "version_normalized": "1.11.2.0",
+            "version": "1.11.3",
+            "version_normalized": "1.11.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "9c53086695937c50c47936ed86d96150ffbcf60d"
+                "reference": "3bb5588cec00a0268829cc4a518490df6741af9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/9c53086695937c50c47936ed86d96150ffbcf60d",
-                "reference": "9c53086695937c50c47936ed86d96150ffbcf60d",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/3bb5588cec00a0268829cc4a518490df6741af9d",
+                "reference": "3bb5588cec00a0268829cc4a518490df6741af9d",
                 "shasum": ""
             },
             "require": {
@@ -35,7 +35,7 @@
             "suggest": {
                 "alcaeus/mongo-php-adapter": "Required to use legacy MongoDB driver"
             },
-            "time": "2021-05-20T14:57:29+00:00",
+            "time": "2021-05-25T09:01:55+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -84,7 +84,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/cache/issues",
-                "source": "https://github.com/doctrine/cache/tree/1.11.2"
+                "source": "https://github.com/doctrine/cache/tree/1.11.3"
             },
             "funding": [
                 {
@@ -373,7 +373,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "9d2f316880a52b604075f4734d51338e6dd3480d"
+                "reference": "9286f8e18b44cce9f264c36c32b0341c1f6257e4"
             },
             "require": {
                 "doctrine/annotations": "^1.4",
@@ -382,13 +382,13 @@
                 "php": "^7.2",
                 "symfony/console": "^4.4 || ^5.0",
                 "symfony/process": "^4.4 || ^5.0",
-                "typo3/cms-backend": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-core": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-extbase": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-extensionmanager": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-fluid": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-frontend": "^10.4.1 || >=11.0.0 <11.2",
-                "typo3/cms-install": "^10.4.1 || >=11.0.0 <11.2"
+                "typo3/cms-backend": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-core": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-extbase": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-extensionmanager": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-fluid": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-frontend": "^10.4.1 || >=11.2.0 <11.3",
+                "typo3/cms-install": "^10.4.1 || >=11.2.0 <11.3"
             },
             "conflict": {
                 "friendsoftypo3/dbal": "*",
@@ -404,8 +404,8 @@
                 "symfony/filesystem": "^4.4 || ^5.0",
                 "typo3-console/create-reference-command": "@dev",
                 "typo3-console/php-server-command": "^0.2",
-                "typo3/cms-filemetadata": "^10.4.1 || >=11.0.0 <11.2 || dev-master",
-                "typo3/cms-reports": "^10.4.1 || >=11.0.0 <11.2 || dev-master"
+                "typo3/cms-filemetadata": "^10.4.1 || >=11.2.0 <11.3 || dev-master",
+                "typo3/cms-reports": "^10.4.1 || >=11.2.0 <11.3 || dev-master"
             },
             "bin": [
                 "typo3cms"
