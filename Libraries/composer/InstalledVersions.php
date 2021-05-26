@@ -32,45 +32,11 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'ff5dcb34ac623576408b84cdc3dd6e8f087856d4',
+    'reference' => '68010070b1d0132a3b6c5337acc96c8d9a3b8ba0',
     'name' => 'typo3-console/extension',
   ),
   'versions' => 
   array (
-    'doctrine/annotations' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'doctrine/cache' => 
-    array (
-      'pretty_version' => '1.11.3',
-      'version' => '1.11.3.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '3bb5588cec00a0268829cc4a518490df6741af9d',
-    ),
-    'doctrine/dbal' => 
-    array (
-      'pretty_version' => '2.10.4',
-      'version' => '2.10.4.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '47433196b6390d14409a33885ee42b6208160643',
-    ),
-    'doctrine/event-manager' => 
-    array (
-      'pretty_version' => '1.1.1',
-      'version' => '1.1.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '41370af6a30faa9dc0368c4a6814d596e81aba7f',
-    ),
     'helhum/config-loader' => 
     array (
       'pretty_version' => 'v0.12.2',
@@ -88,23 +54,7 @@ private static $installed = array (
       array (
         0 => '6.x-dev',
       ),
-      'reference' => '73717f86f160ea56ead8928357d49a316116c7c7',
-    ),
-    'helhum/typo3-console-plugin' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'psr/container' => 
-    array (
-      'pretty_version' => '1.1.1',
-      'version' => '1.1.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '8622567409010282b7aeebe4bb841fe98b58dcaf',
+      'reference' => 'dd24509df5abe061c8ad6b8c1826aa9fa5c83fa7',
     ),
     'psr/log' => 
     array (
@@ -113,21 +63,12 @@ private static $installed = array (
         0 => '*',
       ),
     ),
-    'psr/log-implementation' => 
-    array (
-      'provided' => 
-      array (
-        0 => '1.0',
-      ),
-    ),
     'symfony/console' => 
     array (
-      'pretty_version' => 'v4.4.24',
-      'version' => '4.4.24.0',
-      'aliases' => 
+      'replaced' => 
       array (
+        0 => '*',
       ),
-      'reference' => '1b15ca1b1bedda86f98064da9ff5d800560d4c6d',
     ),
     'symfony/debug' => 
     array (
@@ -143,41 +84,21 @@ private static $installed = array (
         0 => '*',
       ),
     ),
-    'symfony/polyfill-php73' => 
-    array (
-      'pretty_version' => 'v1.22.1',
-      'version' => '1.22.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'a678b42e92f86eca04b7fa4c0f6f19d097fb69e2',
-    ),
     'symfony/polyfill-php80' => 
     array (
-      'pretty_version' => 'v1.22.1',
-      'version' => '1.22.1.0',
-      'aliases' => 
+      'replaced' => 
       array (
+        0 => '*',
       ),
-      'reference' => 'dc3063ba22c2a1fd2f45ed856374d79114998f91',
     ),
     'symfony/process' => 
     array (
-      'pretty_version' => 'v4.4.22',
-      'version' => '4.4.22.0',
+      'pretty_version' => 'v5.2.7',
+      'version' => '5.2.7.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'f5481b22729d465acb1cea3455fc04ce84b0148b',
-    ),
-    'symfony/service-contracts' => 
-    array (
-      'pretty_version' => 'v1.1.9',
-      'version' => '1.1.9.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'b776d18b303a39f56c63747bcb977ad4b27aca26',
+      'reference' => '98cb8eeb72e55d4196dd1e36f1f16e7b3a9a088e',
     ),
     'typo3-console/extension' => 
     array (
@@ -186,7 +107,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'ff5dcb34ac623576408b84cdc3dd6e8f087856d4',
+      'reference' => '68010070b1d0132a3b6c5337acc96c8d9a3b8ba0',
     ),
     'typo3-ter/typo3-console' => 
     array (
