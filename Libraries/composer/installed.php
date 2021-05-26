@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '68010070b1d0132a3b6c5337acc96c8d9a3b8ba0',
+    'reference' => 'b4fba23447498c91b35f7582b01c7abadc749c28',
     'name' => 'typo3-console/extension',
   ),
   'versions' => 
@@ -28,7 +28,7 @@
       array (
         0 => '6.x-dev',
       ),
-      'reference' => 'dd24509df5abe061c8ad6b8c1826aa9fa5c83fa7',
+      'reference' => 'e7be9e623a21ca612faf8073d18e94ba0dce4cab',
     ),
     'psr/log' => 
     array (
@@ -81,7 +81,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '68010070b1d0132a3b6c5337acc96c8d9a3b8ba0',
+      'reference' => 'b4fba23447498c91b35f7582b01c7abadc749c28',
     ),
     'typo3-ter/typo3-console' => 
     array (
