@@ -1,151 +1,137 @@
-<?php return array (
-  'root' => 
-  array (
-    'pretty_version' => 'dev-latest',
-    'version' => 'dev-latest',
-    'aliases' => 
-    array (
+<?php return array(
+    'root' => array(
+        'pretty_version' => 'dev-latest',
+        'version' => 'dev-latest',
+        'type' => 'typo3-cms-extension',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'reference' => '5366cef8636199bb63028dafc7eff295ef60e70d',
+        'name' => 'typo3-console/extension',
+        'dev' => true,
     ),
-    'reference' => 'b4fba23447498c91b35f7582b01c7abadc749c28',
-    'name' => 'typo3-console/extension',
-  ),
-  'versions' => 
-  array (
-    'helhum/config-loader' => 
-    array (
-      'pretty_version' => 'v0.12.2',
-      'version' => '0.12.2.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '1faf12146c505f3b929b10f09aabb8b675d7842d',
+    'versions' => array(
+        'helhum/config-loader' => array(
+            'pretty_version' => 'v0.12.3',
+            'version' => '0.12.3.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../helhum/config-loader',
+            'aliases' => array(),
+            'reference' => '4bd2cdb1d81ae0eedbc1ce9d2af1e81eea444e70',
+            'dev_requirement' => false,
+        ),
+        'helhum/typo3-console' => array(
+            'pretty_version' => 'dev-latest',
+            'version' => 'dev-latest',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../helhum/typo3-console',
+            'aliases' => array(
+                0 => '6.x-dev',
+            ),
+            'reference' => '5c27e881920c200feb14c6765321d8335a834dcb',
+            'dev_requirement' => false,
+        ),
+        'psr/log' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'symfony/console' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'symfony/debug' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'symfony/polyfill-mbstring' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'symfony/polyfill-php80' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'symfony/process' => array(
+            'pretty_version' => 'v5.3.2',
+            'version' => '5.3.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../symfony/process',
+            'aliases' => array(),
+            'reference' => '714b47f9196de61a196d86c4bad5f09201b307df',
+            'dev_requirement' => false,
+        ),
+        'typo3-console/extension' => array(
+            'pretty_version' => 'dev-latest',
+            'version' => 'dev-latest',
+            'type' => 'typo3-cms-extension',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'reference' => '5366cef8636199bb63028dafc7eff295ef60e70d',
+            'dev_requirement' => false,
+        ),
+        'typo3-ter/typo3-console' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => 'dev-latest',
+                1 => '6.x-dev',
+            ),
+        ),
+        'typo3/cms-backend' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'typo3/cms-core' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'typo3/cms-extbase' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'typo3/cms-extensionmanager' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'typo3/cms-fluid' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'typo3/cms-frontend' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'typo3/cms-install' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
+        'typo3/cms-saltedpasswords' => array(
+            'dev_requirement' => false,
+            'replaced' => array(
+                0 => '*',
+            ),
+        ),
     ),
-    'helhum/typo3-console' => 
-    array (
-      'pretty_version' => 'dev-latest',
-      'version' => 'dev-latest',
-      'aliases' => 
-      array (
-        0 => '6.x-dev',
-      ),
-      'reference' => 'e7be9e623a21ca612faf8073d18e94ba0dce4cab',
-    ),
-    'psr/log' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'symfony/console' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'symfony/debug' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'symfony/polyfill-mbstring' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'symfony/polyfill-php80' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'symfony/process' => 
-    array (
-      'pretty_version' => 'v5.2.7',
-      'version' => '5.2.7.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '98cb8eeb72e55d4196dd1e36f1f16e7b3a9a088e',
-    ),
-    'typo3-console/extension' => 
-    array (
-      'pretty_version' => 'dev-latest',
-      'version' => 'dev-latest',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'b4fba23447498c91b35f7582b01c7abadc749c28',
-    ),
-    'typo3-ter/typo3-console' => 
-    array (
-      'replaced' => 
-      array (
-        0 => 'dev-latest',
-        1 => '6.x-dev',
-      ),
-    ),
-    'typo3/cms-backend' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'typo3/cms-core' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'typo3/cms-extbase' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'typo3/cms-extensionmanager' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'typo3/cms-fluid' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'typo3/cms-frontend' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'typo3/cms-install' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-    'typo3/cms-saltedpasswords' => 
-    array (
-      'replaced' => 
-      array (
-        0 => '*',
-      ),
-    ),
-  ),
 );

@@ -2,21 +2,21 @@
     "packages": [
         {
             "name": "helhum/config-loader",
-            "version": "v0.12.2",
-            "version_normalized": "0.12.2.0",
+            "version": "v0.12.3",
+            "version_normalized": "0.12.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/helhum/config-loader.git",
-                "reference": "1faf12146c505f3b929b10f09aabb8b675d7842d"
+                "reference": "4bd2cdb1d81ae0eedbc1ce9d2af1e81eea444e70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helhum/config-loader/zipball/1faf12146c505f3b929b10f09aabb8b675d7842d",
-                "reference": "1faf12146c505f3b929b10f09aabb8b675d7842d",
+                "url": "https://api.github.com/repos/helhum/config-loader/zipball/4bd2cdb1d81ae0eedbc1ce9d2af1e81eea444e70",
+                "reference": "4bd2cdb1d81ae0eedbc1ce9d2af1e81eea444e70",
                 "shasum": ""
             },
             "require": {
-                "php": "^7"
+                "php": ">7.0"
             },
             "require-dev": {
                 "mikey179/vfsstream": "^1.6",
@@ -27,7 +27,7 @@
                 "ext-yaml": "For improved performance when parsing yaml files you should use the PECL YAML Parser php extension",
                 "symfony/yaml": "To be able to parse yaml files, you will need symfony/yaml"
             },
-            "time": "2019-05-30T14:58:15+00:00",
+            "time": "2021-07-13T13:28:57+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -47,8 +47,18 @@
             "description": "Generic config loader with context and environment support.",
             "support": {
                 "issues": "https://github.com/helhum/config-loader/issues",
-                "source": "https://github.com/helhum/config-loader/tree/master"
+                "source": "https://github.com/helhum/config-loader/tree/v0.12.3"
             },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/helhum/19.99",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/helhum",
+                    "type": "github"
+                }
+            ],
             "install-path": "../helhum/config-loader"
         },
         {
@@ -58,20 +68,20 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "e7be9e623a21ca612faf8073d18e94ba0dce4cab"
+                "reference": "5c27e881920c200feb14c6765321d8335a834dcb"
             },
             "require": {
                 "helhum/config-loader": ">=0.9 <0.13",
-                "php": "^7.2",
+                "php": ">=7.2",
                 "symfony/console": "^4.4 || ^5.0",
                 "symfony/process": "^4.4 || ^5.0",
-                "typo3/cms-backend": "^10.4.1 || >=11.2.0 <11.3",
-                "typo3/cms-core": "^10.4.1 || >=11.2.0 <11.3",
-                "typo3/cms-extbase": "^10.4.1 || >=11.2.0 <11.3",
-                "typo3/cms-extensionmanager": "^10.4.1 || >=11.2.0 <11.3",
-                "typo3/cms-fluid": "^10.4.1 || >=11.2.0 <11.3",
-                "typo3/cms-frontend": "^10.4.1 || >=11.2.0 <11.3",
-                "typo3/cms-install": "^10.4.1 || >=11.2.0 <11.3"
+                "typo3/cms-backend": "^10.4.1 || ~11.3.0",
+                "typo3/cms-core": "^10.4.1 || ~11.3.0",
+                "typo3/cms-extbase": "^10.4.1 || ~11.3.0",
+                "typo3/cms-extensionmanager": "^10.4.1 || ~11.3.0",
+                "typo3/cms-fluid": "^10.4.1 || ~11.3.0",
+                "typo3/cms-frontend": "^10.4.1 || ~11.3.0",
+                "typo3/cms-install": "^10.4.1 || ~11.3.0"
             },
             "conflict": {
                 "doctrine/dbal": "2.13.0 || 2.13.1"
@@ -80,14 +90,15 @@
                 "typo3-ter/typo3-console": "self.version"
             },
             "require-dev": {
-                "nimut/testing-framework": "5.x-dev",
+                "nimut/testing-framework": "dev-php8",
                 "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpunit/phpunit": "^8.5.18",
                 "symfony/expression-language": "^4.4 || ^5.0",
                 "symfony/filesystem": "^4.4 || ^5.0",
                 "typo3-console/create-reference-command": "@dev",
-                "typo3-console/php-server-command": "^0.2",
-                "typo3/cms-filemetadata": "^10.4.1 || >=11.2.0 <11.3 || dev-master",
-                "typo3/cms-reports": "^10.4.1 || >=11.2.0 <11.3 || dev-master"
+                "typo3-console/php-server-command": "@dev",
+                "typo3/cms-filemetadata": "^10.4.1 || ~11.3.0 || dev-master",
+                "typo3/cms-reports": "^10.4.1 || ~11.3.0 || dev-master"
             },
             "bin": [
                 "typo3cms"
@@ -184,24 +195,24 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.2.7",
-            "version_normalized": "5.2.7.0",
+            "version": "v5.3.2",
+            "version_normalized": "5.3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "98cb8eeb72e55d4196dd1e36f1f16e7b3a9a088e"
+                "reference": "714b47f9196de61a196d86c4bad5f09201b307df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/98cb8eeb72e55d4196dd1e36f1f16e7b3a9a088e",
-                "reference": "98cb8eeb72e55d4196dd1e36f1f16e7b3a9a088e",
+                "url": "https://api.github.com/repos/symfony/process/zipball/714b47f9196de61a196d86c4bad5f09201b307df",
+                "reference": "714b47f9196de61a196d86c4bad5f09201b307df",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/polyfill-php80": "^1.15"
             },
-            "time": "2021-04-08T10:27:02+00:00",
+            "time": "2021-06-12T10:15:01+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -229,7 +240,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v5.3.0-BETA1"
+                "source": "https://github.com/symfony/process/tree/v5.3.2"
             },
             "funding": [
                 {
