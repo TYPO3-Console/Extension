@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "454b6893d4526753a3c2703d27a42ef8cc6723b5"
+                "reference": "665d89ea66fdddd479982f2402d4b9ef3eb54ad4"
             },
             "require": {
                 "helhum/config-loader": ">=0.9 <0.13",
@@ -105,7 +105,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-latest": "6.x-dev"
+                    "dev-latest": "7.x-dev"
                 },
                 "typo3/cms": {
                     "app-dir": ".Build",
