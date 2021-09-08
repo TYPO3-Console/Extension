@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "665d89ea66fdddd479982f2402d4b9ef3eb54ad4"
+                "reference": "a197fa9f8e886201b550bbff35d0a04bdbf23a08"
             },
             "require": {
                 "helhum/config-loader": ">=0.9 <0.13",
@@ -96,6 +96,7 @@
                 "symfony/expression-language": "^4.4 || ^5.0",
                 "symfony/filesystem": "^4.4 || ^5.0",
                 "typo3-console/create-reference-command": "@dev",
+                "typo3-console/php-server-command": "@dev",
                 "typo3/cms-filemetadata": "~11.4.0 || dev-master",
                 "typo3/cms-reports": "~11.4.0 || dev-master"
             },
@@ -108,6 +109,7 @@
                     "dev-latest": "7.x-dev"
                 },
                 "typo3/cms": {
+                    "ignore-as-root": false,
                     "app-dir": ".Build",
                     "web-dir": ".Build/public"
                 }
