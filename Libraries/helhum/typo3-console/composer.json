@@ -57,8 +57,7 @@
         "symfony/filesystem": "^4.4 || ^5.0",
         "nimut/testing-framework": "dev-php8",
         "phpunit/phpunit": "^8.5.18",
-        "php-parallel-lint/php-parallel-lint": "^1.2",
-        "typo3-console/php-server-command": "@dev"
+        "php-parallel-lint/php-parallel-lint": "^1.2"
     },
     "autoload": {
         "psr-4": {
@@ -128,7 +127,6 @@
             "dev-latest": "7.x-dev"
         },
         "typo3/cms": {
-            "ignore-as-root": false,
             "app-dir": ".Build",
             "web-dir": ".Build/public"
         }
