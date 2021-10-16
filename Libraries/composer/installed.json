@@ -68,9 +68,10 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "e269075ce89957fa05bc27cc6b13981446345b54"
+                "reference": "ab53cac54544c99ed3867f6860deaad2fed6cf63"
             },
             "require": {
+                "composer-runtime-api": "^2.1",
                 "helhum/config-loader": ">=0.9 <0.13",
                 "php": ">=7.4.1",
                 "symfony/console": "^4.4 || ^5.0",
