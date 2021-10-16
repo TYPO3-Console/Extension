@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "3826cfa153bfc8bce66e2e4e585b876e2e2567b6"
+                "reference": "6a0b1e9c099db0fdd7e409d631bd237f5d59b7f8"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -76,16 +76,17 @@
                 "php": ">=7.4.1",
                 "symfony/console": "^4.4 || ^5.0",
                 "symfony/process": "^4.4 || ^5.0",
-                "typo3/cms-backend": "^11.4.0",
-                "typo3/cms-core": "^11.4.0",
-                "typo3/cms-extbase": "^11.4.0",
-                "typo3/cms-extensionmanager": "^11.4.0",
-                "typo3/cms-fluid": "^11.4.0",
-                "typo3/cms-frontend": "^11.4.0",
-                "typo3/cms-install": "^11.4.0"
+                "typo3/cms-backend": "^11.5.1",
+                "typo3/cms-core": "^11.5.1",
+                "typo3/cms-extbase": "^11.5.1",
+                "typo3/cms-extensionmanager": "^11.5.1",
+                "typo3/cms-fluid": "^11.5.1",
+                "typo3/cms-frontend": "^11.5.1",
+                "typo3/cms-install": "^11.5.1"
             },
             "conflict": {
-                "doctrine/dbal": "2.13.0 || 2.13.1"
+                "doctrine/dbal": "2.13.0 || 2.13.1",
+                "symfony/polyfill-php80": "<1.23.1"
             },
             "replace": {
                 "typo3-ter/typo3-console": "self.version"
@@ -97,8 +98,8 @@
                 "symfony/expression-language": "^4.4 || ^5.0",
                 "symfony/filesystem": "^4.4 || ^5.0",
                 "typo3-console/create-reference-command": "@dev",
-                "typo3/cms-filemetadata": "^11.4.0 || dev-master",
-                "typo3/cms-reports": "^11.4.0 || dev-master"
+                "typo3/cms-filemetadata": "^11.5.1 || dev-master",
+                "typo3/cms-reports": "^11.5.1 || dev-master"
             },
             "bin": [
                 "typo3cms"

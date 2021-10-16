@@ -5,7 +5,7 @@
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a7ddee77624c9dbce0d1e8b6b67d9564ebdeb2a5',
+        'reference' => '3f6455fc12b194f0a3620e418b499b2e661c359c',
         'name' => 'typo3-console/extension',
         'dev' => true,
     ),
@@ -27,7 +27,7 @@
             'aliases' => array(
                 0 => '7.x-dev',
             ),
-            'reference' => '3826cfa153bfc8bce66e2e4e585b876e2e2567b6',
+            'reference' => '6a0b1e9c099db0fdd7e409d631bd237f5d59b7f8',
             'dev_requirement' => false,
         ),
         'psr/log' => array(
@@ -57,7 +57,7 @@
         'symfony/polyfill-php80' => array(
             'dev_requirement' => false,
             'replaced' => array(
-                0 => '*',
+                0 => '>=1.23.1',
             ),
         ),
         'symfony/process' => array(
@@ -75,7 +75,7 @@
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a7ddee77624c9dbce0d1e8b6b67d9564ebdeb2a5',
+            'reference' => '3f6455fc12b194f0a3620e418b499b2e661c359c',
             'dev_requirement' => false,
         ),
         'typo3-ter/typo3-console' => array(
