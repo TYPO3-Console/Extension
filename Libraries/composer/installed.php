@@ -5,18 +5,18 @@
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '5f1622279beb4328afa867a4ad7b319862fe3a6c',
+        'reference' => '4427ac6e663207f4dd9d789c8208325963918f09',
         'name' => 'typo3-console/extension',
         'dev' => true,
     ),
     'versions' => array(
         'helhum/config-loader' => array(
-            'pretty_version' => 'v0.12.3',
-            'version' => '0.12.3.0',
+            'pretty_version' => 'v0.12.4',
+            'version' => '0.12.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../helhum/config-loader',
             'aliases' => array(),
-            'reference' => '4bd2cdb1d81ae0eedbc1ce9d2af1e81eea444e70',
+            'reference' => 'db87de92730e7ebead47b88aa14746d0b8653ba9',
             'dev_requirement' => false,
         ),
         'helhum/typo3-console' => array(
@@ -27,7 +27,7 @@
             'aliases' => array(
                 0 => '7.x-dev',
             ),
-            'reference' => '8b7d70f4289c7c977e26621adb50d92facf59edd',
+            'reference' => '2059e954df87c4e3f22dcedde5cd312bad3ee254',
             'dev_requirement' => false,
         ),
         'psr/log' => array(
@@ -75,7 +75,7 @@
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '5f1622279beb4328afa867a4ad7b319862fe3a6c',
+            'reference' => '4427ac6e663207f4dd9d789c8208325963918f09',
             'dev_requirement' => false,
         ),
         'typo3-ter/typo3-console' => array(

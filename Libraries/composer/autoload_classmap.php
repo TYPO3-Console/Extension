@@ -72,6 +72,7 @@ return array(
     'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeRunCommand' => $vendorDir . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeRunCommand.php',
     'Helhum\\Typo3Console\\CompatibilityClassLoader' => $vendorDir . '/helhum/typo3-console/Classes/Compatibility/CompatibilityClassLoader.php',
     'Helhum\\Typo3Console\\Composer\\InstallerScript\\PopulateCommandConfiguration' => $vendorDir . '/helhum/typo3-console/Classes/Console/Composer/InstallerScript/PopulateCommandConfiguration.php',
+    'Helhum\\Typo3Console\\Composer\\InstallerScript\\WarnDevBranchInstall' => $vendorDir . '/helhum/typo3-console/Classes/Console/Composer/InstallerScript/WarnDevBranchInstall.php',
     'Helhum\\Typo3Console\\Composer\\InstallerScripts' => $vendorDir . '/helhum/typo3-console/Classes/Console/Composer/InstallerScripts.php',
     'Helhum\\Typo3Console\\Composer\\PopulateCommands' => $baseDir . '/Classes/Console/Composer/PopulateCommands.php',
     'Helhum\\Typo3Console\\Composer\\ScriptHelper' => $vendorDir . '/helhum/typo3-console/Classes/Console/Composer/ScriptHelper.php',

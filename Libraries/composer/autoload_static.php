@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd7b1ab63966af3c988ffb03e108a1651
+class ComposerStaticInita3a4ceb916c451891e6320e2f98dcb2d
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
@@ -102,6 +102,7 @@ class ComposerStaticInitd7b1ab63966af3c988ffb03e108a1651
         'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeRunCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeRunCommand.php',
         'Helhum\\Typo3Console\\CompatibilityClassLoader' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/CompatibilityClassLoader.php',
         'Helhum\\Typo3Console\\Composer\\InstallerScript\\PopulateCommandConfiguration' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScript/PopulateCommandConfiguration.php',
+        'Helhum\\Typo3Console\\Composer\\InstallerScript\\WarnDevBranchInstall' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScript/WarnDevBranchInstall.php',
         'Helhum\\Typo3Console\\Composer\\InstallerScripts' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScripts.php',
         'Helhum\\Typo3Console\\Composer\\PopulateCommands' => __DIR__ . '/../..' . '/Classes/Console/Composer/PopulateCommands.php',
         'Helhum\\Typo3Console\\Composer\\ScriptHelper' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/ScriptHelper.php',
@@ -205,9 +206,9 @@ class ComposerStaticInitd7b1ab63966af3c988ffb03e108a1651
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd7b1ab63966af3c988ffb03e108a1651::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd7b1ab63966af3c988ffb03e108a1651::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitd7b1ab63966af3c988ffb03e108a1651::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita3a4ceb916c451891e6320e2f98dcb2d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita3a4ceb916c451891e6320e2f98dcb2d::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInita3a4ceb916c451891e6320e2f98dcb2d::$classMap;
 
         }, null, ClassLoader::class);
     }

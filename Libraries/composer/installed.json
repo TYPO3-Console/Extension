@@ -2,36 +2,36 @@
     "packages": [
         {
             "name": "helhum/config-loader",
-            "version": "v0.12.3",
-            "version_normalized": "0.12.3.0",
+            "version": "v0.12.4",
+            "version_normalized": "0.12.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/helhum/config-loader.git",
-                "reference": "4bd2cdb1d81ae0eedbc1ce9d2af1e81eea444e70"
+                "reference": "db87de92730e7ebead47b88aa14746d0b8653ba9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helhum/config-loader/zipball/4bd2cdb1d81ae0eedbc1ce9d2af1e81eea444e70",
-                "reference": "4bd2cdb1d81ae0eedbc1ce9d2af1e81eea444e70",
+                "url": "https://api.github.com/repos/helhum/config-loader/zipball/db87de92730e7ebead47b88aa14746d0b8653ba9",
+                "reference": "db87de92730e7ebead47b88aa14746d0b8653ba9",
                 "shasum": ""
             },
             "require": {
-                "php": ">7.0"
+                "php": ">=7.2"
             },
             "require-dev": {
-                "mikey179/vfsstream": "^1.6",
-                "phpunit/phpunit": "^5.0",
-                "symfony/yaml": "^2.8 || ^3.3 || ^4.0"
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpunit/phpunit": "^8.5",
+                "symfony/yaml": "^2.8 || ^3.3 || ^4.0 || ^5.0"
             },
             "suggest": {
                 "ext-yaml": "For improved performance when parsing yaml files you should use the PECL YAML Parser php extension",
                 "symfony/yaml": "To be able to parse yaml files, you will need symfony/yaml"
             },
-            "time": "2021-07-13T13:28:57+00:00",
+            "time": "2021-10-29T14:13:35+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-main": "1.0.x-dev"
                 }
             },
             "installation-source": "dist",
@@ -47,7 +47,7 @@
             "description": "Generic config loader with context and environment support.",
             "support": {
                 "issues": "https://github.com/helhum/config-loader/issues",
-                "source": "https://github.com/helhum/config-loader/tree/v0.12.3"
+                "source": "https://github.com/helhum/config-loader/tree/v0.12.4"
             },
             "funding": [
                 {
@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "8b7d70f4289c7c977e26621adb50d92facf59edd"
+                "reference": "2059e954df87c4e3f22dcedde5cd312bad3ee254"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -76,13 +76,13 @@
                 "php": ">=7.4.1",
                 "symfony/console": "^4.4 || ^5.0",
                 "symfony/process": "^4.4 || ^5.0",
-                "typo3/cms-backend": "^11.5.1",
-                "typo3/cms-core": "^11.5.1",
-                "typo3/cms-extbase": "^11.5.1",
-                "typo3/cms-extensionmanager": "^11.5.1",
-                "typo3/cms-fluid": "^11.5.1",
-                "typo3/cms-frontend": "^11.5.1",
-                "typo3/cms-install": "^11.5.1"
+                "typo3/cms-backend": "^11.5.1 || dev-master",
+                "typo3/cms-core": "^11.5.1 || dev-master",
+                "typo3/cms-extbase": "^11.5.1 || dev-master",
+                "typo3/cms-extensionmanager": "^11.5.1 || dev-master",
+                "typo3/cms-fluid": "^11.5.1 || dev-master",
+                "typo3/cms-frontend": "^11.5.1 || dev-master",
+                "typo3/cms-install": "^11.5.1 || dev-master"
             },
             "conflict": {
                 "doctrine/dbal": "2.13.0 || 2.13.1",
@@ -99,6 +99,7 @@
                 "symfony/filesystem": "^4.4 || ^5.0",
                 "typo3-console/create-reference-command": "@dev",
                 "typo3/cms-filemetadata": "^11.5.1 || dev-master",
+                "typo3/cms-recordlist": "^11.5.1 || dev-master",
                 "typo3/cms-reports": "^11.5.1 || dev-master"
             },
             "bin": [
