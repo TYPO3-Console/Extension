@@ -5,7 +5,7 @@
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '2f4a2d2d5e15df152e553ec5cfcb2fc4c40749ba',
+        'reference' => 'c9fa0eb5471006f52a4011c04ac5d6697bdab96b',
         'name' => 'typo3-console/extension',
         'dev' => true,
     ),
@@ -27,7 +27,7 @@
             'aliases' => array(
                 0 => '7.x-dev',
             ),
-            'reference' => 'ac3b5d9c6012b5728886e3852b3e4427ff7f8d2d',
+            'reference' => '21e9dccc10be15d66c5dc4a6a9ffeda50efa442f',
             'dev_requirement' => false,
         ),
         'psr/log' => array(
@@ -61,12 +61,12 @@
             ),
         ),
         'symfony/process' => array(
-            'pretty_version' => 'v5.3.7',
-            'version' => '5.3.7.0',
+            'pretty_version' => 'v5.4.0',
+            'version' => '5.4.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/process',
             'aliases' => array(),
-            'reference' => '38f26c7d6ed535217ea393e05634cb0b244a1967',
+            'reference' => '5be20b3830f726e019162b26223110c8f47cf274',
             'dev_requirement' => false,
         ),
         'typo3-console/extension' => array(
@@ -75,7 +75,7 @@
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '2f4a2d2d5e15df152e553ec5cfcb2fc4c40749ba',
+            'reference' => 'c9fa0eb5471006f52a4011c04ac5d6697bdab96b',
             'dev_requirement' => false,
         ),
         'typo3-ter/typo3-console' => array(
