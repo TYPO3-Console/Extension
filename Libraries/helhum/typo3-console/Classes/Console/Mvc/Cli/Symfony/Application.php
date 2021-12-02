@@ -41,7 +41,7 @@ use TYPO3\CMS\Core\Information\Typo3Version;
  */
 class Application extends BaseApplication
 {
-    const TYPO3_CONSOLE_VERSION = '6.5.0';
+    const TYPO3_CONSOLE_VERSION = '7.0.4';
     const COMMAND_NAME = 'typo3cms';
 
     /**
@@ -148,7 +148,7 @@ class Application extends BaseApplication
                     sprintf(
                         'Command "%s" cannot be run, because it needs a fully set up TYPO3 system.'
                         . PHP_EOL
-                        . 'Your system currently lacks essential configuration files (LocalConfiguration.php, PackageStates.php).',
+                        . 'Your system currently lacks an essential configuration file (LocalConfiguration.php).',
                         $exception->getCommandName()
                     ),
                     'Try setting up your system using the "install:setup" command.',

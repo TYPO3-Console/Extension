@@ -18,7 +18,7 @@ use Composer\Composer;
 use Composer\IO\IOInterface;
 use Composer\Package\PackageInterface;
 use Composer\Script\Event as ScriptEvent;
-use Helhum\Typo3Console\Composer\Util\PackageSorter;
+use Composer\Util\PackageSorter;
 use Symfony\Component\Console\Exception\RuntimeException;
 use TYPO3\CMS\Composer\Plugin\Core\InstallerScript;
 
@@ -51,8 +51,7 @@ class PopulateCommandConfiguration implements InstallerScript
             /** @var PackageInterface $package */
             $installPath = ($installPath ?: $basePath);
             if (in_array($package->getType(), ['metapackage', 'typo3-cms-extension', 'typo3-cms-framework'], true)) {
-                // Commands in TYPO3 extensions are scanned for anyway at a later point.
-                // With that we ensure not showing commands for extensions that aren't active.
+                // Commands in TYPO3 extensions are not scanned any more. They should rather use DI configuration to register commands.
                 // Since meta packages have no code, thus cannot include any commands, we ignore them as well.
                 continue;
             }
@@ -111,10 +110,6 @@ class PopulateCommandConfiguration implements InstallerScript
         }
 
         $sortedPackages = PackageSorter::sortPackages($packages);
-
-        if (PackageSorter::isDeprecated()) {
-            $this->io->writeError('<error>Your Composer version is outdated. Please update by running "composer self-update".</error>');
-        }
 
         $sortedPackageMap = [];
         $sortedPackageMap[] = [$packages['helhum/typo3-console'], $paths['helhum/typo3-console']];
