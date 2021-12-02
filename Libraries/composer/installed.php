@@ -5,7 +5,7 @@
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4455370e46a2c1dd4170070f74fcc3284838a1f1',
+        'reference' => '85eac111ab294eec763f2592f07ec8192fa6fb26',
         'name' => 'typo3-console/extension',
         'dev' => true,
     ),
@@ -20,13 +20,11 @@
             'dev_requirement' => false,
         ),
         'helhum/typo3-console' => array(
-            'pretty_version' => 'dev-latest',
-            'version' => 'dev-latest',
+            'pretty_version' => 'v7.0.5',
+            'version' => '7.0.5.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../helhum/typo3-console',
-            'aliases' => array(
-                0 => '7.x-dev',
-            ),
+            'aliases' => array(),
             'reference' => '3cc5c41fedfd4dab55e2024c8f9f352842ef68bd',
             'dev_requirement' => false,
         ),
@@ -75,14 +73,13 @@
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4455370e46a2c1dd4170070f74fcc3284838a1f1',
+            'reference' => '85eac111ab294eec763f2592f07ec8192fa6fb26',
             'dev_requirement' => false,
         ),
         'typo3-ter/typo3-console' => array(
             'dev_requirement' => false,
             'replaced' => array(
-                0 => 'dev-latest',
-                1 => '7.x-dev',
+                0 => 'v7.0.5',
             ),
         ),
         'typo3/cms-backend' => array(
