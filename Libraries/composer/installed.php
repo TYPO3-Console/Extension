@@ -5,7 +5,7 @@
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '3a327e678cb600fa462cfd582aea4983bb4bbe61',
+        'reference' => 'c18369740ba8059052c175ba525073671e8297ce',
         'name' => 'typo3-console/extension',
         'dev' => true,
     ),
@@ -20,14 +20,12 @@
             'dev_requirement' => false,
         ),
         'helhum/typo3-console' => array(
-            'pretty_version' => 'dev-latest',
-            'version' => 'dev-latest',
+            'pretty_version' => 'dev-list-all-disabled-commands',
+            'version' => 'dev-list-all-disabled-commands',
             'type' => 'library',
             'install_path' => __DIR__ . '/../helhum/typo3-console',
-            'aliases' => array(
-                0 => '7.0.x-dev',
-            ),
-            'reference' => 'c394621783f874d123bdc5f593674272b4443c2b',
+            'aliases' => array(),
+            'reference' => 'c63993bca5c39593e217d9fcb54c1d1ee1cc6609',
             'dev_requirement' => false,
         ),
         'psr/log' => array(
@@ -61,12 +59,12 @@
             ),
         ),
         'symfony/process' => array(
-            'pretty_version' => 'v5.4.0',
-            'version' => '5.4.0.0',
+            'pretty_version' => 'v5.4.2',
+            'version' => '5.4.2.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/process',
             'aliases' => array(),
-            'reference' => '5be20b3830f726e019162b26223110c8f47cf274',
+            'reference' => '2b3ba8722c4aaf3e88011be5e7f48710088fb5e4',
             'dev_requirement' => false,
         ),
         'typo3-console/extension' => array(
@@ -75,14 +73,13 @@
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '3a327e678cb600fa462cfd582aea4983bb4bbe61',
+            'reference' => 'c18369740ba8059052c175ba525073671e8297ce',
             'dev_requirement' => false,
         ),
         'typo3-ter/typo3-console' => array(
             'dev_requirement' => false,
             'replaced' => array(
-                0 => 'dev-latest',
-                1 => '7.0.x-dev',
+                0 => 'dev-list-all-disabled-commands',
             ),
         ),
         'typo3/cms-backend' => array(
