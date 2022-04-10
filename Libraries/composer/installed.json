@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "helhum/config-loader",
-            "version": "v0.12.4",
-            "version_normalized": "0.12.4.0",
+            "version": "v0.12.5",
+            "version_normalized": "0.12.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/helhum/config-loader.git",
-                "reference": "db87de92730e7ebead47b88aa14746d0b8653ba9"
+                "reference": "f761ab3fcf888b9d17d679d94b14aca24fe6bfab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helhum/config-loader/zipball/db87de92730e7ebead47b88aa14746d0b8653ba9",
-                "reference": "db87de92730e7ebead47b88aa14746d0b8653ba9",
+                "url": "https://api.github.com/repos/helhum/config-loader/zipball/f761ab3fcf888b9d17d679d94b14aca24fe6bfab",
+                "reference": "f761ab3fcf888b9d17d679d94b14aca24fe6bfab",
                 "shasum": ""
             },
             "require": {
@@ -27,7 +27,7 @@
                 "ext-yaml": "For improved performance when parsing yaml files you should use the PECL YAML Parser php extension",
                 "symfony/yaml": "To be able to parse yaml files, you will need symfony/yaml"
             },
-            "time": "2021-10-29T14:13:35+00:00",
+            "time": "2022-02-21T15:32:39+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -47,7 +47,7 @@
             "description": "Generic config loader with context and environment support.",
             "support": {
                 "issues": "https://github.com/helhum/config-loader/issues",
-                "source": "https://github.com/helhum/config-loader/tree/v0.12.4"
+                "source": "https://github.com/helhum/config-loader/tree/v0.12.5"
             },
             "funding": [
                 {
@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "c394621783f874d123bdc5f593674272b4443c2b"
+                "reference": "8fa307dabbddb8b666fe3c3f6940d5ed4ba29912"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -199,24 +199,24 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.4.0",
-            "version_normalized": "5.4.0.0",
+            "version": "v5.4.7",
+            "version_normalized": "5.4.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "5be20b3830f726e019162b26223110c8f47cf274"
+                "reference": "38a44b2517b470a436e1c944bf9b9ba3961137fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/5be20b3830f726e019162b26223110c8f47cf274",
-                "reference": "5be20b3830f726e019162b26223110c8f47cf274",
+                "url": "https://api.github.com/repos/symfony/process/zipball/38a44b2517b470a436e1c944bf9b9ba3961137fb",
+                "reference": "38a44b2517b470a436e1c944bf9b9ba3961137fb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/polyfill-php80": "^1.16"
             },
-            "time": "2021-11-28T15:25:38+00:00",
+            "time": "2022-03-18T16:18:52+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -244,7 +244,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v5.4.0"
+                "source": "https://github.com/symfony/process/tree/v5.4.7"
             },
             "funding": [
                 {
