@@ -9,11 +9,15 @@ $EM_CONF[$_EXTKEY] = [
   'author' => 'Helmut Hummel',
   'author_email' => 'info@helhum.io',
   'author_company' => 'helhum.io',
-  'version' => '7.0.5',
+  'version' => '6.7.0',
   'constraints' => [
     'depends' => [
-      'php' => '7.4.1-8.99.99',
-      'typo3' => '11.5.3-11.5.99',
+      'php' => '7.2.0-7.4.99',
+      'typo3' => '10.4.22-10.4.99',
+      'extbase' => '10.4.22-10.4.99',
+      'extensionmanager' => '10.4.22-10.4.99',
+      'fluid' => '10.4.22-10.4.99',
+      'install' => '10.4.22-10.4.99',
     ],
     'conflicts' => [
     ],

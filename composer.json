@@ -27,16 +27,18 @@
         "command",
         "commandline"
     ],
-    "homepage": "http://insight.helhum.io/post/104528981610/about-the-beauty-and-power-of-typo3-console",
+    "homepage": "https://insight.helhum.io/post/104528981610/about-the-beauty-and-power-of-typo3-console",
     "support": {
-        "issues": "https://github.com/TYPO3-Console/typo3_console/issues"
+        "issues": "https://github.com/TYPO3-Console/TYPO3-Console/issues",
+        "source": "https://github.com/TYPO3-Console/TYPO3-Console",
+        "docs": "https://docs.typo3.org/p/helhum/typo3-console/main/en-us/"
     },
     "authors": [
         {
             "name": "Helmut Hummel",
             "email": "info@helhum.io",
             "role": "Developer",
-            "homepage": "http://helhum.io"
+            "homepage": "https://helhum.io"
         }
     ],
     "license": "GPL-2.0-or-later",
@@ -47,7 +49,7 @@
         },
         "classmap-authoritative": true,
         "platform": {
-            "php": "7.4.1"
+            "php": "7.2.5"
         }
     },
     "autoload": {
@@ -59,7 +61,7 @@
     },
     "require": {
         "helhum/typo3-console": "@dev",
-        "typo3/cms-core": "^11.5.3 || dev-main"
+        "typo3/cms-core": "^10.4.22"
     },
     "replace": {
         "typo3/cms-backend": "*",
@@ -75,7 +77,7 @@
         "symfony/console": "*",
         "symfony/debug": "*",
         "symfony/polyfill-mbstring": "*",
-        "symfony/polyfill-php80": ">=1.23.1"
+        "symfony/polyfill-php80": "*"
     },
     "scripts": {
         "post-autoload-dump": "Helhum\\Typo3Console\\Composer\\PopulateCommands::populate"

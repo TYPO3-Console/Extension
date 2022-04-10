@@ -5,7 +5,7 @@
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'c18369740ba8059052c175ba525073671e8297ce',
+        'reference' => 'f6933ea25cb458efac11586bf6578c17cfe8b7a9',
         'name' => 'typo3-console/extension',
         'dev' => true,
     ),
@@ -20,14 +20,12 @@
             'dev_requirement' => false,
         ),
         'helhum/typo3-console' => array(
-            'pretty_version' => 'dev-latest',
-            'version' => 'dev-latest',
+            'pretty_version' => 'v6.7.0',
+            'version' => '6.7.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../helhum/typo3-console',
-            'aliases' => array(
-                0 => '7.0.x-dev',
-            ),
-            'reference' => '8fa307dabbddb8b666fe3c3f6940d5ed4ba29912',
+            'aliases' => array(),
+            'reference' => 'b4a98482fc7d844a80b070dc5fdd7ddadf6514b6',
             'dev_requirement' => false,
         ),
         'psr/log' => array(
@@ -57,7 +55,7 @@
         'symfony/polyfill-php80' => array(
             'dev_requirement' => false,
             'replaced' => array(
-                0 => '>=1.23.1',
+                0 => '*',
             ),
         ),
         'symfony/process' => array(
@@ -75,14 +73,13 @@
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'c18369740ba8059052c175ba525073671e8297ce',
+            'reference' => 'f6933ea25cb458efac11586bf6578c17cfe8b7a9',
             'dev_requirement' => false,
         ),
         'typo3-ter/typo3-console' => array(
             'dev_requirement' => false,
             'replaced' => array(
-                0 => 'dev-latest',
-                1 => '7.0.x-dev',
+                0 => 'v6.7.0',
             ),
         ),
         'typo3/cms-backend' => array(

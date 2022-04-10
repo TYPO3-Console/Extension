@@ -27,15 +27,12 @@ class ScriptHelper
      * @internal
      * @throws Exception
      */
-    public static function setVersion(ScriptEvent $event): void
+    public static function setVersion(ScriptEvent $event)
     {
         $version = $event->getArguments()[0];
-        if (!preg_match('/(\d+)\.(\d+)\.(\d+)/', $version, $matches)) {
+        if (!preg_match('/\d+\.\d+\.\d+/', $version)) {
             throw new Exception('No valid version number provided!', 1468672604);
         }
-        [, $major, $minor, ] = $matches;
-        $branchVersion = sprintf('%d.%d.x-dev', $major, $minor);
-
         $docConfigFile = __DIR__ . '/../../../Documentation/Settings.yml';
         $content = file_get_contents($docConfigFile);
         $content = preg_replace('/(version|release): \d+\.\d+\.\d+/', '$1: ' . $version, $content);
@@ -71,26 +68,16 @@ class ScriptHelper
         $content = preg_replace('/(SET COMPOSER_ROOT_VERSION)=\d+\.\d+\.\d+/', '$1=' . $version, $content);
         file_put_contents($appveyorYmlFile, $content);
 
-        $composerJson = __DIR__ . '/../../../composer.json';
-        $content = file_get_contents($composerJson);
-        $content = preg_replace('/("dev-latest": )"\d+\.\d+\.x-dev/', '$1"' . $branchVersion, $content);
-        $content = preg_replace('/("dev-main": )"\d+\.\d+\.x-dev/', '$1"' . $branchVersion, $content);
-        file_put_contents($composerJson, $content);
-
         $sonarConfigFile = __DIR__ . '/../../../sonar-project.properties';
         $content = file_get_contents($sonarConfigFile);
         $content = preg_replace('/(sonar.projectVersion)=\d+\.\d+\.\d+/', '$1=' . $version, $content);
         file_put_contents($sonarConfigFile, $content);
     }
 
-    /**
-     * @throws Exception
-     * @throws \JsonException
-     */
-    public static function verifyComposerJsonOfExtension(): void
+    public static function verifyComposerJsonOfExtension()
     {
-        $main = json_decode(file_get_contents('composer.json') ?: '', true, 512, JSON_THROW_ON_ERROR);
-        $extension = json_decode(file_get_contents('Resources/Private/ExtensionArtifacts/composer.json') ?: '', true, 512, JSON_THROW_ON_ERROR);
+        $main = json_decode(file_get_contents('composer.json'), true);
+        $extension = json_decode(file_get_contents('Resources/Private/ExtensionArtifacts/composer.json'), true);
         foreach (['description', 'keywords', 'support', 'homepage', 'authors', 'license'] as $name) {
             if ($main[$name] !== $extension[$name]) {
                 throw new Exception(sprintf('Property "%s" is not the same', $name));

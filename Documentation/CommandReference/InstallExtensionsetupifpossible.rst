@@ -39,4 +39,10 @@ Options
 
 
 
+Related commands
+~~~~~~~~~~~~~~~~
+
+`extension:setupactive`
+  Set up all active extensions
+
 

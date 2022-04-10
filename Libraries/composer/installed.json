@@ -63,44 +63,42 @@
         },
         {
             "name": "helhum/typo3-console",
-            "version": "dev-latest",
-            "version_normalized": "dev-latest",
+            "version": "v6.7.0",
+            "version_normalized": "6.7.0.0",
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "8fa307dabbddb8b666fe3c3f6940d5ed4ba29912"
+                "reference": "b4a98482fc7d844a80b070dc5fdd7ddadf6514b6"
             },
             "require": {
-                "composer-runtime-api": "^2.1",
                 "helhum/config-loader": ">=0.9 <0.13",
-                "php": ">=7.4.1",
+                "php": ">=7.2",
                 "symfony/console": "^4.4 || ^5.0",
                 "symfony/process": "^4.4 || ^5.0",
-                "typo3/cms-backend": "^11.5.3 || dev-main",
-                "typo3/cms-core": "^11.5.3 || dev-main",
-                "typo3/cms-extbase": "^11.5.3 || dev-main",
-                "typo3/cms-extensionmanager": "^11.5.3 || dev-main",
-                "typo3/cms-fluid": "^11.5.3 || dev-main",
-                "typo3/cms-frontend": "^11.5.3 || dev-main",
-                "typo3/cms-install": "^11.5.3 || dev-main"
+                "typo3/cms-backend": "^10.4.22",
+                "typo3/cms-core": "^10.4.22",
+                "typo3/cms-extbase": "^10.4.22",
+                "typo3/cms-extensionmanager": "^10.4.22",
+                "typo3/cms-fluid": "^10.4.22",
+                "typo3/cms-frontend": "^10.4.22",
+                "typo3/cms-install": "^10.4.22"
             },
             "conflict": {
-                "doctrine/dbal": "2.13.0 || 2.13.1",
-                "symfony/polyfill-php80": "<1.23.1"
+                "doctrine/dbal": "2.13.0 || 2.13.1"
             },
             "replace": {
                 "typo3-ter/typo3-console": "self.version"
             },
             "require-dev": {
-                "nimut/testing-framework": "dev-php8",
+                "nimut/testing-framework": "^6.0.1",
                 "php-parallel-lint/php-parallel-lint": "^1.2",
                 "phpunit/phpunit": "^8.5.18",
                 "symfony/expression-language": "^4.4 || ^5.0",
                 "symfony/filesystem": "^4.4 || ^5.0",
                 "typo3-console/create-reference-command": "@dev",
-                "typo3/cms-filemetadata": "^11.5.3 || dev-main",
-                "typo3/cms-recordlist": "^11.5.3 || dev-main",
-                "typo3/cms-reports": "^11.5.3 || dev-main"
+                "typo3-console/php-server-command": "@dev",
+                "typo3/cms-filemetadata": "^10.4.22",
+                "typo3/cms-reports": "^10.4.22"
             },
             "bin": [
                 "typo3cms"
@@ -108,11 +106,9 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-latest": "7.0.x-dev",
-                    "dev-main": "7.0.x-dev"
+                    "dev-latest": "6.x-dev"
                 },
                 "typo3/cms": {
-                    "ignore-as-root": false,
                     "app-dir": ".Build",
                     "web-dir": ".Build/public"
                 }
@@ -176,11 +172,11 @@
                     "name": "Helmut Hummel",
                     "email": "info@helhum.io",
                     "role": "Developer",
-                    "homepage": "http://helhum.io"
+                    "homepage": "https://helhum.io"
                 }
             ],
             "description": "A reliable and powerful command line interface for TYPO3 CMS",
-            "homepage": "http://insight.helhum.io/post/104528981610/about-the-beauty-and-power-of-typo3-console",
+            "homepage": "https://insight.helhum.io/post/104528981610/about-the-beauty-and-power-of-typo3-console",
             "keywords": [
                 "TYPO3",
                 "cli",
@@ -189,7 +185,9 @@
                 "console"
             ],
             "support": {
-                "issues": "https://github.com/TYPO3-Console/typo3_console/issues"
+                "issues": "https://github.com/TYPO3-Console/TYPO3-Console/issues",
+                "source": "https://github.com/TYPO3-Console/TYPO3-Console",
+                "docs": "https://docs.typo3.org/p/helhum/typo3-console/main/en-us/"
             },
             "transport-options": {
                 "symlink": false,
