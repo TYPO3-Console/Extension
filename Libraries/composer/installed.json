@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "113c8f77f6bcc0c1d5e0dbc23798a4e5f0091216"
+                "reference": "66b6d95e5d22ec942a08577b4d399d689b441c06"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -176,11 +176,11 @@
                     "name": "Helmut Hummel",
                     "email": "info@helhum.io",
                     "role": "Developer",
-                    "homepage": "http://helhum.io"
+                    "homepage": "https://helhum.io"
                 }
             ],
             "description": "A reliable and powerful command line interface for TYPO3 CMS",
-            "homepage": "http://insight.helhum.io/post/104528981610/about-the-beauty-and-power-of-typo3-console",
+            "homepage": "https://insight.helhum.io/post/104528981610/about-the-beauty-and-power-of-typo3-console",
             "keywords": [
                 "TYPO3",
                 "cli",
@@ -189,7 +189,9 @@
                 "console"
             ],
             "support": {
-                "issues": "https://github.com/TYPO3-Console/typo3_console/issues"
+                "issues": "https://github.com/TYPO3-Console/TYPO3-Console/issues",
+                "source": "https://github.com/TYPO3-Console/TYPO3-Console",
+                "docs": "https://docs.typo3.org/p/helhum/typo3-console/main/en-us/"
             },
             "transport-options": {
                 "symlink": false,
