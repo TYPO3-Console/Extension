@@ -63,8 +63,8 @@
         },
         {
             "name": "helhum/typo3-console",
-            "version": "dev-latest",
-            "version_normalized": "dev-latest",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
