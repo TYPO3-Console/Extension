@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "ec4db7a03933aeb79a3144e4a1ce6f3473fe6675"
+                "reference": "bf5522ebe95e310bf3b1123fa6aad535c8c15272"
             },
             "require": {
                 "helhum/config-loader": ">=0.9 <0.13",
@@ -90,7 +90,7 @@
                 "typo3-ter/typo3-console": "self.version"
             },
             "require-dev": {
-                "nimut/testing-framework": "dev-php8",
+                "nimut/testing-framework": "^6.0.1",
                 "php-parallel-lint/php-parallel-lint": "^1.2",
                 "phpunit/phpunit": "^8.5.18",
                 "symfony/expression-language": "^4.4 || ^5.0",
@@ -172,11 +172,11 @@
                     "name": "Helmut Hummel",
                     "email": "info@helhum.io",
                     "role": "Developer",
-                    "homepage": "http://helhum.io"
+                    "homepage": "https://helhum.io"
                 }
             ],
             "description": "A reliable and powerful command line interface for TYPO3 CMS",
-            "homepage": "http://insight.helhum.io/post/104528981610/about-the-beauty-and-power-of-typo3-console",
+            "homepage": "https://insight.helhum.io/post/104528981610/about-the-beauty-and-power-of-typo3-console",
             "keywords": [
                 "TYPO3",
                 "cli",
@@ -185,7 +185,9 @@
                 "console"
             ],
             "support": {
-                "issues": "https://github.com/TYPO3-Console/typo3_console/issues"
+                "issues": "https://github.com/TYPO3-Console/TYPO3-Console/issues",
+                "source": "https://github.com/TYPO3-Console/TYPO3-Console",
+                "docs": "https://docs.typo3.org/p/helhum/typo3-console/main/en-us/"
             },
             "transport-options": {
                 "symlink": false,
