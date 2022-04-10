@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "db528b8fcbab50c534bf376a7ea7be169e4b2d2e"
+                "reference": "daf87f1bd64708faeed0b79177b0c2d0c4527b2e"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -108,8 +108,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-latest": "7.0.x-dev",
-                    "dev-main": "7.0.x-dev"
+                    "dev-latest": "7.1.x-dev",
+                    "dev-main": "7.1.x-dev"
                 },
                 "typo3/cms": {
                     "ignore-as-root": false,
