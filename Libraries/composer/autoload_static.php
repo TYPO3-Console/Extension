@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit20d814c2596217a44d83eb7d768bd74a
+class ComposerStaticInit04f68ca99c5c6717e1b3f4adeada4beb
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
@@ -68,9 +68,14 @@ class ComposerStaticInit20d814c2596217a44d83eb7d768bd74a
         'Helhum\\ConfigLoader\\Reader\\PhpFileReader' => __DIR__ . '/..' . '/helhum/config-loader/src/Reader/PhpFileReader.php',
         'Helhum\\ConfigLoader\\Reader\\RootConfigFileReader' => __DIR__ . '/..' . '/helhum/config-loader/src/Reader/RootConfigFileReader.php',
         'Helhum\\ConfigLoader\\Reader\\YamlFileReader' => __DIR__ . '/..' . '/helhum/config-loader/src/Reader/YamlFileReader.php',
+        'Helhum\\Typo3Console\\Command\\AbstractConvertedCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/AbstractConvertedCommand.php',
         'Helhum\\Typo3Console\\Command\\Backend\\CreateBackendAdminUserCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Backend/CreateBackendAdminUserCommand.php',
+        'Helhum\\Typo3Console\\Command\\Backend\\LockBackendCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Backend/LockBackendCommand.php',
         'Helhum\\Typo3Console\\Command\\Backend\\LockBackendForEditorsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Backend/LockBackendForEditorsCommand.php',
+        'Helhum\\Typo3Console\\Command\\Backend\\UnlockBackendCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Backend/UnlockBackendCommand.php',
         'Helhum\\Typo3Console\\Command\\Backend\\UnlockBackendForEditorsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Backend/UnlockBackendForEditorsCommand.php',
+        'Helhum\\Typo3Console\\Command\\Cache\\CacheFlushCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Cache/CacheFlushCommand.php',
+        'Helhum\\Typo3Console\\Command\\Cache\\CacheFlushGroupsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Cache/CacheFlushGroupsCommand.php',
         'Helhum\\Typo3Console\\Command\\Cache\\CacheFlushTagsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Cache/CacheFlushTagsCommand.php',
         'Helhum\\Typo3Console\\Command\\Cache\\CacheListGroupsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Cache/CacheListGroupsCommand.php',
         'Helhum\\Typo3Console\\Command\\Configuration\\ConfigurationRemoveCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Configuration/ConfigurationRemoveCommand.php',
@@ -81,6 +86,11 @@ class ComposerStaticInit20d814c2596217a44d83eb7d768bd74a
         'Helhum\\Typo3Console\\Command\\Database\\DatabaseExportCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Database/DatabaseExportCommand.php',
         'Helhum\\Typo3Console\\Command\\Database\\DatabaseImportCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Database/DatabaseImportCommand.php',
         'Helhum\\Typo3Console\\Command\\Database\\DatabaseUpdateSchemaCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Database/DatabaseUpdateSchemaCommand.php',
+        'Helhum\\Typo3Console\\Command\\Extension\\DumpAutoloadCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/DumpAutoloadCommand.php',
+        'Helhum\\Typo3Console\\Command\\Extension\\ExtensionListCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionListCommand.php',
+        'Helhum\\Typo3Console\\Command\\Extension\\ExtensionSetupActiveCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionSetupActiveCommand.php',
+        'Helhum\\Typo3Console\\Command\\Extension\\ExtensionSetupCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionSetupCommand.php',
+        'Helhum\\Typo3Console\\Command\\Extension\\ExtensionStateCommandsHelper' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Extension/ExtensionStateCommandsHelper.php',
         'Helhum\\Typo3Console\\Command\\Frontend\\FrontendRequestCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Frontend/FrontendRequestCommand.php',
         'Helhum\\Typo3Console\\Command\\InstallTool\\LockInstallToolCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/InstallTool/LockInstallToolCommand.php',
         'Helhum\\Typo3Console\\Command\\InstallTool\\UnlockInstallToolCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/InstallTool/UnlockInstallToolCommand.php',
@@ -101,11 +111,12 @@ class ComposerStaticInit20d814c2596217a44d83eb7d768bd74a
         'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradePrepareCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradePrepareCommand.php',
         'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeRunCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeRunCommand.php',
         'Helhum\\Typo3Console\\CompatibilityClassLoader' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/CompatibilityClassLoader.php',
+        'Helhum\\Typo3Console\\Compatibility\\EmConfReader' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Compatibility/EmConfReader.php',
         'Helhum\\Typo3Console\\Composer\\InstallerScript\\PopulateCommandConfiguration' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScript/PopulateCommandConfiguration.php',
-        'Helhum\\Typo3Console\\Composer\\InstallerScript\\WarnDevBranchInstall' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScript/WarnDevBranchInstall.php',
         'Helhum\\Typo3Console\\Composer\\InstallerScripts' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScripts.php',
         'Helhum\\Typo3Console\\Composer\\PopulateCommands' => __DIR__ . '/../..' . '/Classes/Console/Composer/PopulateCommands.php',
         'Helhum\\Typo3Console\\Composer\\ScriptHelper' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/ScriptHelper.php',
+        'Helhum\\Typo3Console\\Composer\\Util\\PackageSorter' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/Util/PackageSorter.php',
         'Helhum\\Typo3Console\\Core\\Booting\\ContainerBuildFailedException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/ContainerBuildFailedException.php',
         'Helhum\\Typo3Console\\Core\\Booting\\RunLevel' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/RunLevel.php',
         'Helhum\\Typo3Console\\Core\\Booting\\Scripts' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/Scripts.php',
@@ -131,7 +142,9 @@ class ComposerStaticInit20d814c2596217a44d83eb7d768bd74a
         'Helhum\\Typo3Console\\Extension\\ExtensionCompatibilityCheck' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionCompatibilityCheck.php',
         'Helhum\\Typo3Console\\Extension\\ExtensionConfiguration' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionConfiguration.php',
         'Helhum\\Typo3Console\\Extension\\ExtensionConstraintCheck' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionConstraintCheck.php',
+        'Helhum\\Typo3Console\\Extension\\ExtensionSetup' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionSetup.php',
         'Helhum\\Typo3Console\\Extension\\ExtensionSetupEventDispatcher' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionSetupEventDispatcher.php',
+        'Helhum\\Typo3Console\\Extension\\ExtensionSetupResultRenderer' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionSetupResultRenderer.php',
         'Helhum\\Typo3Console\\Hook\\ExtensionInstallation' => __DIR__ . '/../..' . '/Classes/Console/Hook/ExtensionInstallation.php',
         'Helhum\\Typo3Console\\Install\\Action\\CommandsAction' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Action/CommandsAction.php',
         'Helhum\\Typo3Console\\Install\\Action\\ExtensionSetupAction' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Action/ExtensionSetupAction.php',
@@ -184,6 +197,7 @@ class ComposerStaticInit20d814c2596217a44d83eb7d768bd74a
         'Helhum\\Typo3Console\\Service\\Database\\Exception' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Database/Exception.php',
         'Helhum\\Typo3Console\\Service\\Database\\SchemaService' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Database/SchemaService.php',
         'Helhum\\Typo3Console\\Service\\Exception' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Exception.php',
+        'Helhum\\Typo3Console\\TYPO3v104\\Mvc\\Cli\\Typo3CommandRegistry' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/TYPO3v104/Mvc/Cli/Typo3CommandRegistry.php',
         'Symfony\\Component\\Process\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/process/Exception/ExceptionInterface.php',
         'Symfony\\Component\\Process\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/process/Exception/InvalidArgumentException.php',
         'Symfony\\Component\\Process\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/process/Exception/LogicException.php',
@@ -206,9 +220,9 @@ class ComposerStaticInit20d814c2596217a44d83eb7d768bd74a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit20d814c2596217a44d83eb7d768bd74a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit20d814c2596217a44d83eb7d768bd74a::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit20d814c2596217a44d83eb7d768bd74a::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit04f68ca99c5c6717e1b3f4adeada4beb::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit04f68ca99c5c6717e1b3f4adeada4beb::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit04f68ca99c5c6717e1b3f4adeada4beb::$classMap;
 
         }, null, ClassLoader::class);
     }
