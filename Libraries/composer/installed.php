@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-latest',
-        'version' => 'dev-latest',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '84a5aed73cba8afb7749216a5277cd35fcefcfb7',
+        'reference' => '4ff37969eb10d4b923ba2c94bfb9e11f13f015d2',
         'name' => 'typo3-console/extension',
         'dev' => true,
     ),
@@ -27,7 +27,7 @@
             'aliases' => array(
                 0 => '7.1.x-dev',
             ),
-            'reference' => 'daf87f1bd64708faeed0b79177b0c2d0c4527b2e',
+            'reference' => 'cd3555833e930ddc2c2eef34f095000b6585013f',
             'dev_requirement' => false,
         ),
         'psr/log' => array(
@@ -70,12 +70,12 @@
             'dev_requirement' => false,
         ),
         'typo3-console/extension' => array(
-            'pretty_version' => 'dev-latest',
-            'version' => 'dev-latest',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '84a5aed73cba8afb7749216a5277cd35fcefcfb7',
+            'reference' => '4ff37969eb10d4b923ba2c94bfb9e11f13f015d2',
             'dev_requirement' => false,
         ),
         'typo3-ter/typo3-console' => array(
