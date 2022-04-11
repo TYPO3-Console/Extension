@@ -185,7 +185,7 @@ class CommandDispatcher
         $output = str_replace("\r\n", "\n", trim($process->getOutput()));
 
         if (!$process->isSuccessful()) {
-            throw FailedSubProcessCommandException::forProcess(implode(' ', $commandLine), $process);
+            throw FailedSubProcessCommandException::forProcess($command, $process);
         }
 
         return $output;
@@ -212,8 +212,6 @@ class CommandDispatcher
      */
     private function getProcess(array $commandLine, array $envVars, $input): Process
     {
-        // Make sure to output is not suppressed for sub processes, because it can be parsed by the parent process
-        $envVars['SHELL_VERBOSITY'] = 0;
         if ($this->isCurrentSymfonyImplementation()) {
             $process = new Process($commandLine, null, $envVars, $input, 0);
         } else {
@@ -244,8 +242,13 @@ class CommandDispatcher
         if (isset($commandParameters[0]) && $commandParameters[0]->getType() !== null) {
             return $commandParameters[0]->getType()->getName() === 'array';
         }
+        $docComment = $constructorReflector->getDocComment();
+        if (!$docComment) {
+            // No annotation, count parameters. Newer versions of symfony/process has 5 parameters.
+            return count($commandParameters) < 6;
+        }
         // No PHP type hint, look in annotation
-        preg_match("/@param[ ]*([^ ]*)[ ]*\\\${$commandParameters[0]->getName()}/", $constructorReflector->getDocComment(), $matches);
+        preg_match("/@param[ ]*([^ ]*)[ ]*\\\${$commandParameters[0]->getName()}/", $docComment, $matches);
 
         return ($matches[1] ?? '') === 'array';
     }

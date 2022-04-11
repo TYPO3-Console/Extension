@@ -1,17 +1,19 @@
 
-.. include:: /Includes.rst.txt
+.. include:: ../Includes.txt
 
-.. The following reference was automatically generated from code. It should not
-.. be changed directly.
+
 
 .. _typo3_console-command-reference-install-generatepackagestates:
+
+The following reference was automatically generated from code.
+
 
 =============================
 install:generatepackagestates
 =============================
 
 
-**Generate PackageStates.php file in non Composer enabled TYPO3 projects**
+**Generate PackageStates.php file**
 
 Generates and writes `typo3conf/PackageStates.php` file.
 Goal is to not have this file in version control, but generate it on `composer install`.
@@ -25,25 +27,18 @@ Marks the following extensions as active:
 
 To require TYPO3 core extensions use the following command:
 
-
-.. code-block:: shell
-
-   composer require typo3/cms-foo "*"
+`composer require typo3/cms-foo "*"`
 
 This updates your composer.json and composer.lock without any other changes.
 
 **Example:**
 
-
-.. code-block:: shell
-
-   typo3cms install:generatepackagestates
-
+  `typo3cms install:generatepackagestates`
 
 
 
 Options
-=======
+~~~~~~~
 
 `--framework-extensions`
    TYPO3 system extensions that should be marked as active. Extension keys separated by comma.
