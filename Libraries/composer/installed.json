@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "e8f4a784e22600ce1fbb3014ad48fcb8582dff32"
+                "reference": "faa96c02ed58c135fcd98b530f5aadeb5ff1ecf3"
             },
             "require": {
                 "helhum/config-loader": ">=0.9 <0.13",
