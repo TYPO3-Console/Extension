@@ -63,12 +63,12 @@
         },
         {
             "name": "helhum/typo3-console",
-            "version": "dev-latest",
-            "version_normalized": "dev-latest",
+            "version": "dev-fix-branch-names",
+            "version_normalized": "dev-fix-branch-names",
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "daf87f1bd64708faeed0b79177b0c2d0c4527b2e"
+                "reference": "37984e70ae689be73ecf003b1732223e457ef64f"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
