@@ -14,14 +14,14 @@ namespace Helhum\Typo3Console\Command\Database;
  *
  */
 
+use Helhum\Typo3Console\Command\AbstractConvertedCommand;
 use Helhum\Typo3Console\Database\Configuration\ConnectionConfiguration;
 use Helhum\Typo3Console\Database\Process\MysqlCommand;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class DatabaseImportCommand extends Command
+class DatabaseImportCommand extends AbstractConvertedCommand
 {
     protected function configure()
     {
@@ -46,7 +46,16 @@ This obviously only works when MySQL is used as DBMS.
   <code>%command.full_name% --interactive</code>
 EOH
         );
-        $this->setDefinition([
+        /** @deprecated Will be removed with 6.0 */
+        $this->setDefinition($this->createCompleteInputDefinition());
+    }
+
+    /**
+     * @deprecated Will be removed with 6.0
+     */
+    protected function createNativeDefinition(): array
+    {
+        return [
             new InputOption(
                 'interactive',
                 '',
@@ -60,7 +69,15 @@ EOH
                 'TYPO3 database connection name',
                 'Default'
             ),
-        ]);
+        ];
+    }
+
+    /**
+     * @deprecated will be removed with 6.0
+     */
+    protected function handleDeprecatedArgumentsAndOptions(InputInterface $input, OutputInterface $output)
+    {
+        // nothing to do here
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -76,7 +93,7 @@ EOH
             return 2;
         }
 
-        $mysqlCommand = new MysqlCommand($connectionConfiguration->build($connection), $output);
+        $mysqlCommand = new MysqlCommand($connectionConfiguration->build($connection), [], $output);
         $exitCode = $mysqlCommand->mysql(
             $interactive ? [] : ['--skip-column-names'],
             STDIN,

@@ -11,12 +11,36 @@ return array (
   1 => 
   array (
     'vendor' => 'typo3_console',
+    'class' => 'Helhum\\Typo3Console\\Command\\Backend\\LockBackendCommand',
+    'replace' => 
+    array (
+      0 => 'TYPO3\\CMS\\Backend\\Command\\LockBackendCommand',
+    ),
+    'name' => 'backend:lock',
+    'nameSpacedName' => 'typo3_console:backend:lock',
+    'service' => false,
+  ),
+  2 => 
+  array (
+    'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Backend\\LockBackendForEditorsCommand',
     'name' => 'backend:lockforeditors',
     'nameSpacedName' => 'typo3_console:backend:lockforeditors',
     'service' => false,
   ),
-  2 => 
+  3 => 
+  array (
+    'vendor' => 'typo3_console',
+    'class' => 'Helhum\\Typo3Console\\Command\\Backend\\UnlockBackendCommand',
+    'replace' => 
+    array (
+      0 => 'TYPO3\\CMS\\Backend\\Command\\UnlockBackendCommand',
+    ),
+    'name' => 'backend:unlock',
+    'nameSpacedName' => 'typo3_console:backend:unlock',
+    'service' => false,
+  ),
+  4 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Backend\\UnlockBackendForEditorsCommand',
@@ -24,7 +48,24 @@ return array (
     'nameSpacedName' => 'typo3_console:backend:unlockforeditors',
     'service' => false,
   ),
-  3 => 
+  5 => 
+  array (
+    'vendor' => 'typo3_console',
+    'class' => 'Helhum\\Typo3Console\\Command\\Cache\\CacheFlushCommand',
+    'runLevel' => 'buildEssentialSequence',
+    'name' => 'cache:flush',
+    'nameSpacedName' => 'typo3_console:cache:flush',
+    'service' => false,
+  ),
+  6 => 
+  array (
+    'vendor' => 'typo3_console',
+    'class' => 'Helhum\\Typo3Console\\Command\\Cache\\CacheFlushGroupsCommand',
+    'name' => 'cache:flushgroups',
+    'nameSpacedName' => 'typo3_console:cache:flushgroups',
+    'service' => false,
+  ),
+  7 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Cache\\CacheFlushTagsCommand',
@@ -32,7 +73,7 @@ return array (
     'nameSpacedName' => 'typo3_console:cache:flushtags',
     'service' => false,
   ),
-  4 => 
+  8 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Cache\\CacheListGroupsCommand',
@@ -40,7 +81,7 @@ return array (
     'nameSpacedName' => 'typo3_console:cache:listgroups',
     'service' => false,
   ),
-  5 => 
+  9 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Configuration\\ConfigurationRemoveCommand',
@@ -49,7 +90,7 @@ return array (
     'nameSpacedName' => 'typo3_console:configuration:remove',
     'service' => false,
   ),
-  6 => 
+  10 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Configuration\\ConfigurationSetCommand',
@@ -58,7 +99,7 @@ return array (
     'nameSpacedName' => 'typo3_console:configuration:set',
     'service' => false,
   ),
-  7 => 
+  11 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Configuration\\ConfigurationShowCommand',
@@ -66,7 +107,7 @@ return array (
     'nameSpacedName' => 'typo3_console:configuration:show',
     'service' => false,
   ),
-  8 => 
+  12 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Configuration\\ConfigurationShowActiveCommand',
@@ -74,7 +115,7 @@ return array (
     'nameSpacedName' => 'typo3_console:configuration:showactive',
     'service' => false,
   ),
-  9 => 
+  13 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Configuration\\ConfigurationShowLocalCommand',
@@ -83,7 +124,7 @@ return array (
     'nameSpacedName' => 'typo3_console:configuration:showlocal',
     'service' => false,
   ),
-  10 => 
+  14 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Database\\DatabaseExportCommand',
@@ -92,7 +133,7 @@ return array (
     'nameSpacedName' => 'typo3_console:database:export',
     'service' => false,
   ),
-  11 => 
+  15 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Database\\DatabaseImportCommand',
@@ -101,7 +142,7 @@ return array (
     'nameSpacedName' => 'typo3_console:database:import',
     'service' => false,
   ),
-  12 => 
+  16 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Database\\DatabaseUpdateSchemaCommand',
@@ -114,7 +155,49 @@ return array (
     'nameSpacedName' => 'typo3_console:database:updateschema',
     'service' => false,
   ),
-  13 => 
+  17 => 
+  array (
+    'vendor' => 'typo3_console',
+    'class' => 'Helhum\\Typo3Console\\Command\\Extension\\DumpAutoloadCommand',
+    'runLevel' => 'buildEssentialSequence',
+    'replace' => 
+    array (
+      0 => 'TYPO3\\CMS\\Core\\Command\\DumpAutoloadCommand',
+    ),
+    'name' => 'dumpautoload',
+    'nameSpacedName' => 'typo3_console:dumpautoload',
+    'service' => false,
+  ),
+  18 => 
+  array (
+    'vendor' => 'typo3_console',
+    'class' => 'Helhum\\Typo3Console\\Command\\Extension\\ExtensionListCommand',
+    'schedulable' => false,
+    'replace' => 
+    array (
+      0 => 'TYPO3\\CMS\\Core\\Command\\ExtensionListCommand',
+    ),
+    'name' => 'extension:list',
+    'nameSpacedName' => 'typo3_console:extension:list',
+    'service' => false,
+  ),
+  19 => 
+  array (
+    'vendor' => 'typo3_console',
+    'class' => 'Helhum\\Typo3Console\\Command\\Extension\\ExtensionSetupCommand',
+    'name' => 'extension:setup',
+    'nameSpacedName' => 'typo3_console:extension:setup',
+    'service' => false,
+  ),
+  20 => 
+  array (
+    'vendor' => 'typo3_console',
+    'class' => 'Helhum\\Typo3Console\\Command\\Extension\\ExtensionSetupActiveCommand',
+    'name' => 'extension:setupactive',
+    'nameSpacedName' => 'typo3_console:extension:setupactive',
+    'service' => false,
+  ),
+  21 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Frontend\\FrontendRequestCommand',
@@ -122,7 +205,7 @@ return array (
     'nameSpacedName' => 'typo3_console:frontend:request',
     'service' => false,
   ),
-  14 => 
+  22 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Install\\InstallSetupCommand',
@@ -131,7 +214,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:setup',
     'service' => false,
   ),
-  15 => 
+  23 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Install\\InstallGeneratePackageStatesCommand',
@@ -140,7 +223,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:generatepackagestates',
     'service' => false,
   ),
-  16 => 
+  24 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Install\\InstallFixFolderStructureCommand',
@@ -149,7 +232,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:fixfolderstructure',
     'service' => false,
   ),
-  17 => 
+  25 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Install\\InstallExtensionSetupIfPossibleCommand',
@@ -158,7 +241,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:extensionsetupifpossible',
     'service' => false,
   ),
-  18 => 
+  26 => 
   array (
     'class' => 'Helhum\\Typo3Console\\Command\\Install\\InstallEnvironmentAndFoldersCommand',
     'vendor' => 'typo3_console',
@@ -167,7 +250,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:environmentandfolders',
     'service' => false,
   ),
-  19 => 
+  27 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Install\\InstallDatabaseConnectCommand',
@@ -176,7 +259,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:databaseconnect',
     'service' => false,
   ),
-  20 => 
+  28 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Install\\InstallDatabaseSelectCommand',
@@ -185,7 +268,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:databaseselect',
     'service' => false,
   ),
-  21 => 
+  29 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Install\\InstallDatabaseDataCommand',
@@ -198,7 +281,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:databasedata',
     'service' => false,
   ),
-  22 => 
+  30 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Install\\InstallDefaultConfigurationCommand',
@@ -211,7 +294,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:defaultconfiguration',
     'service' => false,
   ),
-  23 => 
+  31 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Install\\InstallActionNeedsExecutionCommand',
@@ -220,7 +303,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:actionneedsexecution',
     'service' => false,
   ),
-  24 => 
+  32 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\InstallTool\\LockInstallToolCommand',
@@ -229,7 +312,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:lock',
     'service' => false,
   ),
-  25 => 
+  33 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\InstallTool\\UnlockInstallToolCommand',
@@ -238,7 +321,7 @@ return array (
     'nameSpacedName' => 'typo3_console:install:unlock',
     'service' => false,
   ),
-  26 => 
+  34 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeCheckExtensionCompatibilityCommand',
@@ -247,7 +330,7 @@ return array (
     'nameSpacedName' => 'typo3_console:upgrade:checkextensioncompatibility',
     'service' => false,
   ),
-  27 => 
+  35 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeCheckExtensionConstraintsCommand',
@@ -256,7 +339,7 @@ return array (
     'nameSpacedName' => 'typo3_console:upgrade:checkextensionconstraints',
     'service' => false,
   ),
-  28 => 
+  36 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeListCommand',
@@ -264,12 +347,11 @@ return array (
     array (
       0 => 'TYPO3\\CMS\\Install\\Command\\UpgradeWizardListCommand',
     ),
-    'runLevel' => 'buildExtendedRuntimeSequence',
     'name' => 'upgrade:list',
     'nameSpacedName' => 'typo3_console:upgrade:list',
     'service' => false,
   ),
-  29 => 
+  37 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradePrepareCommand',
@@ -278,7 +360,7 @@ return array (
     'nameSpacedName' => 'typo3_console:upgrade:prepare',
     'service' => false,
   ),
-  30 => 
+  38 => 
   array (
     'vendor' => 'typo3_console',
     'class' => 'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeRunCommand',
@@ -286,7 +368,6 @@ return array (
     array (
       0 => 'TYPO3\\CMS\\Install\\Command\\UpgradeWizardRunCommand',
     ),
-    'runLevel' => 'buildExtendedRuntimeSequence',
     'name' => 'upgrade:run',
     'nameSpacedName' => 'typo3_console:upgrade:run',
     'service' => false,

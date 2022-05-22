@@ -5,7 +5,7 @@
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '7156523a57451f4a63a53df3d19a3cd6f92d3c9b',
+        'reference' => '84a5aed73cba8afb7749216a5277cd35fcefcfb7',
         'name' => 'typo3-console/extension',
         'dev' => true,
     ),
@@ -20,14 +20,12 @@
             'dev_requirement' => false,
         ),
         'helhum/typo3-console' => array(
-            'pretty_version' => 'dev-latest',
-            'version' => 'dev-latest',
+            'pretty_version' => 'v6.7.3',
+            'version' => '6.7.3.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../helhum/typo3-console',
-            'aliases' => array(
-                0 => '7.1.x-dev',
-            ),
-            'reference' => 'daf87f1bd64708faeed0b79177b0c2d0c4527b2e',
+            'aliases' => array(),
+            'reference' => 'b3a4823a93266928f9e3304e46d33aa52a184dcf',
             'dev_requirement' => false,
         ),
         'psr/log' => array(
@@ -57,16 +55,16 @@
         'symfony/polyfill-php80' => array(
             'dev_requirement' => false,
             'replaced' => array(
-                0 => '>=1.23.1',
+                0 => '*',
             ),
         ),
         'symfony/process' => array(
-            'pretty_version' => 'v5.4.7',
-            'version' => '5.4.7.0',
+            'pretty_version' => 'v5.4.8',
+            'version' => '5.4.8.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/process',
             'aliases' => array(),
-            'reference' => '38a44b2517b470a436e1c944bf9b9ba3961137fb',
+            'reference' => '597f3fff8e3e91836bb0bd38f5718b56ddbde2f3',
             'dev_requirement' => false,
         ),
         'typo3-console/extension' => array(
@@ -75,14 +73,13 @@
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '7156523a57451f4a63a53df3d19a3cd6f92d3c9b',
+            'reference' => '84a5aed73cba8afb7749216a5277cd35fcefcfb7',
             'dev_requirement' => false,
         ),
         'typo3-ter/typo3-console' => array(
             'dev_requirement' => false,
             'replaced' => array(
-                0 => 'dev-latest',
-                1 => '7.1.x-dev',
+                0 => 'v6.7.3',
             ),
         ),
         'typo3/cms-backend' => array(

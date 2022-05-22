@@ -1,10 +1,12 @@
 
-.. include:: /Includes.rst.txt
+.. include:: ../Includes.txt
 
-.. The following reference was automatically generated from code. It should not
-.. be changed directly.
+
 
 .. _typo3_console-command-reference-configuration-remove:
+
+The following reference was automatically generated from code.
+
 
 ====================
 configuration:remove
@@ -20,14 +22,10 @@ LocalConfiguration.php and not be overridden elsewhere.
 
 **Example:**
 
-
-.. code-block:: shell
-
-   typo3cms configuration:remove DB,EXT/EXTCONF/realurl
-
+  `typo3cms configuration:remove DB,EXT/EXTCONF/realurl`
 
 Arguments
-=========
+~~~~~~~~~
 
 `paths`
    Path to system configuration that should be removed. Multiple paths can be specified separated by comma
@@ -35,7 +33,7 @@ Arguments
 
 
 Options
-=======
+~~~~~~~
 
 `--force`
    If set, does not ask for confirmation
