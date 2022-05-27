@@ -5,7 +5,7 @@
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '5a3dc97aa9eefa9fc14ff68aa0d822991ff3bcb8',
+        'reference' => 'd773ce615f91f175c2a3ad7ff2f76cf6f7f881e9',
         'name' => 'typo3-console/extension',
         'dev' => true,
     ),
@@ -27,7 +27,7 @@
             'aliases' => array(
                 0 => '7.1.x-dev',
             ),
-            'reference' => '4b1be96db298f3ba7123bcc7318b613ab30db81d',
+            'reference' => '00a05c7fae5011a923e7f31819e7ac8f64e03986',
             'dev_requirement' => false,
         ),
         'psr/log' => array(
@@ -75,7 +75,7 @@
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '5a3dc97aa9eefa9fc14ff68aa0d822991ff3bcb8',
+            'reference' => 'd773ce615f91f175c2a3ad7ff2f76cf6f7f881e9',
             'dev_requirement' => false,
         ),
         'typo3-ter/typo3-console' => array(
