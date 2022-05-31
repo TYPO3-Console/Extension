@@ -14,8 +14,8 @@ namespace Helhum\Typo3Console\Command\Configuration;
  *
  */
 
+use Helhum\Typo3Console\Command\AbstractConvertedCommand;
 use Helhum\Typo3Console\Service\Configuration\ConfigurationService;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -23,7 +23,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
-class ConfigurationRemoveCommand extends Command
+class ConfigurationRemoveCommand extends AbstractConvertedCommand
 {
     protected function configure()
     {
@@ -40,7 +40,16 @@ LocalConfiguration.php and not be overridden elsewhere.
   <code>%command.full_name% DB,EXT/EXTCONF/realurl</code>
 EOH
         );
-        $this->setDefinition([
+        /** @deprecated Will be removed with 6.0 */
+        $this->setDefinition($this->createCompleteInputDefinition());
+    }
+
+    /**
+     * @deprecated Will be removed with 6.0
+     */
+    protected function createNativeDefinition(): array
+    {
+        return [
             new InputArgument(
                 'paths',
                 InputArgument::REQUIRED,
@@ -52,7 +61,15 @@ EOH
                 InputOption::VALUE_NONE,
                 'If set, does not ask for confirmation'
             ),
-        ]);
+        ];
+    }
+
+    /**
+     * @deprecated will be removed with 6.0
+     */
+    protected function handleDeprecatedArgumentsAndOptions(InputInterface $input, OutputInterface $output)
+    {
+        // nothing to do here
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

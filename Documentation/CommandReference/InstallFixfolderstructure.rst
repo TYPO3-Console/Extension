@@ -1,10 +1,12 @@
 
-.. include:: /Includes.rst.txt
+.. include:: ../Includes.txt
 
-.. The following reference was automatically generated from code. It should not
-.. be changed directly.
+
 
 .. _typo3_console-command-reference-install-fixfolderstructure:
+
+The following reference was automatically generated from code.
+
 
 ==========================
 install:fixfolderstructure
@@ -23,5 +25,11 @@ required folders for all active extensions.
 
 
 
+
+Related commands
+~~~~~~~~~~~~~~~~
+
+`install:generatepackagestates`
+  Generate PackageStates.php file
 
 

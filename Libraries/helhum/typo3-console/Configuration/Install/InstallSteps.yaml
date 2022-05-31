@@ -141,5 +141,6 @@ extensionSetup:
     type: extensionSetup
     description: 'Set up extensions'
     commands:
+        - command: 'install:generatepackagestates'
         - command: 'database:updateschema'
-        - command: 'extension:setup'
+        - command: 'extension:setupactive'

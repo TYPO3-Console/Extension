@@ -28,17 +28,13 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class ExceptionRenderer
 {
     /**
-     * @var int
+     * @var Terminal
      */
-    private $renderingWidth;
+    private $terminal;
 
-    public function __construct(int $renderingWidth = null)
+    public function __construct(Terminal $terminal = null)
     {
-        if ($renderingWidth === null) {
-            $terminal = new Terminal();
-            $renderingWidth = $terminal->getWidth() ? $terminal->getWidth() - 1 : 80;
-        }
-        $this->renderingWidth = $renderingWidth;
+        $this->terminal = $terminal ?: new Terminal();
     }
 
     /**
@@ -104,10 +100,11 @@ class ExceptionRenderer
         $title = sprintf('[ %s ]', $exceptionClass);
 
         $messageLength = Helper::strlen($title);
+        $maxWidth = $this->terminal->getWidth() ? $this->terminal->getWidth() - 1 : PHP_INT_MAX;
 
         $lines = [];
         foreach (preg_split('/\r?\n/', trim($exceptionMessage)) as $line) {
-            foreach ($this->splitStringByWidth($line, $this->renderingWidth - 4) as $splitLine) {
+            foreach ($this->splitStringByWidth($line, $maxWidth - 4) as $splitLine) {
                 $lines[] = $splitLine;
                 $messageLength = max(Helper::strlen($splitLine), $messageLength);
             }
