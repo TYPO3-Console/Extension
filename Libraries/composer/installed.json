@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "081364750b70c00c67f40975e5b4bab4a635df20"
+                "reference": "dfc73c939ed6a00043cd170d20240bc274ec62fa"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -83,10 +83,6 @@
                 "typo3/cms-fluid": "^11.5.3 || dev-main",
                 "typo3/cms-frontend": "^11.5.3 || dev-main",
                 "typo3/cms-install": "^11.5.3 || dev-main"
-            },
-            "conflict": {
-                "doctrine/dbal": "2.13.0 || 2.13.1",
-                "symfony/polyfill-php80": "<1.23.1"
             },
             "replace": {
                 "typo3-ter/typo3-console": "self.version"
