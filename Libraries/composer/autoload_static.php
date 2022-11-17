@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8865c9540c9651ff4787b0158507a8e3
+class ComposerStaticInit8bcda2c7c94a3f7c17e372345a7ef13c
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
@@ -184,6 +184,7 @@ class ComposerStaticInit8865c9540c9651ff4787b0158507a8e3
         'Helhum\\Typo3Console\\Service\\Database\\Exception' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Database/Exception.php',
         'Helhum\\Typo3Console\\Service\\Database\\SchemaService' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Database/SchemaService.php',
         'Helhum\\Typo3Console\\Service\\Exception' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Exception.php',
+        'Helhum\\Typo3Console\\SymfonyCompatibilityBridge' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/SymfonyCompatibilityBridge.php',
         'Symfony\\Component\\Process\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/process/Exception/ExceptionInterface.php',
         'Symfony\\Component\\Process\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/process/Exception/InvalidArgumentException.php',
         'Symfony\\Component\\Process\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/process/Exception/LogicException.php',
@@ -206,9 +207,9 @@ class ComposerStaticInit8865c9540c9651ff4787b0158507a8e3
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8865c9540c9651ff4787b0158507a8e3::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8865c9540c9651ff4787b0158507a8e3::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit8865c9540c9651ff4787b0158507a8e3::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit8bcda2c7c94a3f7c17e372345a7ef13c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit8bcda2c7c94a3f7c17e372345a7ef13c::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit8bcda2c7c94a3f7c17e372345a7ef13c::$classMap;
 
         }, null, ClassLoader::class);
     }
