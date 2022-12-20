@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "a29e0dcd52db3d0a7ffa7b9af1950752eb8e1167"
+                "reference": "85f5749ccbd33806185ec173ed47c70f03b0ce28"
             },
             "require": {
                 "helhum/config-loader": ">=0.9 <0.13",
@@ -92,6 +92,7 @@
             "require-dev": {
                 "nimut/testing-framework": "^6.0.1",
                 "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpspec/prophecy": "*",
                 "phpunit/phpunit": "^8.5.18",
                 "symfony/expression-language": "^4.4 || ^5.0",
                 "symfony/filesystem": "^4.4 || ^5.0",
