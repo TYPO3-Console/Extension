@@ -1,10 +1,12 @@
 
-.. include:: /Includes.rst.txt
+.. include:: ../Includes.txt
 
-.. The following reference was automatically generated from code. It should not
-.. be changed directly.
+
 
 .. _typo3_console-command-reference-backend-createadmin:
+
+The following reference was automatically generated from code.
+
 
 ===================
 backend:createadmin
@@ -16,7 +18,7 @@ backend:createadmin
 Create a new user with administrative access.
 
 Arguments
-=========
+~~~~~~~~~
 
 `username`
    Username of the user

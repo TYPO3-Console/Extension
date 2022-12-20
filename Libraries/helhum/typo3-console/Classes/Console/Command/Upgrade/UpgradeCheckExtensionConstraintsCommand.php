@@ -14,17 +14,15 @@ namespace Helhum\Typo3Console\Command\Upgrade;
  *
  */
 
+use Helhum\Typo3Console\Command\AbstractConvertedCommand;
 use Helhum\Typo3Console\Install\Upgrade\UpgradeHandling;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use TYPO3\CMS\Core\Core\Environment;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use TYPO3\CMS\Core\Package\Exception\UnknownPackageException;
 
-class UpgradeCheckExtensionConstraintsCommand extends Command
+class UpgradeCheckExtensionConstraintsCommand extends AbstractConvertedCommand
 {
     protected function configure()
     {
@@ -36,7 +34,16 @@ It checks the version constraints of all third party extensions against a given 
 It therefore relies on the constraints to be correct.
 EOH
         );
-        $this->setDefinition([
+        /** @deprecated Will be removed with 6.0 */
+        $this->setDefinition($this->createCompleteInputDefinition());
+    }
+
+    /**
+     * @deprecated Will be removed with 6.0
+     */
+    protected function createNativeDefinition(): array
+    {
+        return [
             new InputArgument(
                 'extensionKeys',
                 InputArgument::OPTIONAL,
@@ -47,24 +54,21 @@ EOH
                 null,
                 InputOption::VALUE_REQUIRED,
                 'TYPO3 version to check against. Defaults to current TYPO3 version',
-                (new Typo3Version())->getVersion()
+                TYPO3_version
             ),
-        ]);
+        ];
     }
 
-    public function isHidden()
+    /**
+     * @deprecated will be removed with 6.0
+     */
+    protected function handleDeprecatedArgumentsAndOptions(InputInterface $input, OutputInterface $output)
     {
-        return !getenv('TYPO3_CONSOLE_RENDERING_REFERENCE') && Environment::isComposerMode();
+        // nothing to do here
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        if (Environment::isComposerMode()) {
-            $output->writeln('<error>The command "upgrade:checkextensionconstraints" is not available in Composer mode, because Composer already enforces such constraints.</error>');
-
-            return 1;
-        }
-
         $extensionKeys = $input->getArgument('extensionKeys');
         $typo3Version = $input->getOption('typo3-version');
         $upgradeHandling = new UpgradeHandling();

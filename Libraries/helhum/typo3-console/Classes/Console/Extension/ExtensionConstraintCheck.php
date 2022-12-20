@@ -14,28 +14,27 @@ namespace Helhum\Typo3Console\Extension;
  *
  */
 
-use TYPO3\CMS\Core\Core\Environment;
+use Helhum\Typo3Console\Compatibility\EmConfReader;
 use TYPO3\CMS\Core\Package\PackageInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-use TYPO3\CMS\Extensionmanager\Utility\EmConfUtility;
 
 class ExtensionConstraintCheck
 {
     /**
-     * @var EmConfUtility
+     * @var EmConfReader
      */
     private $emConfReader;
 
     /**
      * ExtensionConstraintCheck constructor.
      *
-     * @param EmConfUtility|null $emConfReader
+     * @param EmConfReader|null $emConfReader
      */
-    public function __construct(EmConfUtility $emConfReader = null)
+    public function __construct(EmConfReader $emConfReader = null)
     {
-        $this->emConfReader = $emConfReader ?: new EmConfUtility();
+        $this->emConfReader = $emConfReader ?: new EmConfReader();
     }
 
     /**
@@ -45,9 +44,6 @@ class ExtensionConstraintCheck
      */
     public function matchConstraints(PackageInterface $package, $typo3Version)
     {
-        if (Environment::isComposerMode()) {
-            return '';
-        }
         $message = '';
         $extConf = $this->emConfReader->includeEmConf($package->getPackageKey(), $package->getPackagePath());
         if (!empty($extConf['constraints']['depends']['typo3'])) {

@@ -1,10 +1,12 @@
 
-.. include:: /Includes.rst.txt
+.. include:: ../Includes.txt
 
-.. The following reference was automatically generated from code. It should not
-.. be changed directly.
+
 
 .. _typo3_console-command-reference-upgrade-list:
+
+The following reference was automatically generated from code.
+
 
 ============
 upgrade:list
@@ -18,7 +20,7 @@ upgrade:list
 
 
 Options
-=======
+~~~~~~~
 
 `--all|-a`
    If set, all wizards will be listed, even the once marked as ready or done

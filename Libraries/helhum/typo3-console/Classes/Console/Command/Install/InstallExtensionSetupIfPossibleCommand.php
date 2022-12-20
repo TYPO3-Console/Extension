@@ -14,6 +14,7 @@ namespace Helhum\Typo3Console\Command\Install;
  *
  */
 
+use Helhum\Typo3Console\Command\RelatableCommandInterface;
 use Helhum\Typo3Console\Mvc\Cli\CommandDispatcher;
 use Helhum\Typo3Console\Mvc\Cli\FailedSubProcessCommandException;
 use Symfony\Component\Console\Command\Command;
@@ -21,8 +22,15 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class InstallExtensionSetupIfPossibleCommand extends Command
+class InstallExtensionSetupIfPossibleCommand extends Command implements RelatableCommandInterface
 {
+    public function getRelatedCommandNames(): array
+    {
+        return [
+            'typo3_console:extension:setupactive',
+        ];
+    }
+
     protected function configure()
     {
         $this->addOption(
@@ -50,8 +58,8 @@ EOH
         $commandDispatcher = CommandDispatcher::createFromCommandRun();
         try {
             $output->writeln($commandDispatcher->executeCommand('database:updateschema'));
-            $output->writeln($commandDispatcher->executeCommand('cache:flush', ['--group', 'system']));
-            $output->writeln($commandDispatcher->executeCommand('extension:setup'));
+            $output->writeln($commandDispatcher->executeCommand('cache:flush'));
+            $output->writeln($commandDispatcher->executeCommand('extension:setupactive'));
         } catch (FailedSubProcessCommandException $e) {
             if ($input->getOption('fail-on-error')) {
                 throw $e;
