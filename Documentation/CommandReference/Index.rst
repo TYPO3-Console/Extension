@@ -1,5 +1,7 @@
 
-.. include:: /Includes.rst.txt
+.. include:: ../Includes.txt
+
+
 
 .. _typo3_console-command-reference:
 
@@ -15,7 +17,10 @@ Command Reference
    located in the binary directory specified in the root composer.json (by
    default `vendor/bin`)
 
+
 The following reference was automatically generated from code.
+
+
 
 Application Options
 -------------------
@@ -52,15 +57,25 @@ Available Commands
    :titlesonly:
 
 
+   Dumpautoload
+
    Help
 
    List
 
    BackendCreateadmin
 
+   BackendLock
+
    BackendLockforeditors
 
+   BackendUnlock
+
    BackendUnlockforeditors
+
+   CacheFlush
+
+   CacheFlushgroups
 
    CacheFlushtags
 
@@ -81,6 +96,12 @@ Available Commands
    DatabaseImport
 
    DatabaseUpdateschema
+
+   ExtensionList
+
+   ExtensionSetup
+
+   ExtensionSetupactive
 
    FrontendRequest
 

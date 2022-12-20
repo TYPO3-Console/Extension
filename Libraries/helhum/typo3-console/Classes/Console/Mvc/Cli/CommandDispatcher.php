@@ -185,7 +185,7 @@ class CommandDispatcher
         $output = str_replace("\r\n", "\n", trim($process->getOutput()));
 
         if (!$process->isSuccessful()) {
-            throw FailedSubProcessCommandException::forProcess(implode(' ', $commandLine), $process);
+            throw FailedSubProcessCommandException::forProcess($command, $process);
         }
 
         return $output;
@@ -244,8 +244,13 @@ class CommandDispatcher
         if (isset($commandParameters[0]) && $commandParameters[0]->getType() !== null) {
             return $commandParameters[0]->getType()->getName() === 'array';
         }
+        $docComment = $constructorReflector->getDocComment();
+        if (!$docComment) {
+            // No annotation, count parameters. Newer versions of symfony/process has 5 parameters.
+            return count($commandParameters) < 6;
+        }
         // No PHP type hint, look in annotation
-        preg_match("/@param[ ]*([^ ]*)[ ]*\\\${$commandParameters[0]->getName()}/", $constructorReflector->getDocComment(), $matches);
+        preg_match("/@param[ ]*([^ ]*)[ ]*\\\${$commandParameters[0]->getName()}/", $docComment, $matches);
 
         return ($matches[1] ?? '') === 'array';
     }
