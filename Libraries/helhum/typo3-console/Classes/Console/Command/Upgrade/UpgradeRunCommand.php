@@ -67,8 +67,7 @@ EOH
         $this->addArgument(
             'wizardIdentifiers',
             InputArgument::REQUIRED | InputArgument::IS_ARRAY,
-            'One or more wizard identifiers to run',
-            []
+            'One or more wizard identifiers to run'
         );
         $this->addOption(
             'confirm',
@@ -124,7 +123,7 @@ EOH
         }
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->upgradeHandling = $this->upgradeHandling ?? new UpgradeHandling();
         if (!$this->upgradeHandling->isUpgradePrepared()) {

@@ -41,7 +41,7 @@ use TYPO3\CMS\Core\Information\Typo3Version;
  */
 class Application extends BaseApplication
 {
-    const TYPO3_CONSOLE_VERSION = '7.1.0';
+    const TYPO3_CONSOLE_VERSION = '7.1.5';
     const COMMAND_NAME = 'typo3cms';
 
     /**
@@ -228,7 +228,7 @@ class Application extends BaseApplication
         }
     }
 
-    protected function getDefaultInputDefinition()
+    protected function getDefaultInputDefinition(): InputDefinition
     {
         return new InputDefinition([
             new InputArgument('command', InputArgument::REQUIRED, 'The command to execute'),
