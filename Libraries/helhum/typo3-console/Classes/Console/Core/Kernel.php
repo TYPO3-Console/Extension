@@ -28,7 +28,6 @@ use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Symfony\Component\Console\Input\InputInterface;
 use TYPO3\CMS\Core\Console\CommandRegistry;
-use TYPO3\CMS\Core\Core\BootService;
 use TYPO3\CMS\Core\Core\Bootstrap;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Core\SystemEnvironmentBuilder;
@@ -132,23 +131,15 @@ class Kernel
         Scripts::initializeErrorHandling();
         $error = null;
         try {
-            $bootService = $failsafeContainer->get(BootService::class);
-            $this->container = $bootService->getContainer(false);
-            $bootService->makeCurrent($this->container);
+            $lateBootService = $failsafeContainer->get(\TYPO3\CMS\Install\Service\LateBootService::class);
+            $this->container = $lateBootService->getContainer();
+            $lateBootService->makeCurrent($this->container);
             ExtensionManagementUtility::setEventDispatcher($this->container->get(EventDispatcherInterface::class));
-            // We need to fetch a container with disabled caching, because some TYPO3 Console commands rely on this
-            // to provide all required features. But we also need to reset the BootService,
-            // so that a new instance is created with the appropriate container (cached or uncached) (mainly for the cache:warmup command)
-            $this->container->set('_early.boot-service', null);
         } catch (\Throwable $e) {
             $this->container = $failsafeContainer;
             $error = new ContainerBuildFailedException($e);
         }
         $this->runLevel = new RunLevel($this->container, $error);
-        // TYPO3 low level commands are registered in failsafe container. Add them to the list of low level commands.
-        foreach ($failsafeContainer->get(CommandRegistry::class)->getNames() as $name) {
-            $this->runLevel->setRunLevelForCommand($name, RunLevel::LEVEL_COMPILE);
-        }
     }
 
     /**

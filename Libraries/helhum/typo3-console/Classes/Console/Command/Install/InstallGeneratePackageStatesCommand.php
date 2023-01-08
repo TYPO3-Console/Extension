@@ -14,11 +14,11 @@ namespace Helhum\Typo3Console\Command\Install;
  *
  */
 
+use Helhum\Typo3Console\Command\AbstractConvertedCommand;
 use Helhum\Typo3Console\Install\PackageStatesGenerator;
 use Helhum\Typo3Console\Mvc\Cli\CommandDispatcher;
 use Helhum\Typo3Console\Mvc\Cli\FailedSubProcessCommandException;
 use Helhum\Typo3Console\Package\UncachedPackageManager;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -27,11 +27,11 @@ use TYPO3\CMS\Core\Package\PackageInterface;
 use TYPO3\CMS\Core\Service\DependencyOrderingService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-class InstallGeneratePackageStatesCommand extends Command
+class InstallGeneratePackageStatesCommand extends AbstractConvertedCommand
 {
     protected function configure()
     {
-        $this->setDescription('Generate PackageStates.php file in non Composer enabled TYPO3 projects');
+        $this->setDescription('Generate PackageStates.php file');
         $this->setHelp(
             <<<'EOH'
 Generates and writes <code>typo3conf/PackageStates.php</code> file.
@@ -55,7 +55,16 @@ This updates your composer.json and composer.lock without any other changes.
   <code>%command.full_name%</code>
 EOH
         );
-        $this->setDefinition([
+        /** @deprecated Will be removed with 6.0 */
+        $this->setDefinition($this->createCompleteInputDefinition());
+    }
+
+    /**
+     * @deprecated Will be removed with 6.0
+     */
+    protected function createNativeDefinition(): array
+    {
+        return [
             new InputOption(
                 'framework-extensions',
                 null,
@@ -74,23 +83,19 @@ EOH
                 InputOption::VALUE_NONE,
                 '(DEPRECATED) If true, `typo3/cms` extensions that are marked as TYPO3 factory default, will be activated, even if not in the list of configured active framework extensions.'
             ),
-        ]);
+        ];
     }
 
-    public function isHidden()
+    /**
+     * @deprecated will be removed with 6.0
+     */
+    protected function handleDeprecatedArgumentsAndOptions(InputInterface $input, OutputInterface $output)
     {
-        return !getenv('TYPO3_CONSOLE_RENDERING_REFERENCE') && Environment::isComposerMode();
+        // nothing to do here
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        if (Environment::isComposerMode()) {
-            $output->writeln('<error>The command "install:generatepackagestates" is not available, because TYPO3 does not need this file any more in Composer mode.</error>');
-            $output->writeln('<comment>For more details read: https://docs.typo3.org/c/typo3/cms-core/master/en-us/Changelog/11.4/Feature-94996-ConsiderAllComposerInstalledExtensionsAsActive.html</comment>');
-
-            return 1;
-        }
-
         $frameworkExtensions = $excludedExtensions = null;
         $activateDefault = $input->getOption('activate-default');
         if ($input->getOption('framework-extensions')) {
@@ -104,9 +109,15 @@ EOH
         if ($input->getOption('excluded-extensions')) {
             $excludedExtensions = explode(',', $input->getOption('excluded-extensions'));
         }
+
+        if ($activateDefault && Environment::isComposerMode()) {
+            // @deprecated for composer usage in 5.0 will be removed with 6.0
+            $output->writeln('<warning>Using --activate-default is deprecated in composer managed TYPO3 installations.</warning>');
+            $output->writeln('<warning>Instead of requiring typo3/cms in your project, you should consider only requiring individual packages you need.</warning>');
+        }
         $dependencyOrderingService = GeneralUtility::makeInstance(DependencyOrderingService::class);
         $packageManager = GeneralUtility::makeInstance(UncachedPackageManager::class, $dependencyOrderingService);
-        $packageStatesGenerator = new PackageStatesGenerator($packageManager);
+        $packageStatesGenerator = new PackageStatesGenerator($packageManager, Environment::isComposerMode());
         $activatedExtensions = $packageStatesGenerator->generate(
             $frameworkExtensions ?? [],
             $excludedExtensions ?? [],
@@ -115,7 +126,7 @@ EOH
 
         try {
             // Make sure file caches are empty after generating package states file
-            CommandDispatcher::createFromCommandRun()->executeCommand('cache:flush', ['--group', 'system']);
+            CommandDispatcher::createFromCommandRun()->executeCommand('cache:flush', ['--files-only']);
         } catch (FailedSubProcessCommandException $e) {
             // Ignore errors here.
             // They might be triggered from extensions accessing db or having other things
