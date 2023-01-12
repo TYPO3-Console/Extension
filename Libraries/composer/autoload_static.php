@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit079b6d7706eb85c915ea366603ed5349
+class ComposerStaticInit1bbedf3149bcc9c83b282baa7c2dfd1a
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
@@ -15,6 +15,10 @@ class ComposerStaticInit079b6d7706eb85c915ea366603ed5349
         array (
             'Helhum\\Typo3Console\\' => 20,
             'Helhum\\ConfigLoader\\' => 20,
+        ),
+        'E' => 
+        array (
+            'ErrorReporting\\' => 15,
         ),
     );
 
@@ -33,10 +37,19 @@ class ComposerStaticInit079b6d7706eb85c915ea366603ed5349
         array (
             0 => __DIR__ . '/..' . '/helhum/config-loader/src',
         ),
+        'ErrorReporting\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/helhum/php-error-reporting/src',
+        ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'ErrorReporting\\DeprecationNotice' => __DIR__ . '/..' . '/helhum/php-error-reporting/src/DeprecationNotice.php',
+        'ErrorReporting\\Error' => __DIR__ . '/..' . '/helhum/php-error-reporting/src/Error.php',
+        'ErrorReporting\\ErrorException' => __DIR__ . '/..' . '/helhum/php-error-reporting/src/ErrorException.php',
+        'ErrorReporting\\Notice' => __DIR__ . '/..' . '/helhum/php-error-reporting/src/Notice.php',
+        'ErrorReporting\\Warning' => __DIR__ . '/..' . '/helhum/php-error-reporting/src/Warning.php',
         'Helhum\\ConfigLoader\\CachedConfigurationLoader' => __DIR__ . '/..' . '/helhum/config-loader/src/CachedConfigurationLoader.php',
         'Helhum\\ConfigLoader\\Config' => __DIR__ . '/..' . '/helhum/config-loader/src/Config.php',
         'Helhum\\ConfigLoader\\ConfigurationExporter' => __DIR__ . '/..' . '/helhum/config-loader/src/ConfigurationExporter.php',
@@ -184,6 +197,7 @@ class ComposerStaticInit079b6d7706eb85c915ea366603ed5349
         'Helhum\\Typo3Console\\Service\\Database\\Exception' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Database/Exception.php',
         'Helhum\\Typo3Console\\Service\\Database\\SchemaService' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Database/SchemaService.php',
         'Helhum\\Typo3Console\\Service\\Exception' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Service/Exception.php',
+        'Helhum\\Typo3Console\\SymfonyCompatibilityBridge' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/SymfonyCompatibilityBridge.php',
         'Symfony\\Component\\Process\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/process/Exception/ExceptionInterface.php',
         'Symfony\\Component\\Process\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/process/Exception/InvalidArgumentException.php',
         'Symfony\\Component\\Process\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/process/Exception/LogicException.php',
@@ -206,9 +220,9 @@ class ComposerStaticInit079b6d7706eb85c915ea366603ed5349
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit079b6d7706eb85c915ea366603ed5349::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit079b6d7706eb85c915ea366603ed5349::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit079b6d7706eb85c915ea366603ed5349::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1bbedf3149bcc9c83b282baa7c2dfd1a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1bbedf3149bcc9c83b282baa7c2dfd1a::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit1bbedf3149bcc9c83b282baa7c2dfd1a::$classMap;
 
         }, null, ClassLoader::class);
     }
