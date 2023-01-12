@@ -3,7 +3,7 @@
         'name' => 'typo3-console/extension',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f78a77ed81d8a06adb3004c7640c8ffa09633eb3',
+        'reference' => 'cf8733c8d56c33287c6b1348843834f55df5387b',
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -19,10 +19,19 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'helhum/php-error-reporting' => array(
+            'pretty_version' => 'v1.0.0',
+            'version' => '1.0.0.0',
+            'reference' => '50e1a2493a470947e7fcb5c28dbf500bda42c31c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../helhum/php-error-reporting',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'helhum/typo3-console' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd2fbbf93a590cd0413af5810237ca8bcfc73a6e5',
+            'reference' => '81043ce688cd6ba6136fff742075b3973f2e72e2',
             'type' => 'library',
             'install_path' => __DIR__ . '/../helhum/typo3-console',
             'aliases' => array(
@@ -72,7 +81,7 @@
         'typo3-console/extension' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f78a77ed81d8a06adb3004c7640c8ffa09633eb3',
+            'reference' => 'cf8733c8d56c33287c6b1348843834f55df5387b',
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -62,17 +62,74 @@
             "install-path": "../helhum/config-loader"
         },
         {
+            "name": "helhum/php-error-reporting",
+            "version": "v1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/helhum/php-error-reporting.git",
+                "reference": "50e1a2493a470947e7fcb5c28dbf500bda42c31c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/helhum/php-error-reporting/zipball/50e1a2493a470947e7fcb5c28dbf500bda42c31c",
+                "reference": "50e1a2493a470947e7fcb5c28dbf500bda42c31c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.2",
+                "phpstan/phpstan": "^1.0",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-doctrine": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpstan/phpstan-strict-rules": "^1.0"
+            },
+            "time": "2023-01-12T14:11:16+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "ErrorReporting\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Helmut Hummel",
+                    "email": "typo3@helhum.io"
+                }
+            ],
+            "description": "Create ErrorException with clean trace from PHP error handler errors, inspired by Sentry PHP SDK",
+            "homepage": "https://helhum.io",
+            "keywords": [
+                "error reporting",
+                "sentry"
+            ],
+            "support": {
+                "issues": "https://github.com/helhum/php-error-reporting",
+                "source": "https://github.com/helhum/php-error-reporting/tree/v1.0.0"
+            },
+            "install-path": "../helhum/php-error-reporting"
+        },
+        {
             "name": "helhum/typo3-console",
             "version": "dev-main",
             "version_normalized": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "d2fbbf93a590cd0413af5810237ca8bcfc73a6e5"
+                "reference": "81043ce688cd6ba6136fff742075b3973f2e72e2"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
                 "helhum/config-loader": ">=0.9 <0.13",
+                "helhum/php-error-reporting": "^1.0",
                 "php": ">=7.4.1",
                 "symfony/console": "^5.0 || ^6.0",
                 "symfony/process": "^5.0 || ^6.0",

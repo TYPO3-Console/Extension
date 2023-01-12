@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1d71f576d3661e8a99a6783ad1ed24a9
+class ComposerStaticInit7a0cc34562c6f5d9528a2c7b96b48727
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
@@ -15,6 +15,10 @@ class ComposerStaticInit1d71f576d3661e8a99a6783ad1ed24a9
         array (
             'Helhum\\Typo3Console\\' => 20,
             'Helhum\\ConfigLoader\\' => 20,
+        ),
+        'E' => 
+        array (
+            'ErrorReporting\\' => 15,
         ),
     );
 
@@ -33,10 +37,19 @@ class ComposerStaticInit1d71f576d3661e8a99a6783ad1ed24a9
         array (
             0 => __DIR__ . '/..' . '/helhum/config-loader/src',
         ),
+        'ErrorReporting\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/helhum/php-error-reporting/src',
+        ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'ErrorReporting\\DeprecationNotice' => __DIR__ . '/..' . '/helhum/php-error-reporting/src/DeprecationNotice.php',
+        'ErrorReporting\\Error' => __DIR__ . '/..' . '/helhum/php-error-reporting/src/Error.php',
+        'ErrorReporting\\ErrorException' => __DIR__ . '/..' . '/helhum/php-error-reporting/src/ErrorException.php',
+        'ErrorReporting\\Notice' => __DIR__ . '/..' . '/helhum/php-error-reporting/src/Notice.php',
+        'ErrorReporting\\Warning' => __DIR__ . '/..' . '/helhum/php-error-reporting/src/Warning.php',
         'Helhum\\ConfigLoader\\CachedConfigurationLoader' => __DIR__ . '/..' . '/helhum/config-loader/src/CachedConfigurationLoader.php',
         'Helhum\\ConfigLoader\\Config' => __DIR__ . '/..' . '/helhum/config-loader/src/Config.php',
         'Helhum\\ConfigLoader\\ConfigurationExporter' => __DIR__ . '/..' . '/helhum/config-loader/src/ConfigurationExporter.php',
@@ -207,9 +220,9 @@ class ComposerStaticInit1d71f576d3661e8a99a6783ad1ed24a9
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1d71f576d3661e8a99a6783ad1ed24a9::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1d71f576d3661e8a99a6783ad1ed24a9::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit1d71f576d3661e8a99a6783ad1ed24a9::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7a0cc34562c6f5d9528a2c7b96b48727::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7a0cc34562c6f5d9528a2c7b96b48727::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit7a0cc34562c6f5d9528a2c7b96b48727::$classMap;
 
         }, null, ClassLoader::class);
     }

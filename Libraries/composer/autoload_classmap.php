@@ -7,6 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'ErrorReporting\\DeprecationNotice' => $vendorDir . '/helhum/php-error-reporting/src/DeprecationNotice.php',
+    'ErrorReporting\\Error' => $vendorDir . '/helhum/php-error-reporting/src/Error.php',
+    'ErrorReporting\\ErrorException' => $vendorDir . '/helhum/php-error-reporting/src/ErrorException.php',
+    'ErrorReporting\\Notice' => $vendorDir . '/helhum/php-error-reporting/src/Notice.php',
+    'ErrorReporting\\Warning' => $vendorDir . '/helhum/php-error-reporting/src/Warning.php',
     'Helhum\\ConfigLoader\\CachedConfigurationLoader' => $vendorDir . '/helhum/config-loader/src/CachedConfigurationLoader.php',
     'Helhum\\ConfigLoader\\Config' => $vendorDir . '/helhum/config-loader/src/Config.php',
     'Helhum\\ConfigLoader\\ConfigurationExporter' => $vendorDir . '/helhum/config-loader/src/ConfigurationExporter.php',
