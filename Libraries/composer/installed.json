@@ -63,17 +63,17 @@
         },
         {
             "name": "helhum/php-error-reporting",
-            "version": "v1.0.0",
-            "version_normalized": "1.0.0.0",
+            "version": "v1.0.1",
+            "version_normalized": "1.0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/helhum/php-error-reporting.git",
-                "reference": "50e1a2493a470947e7fcb5c28dbf500bda42c31c"
+                "reference": "c9f1a0b6fedf7e641bce23b65eeeea946a6f7eb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/helhum/php-error-reporting/zipball/50e1a2493a470947e7fcb5c28dbf500bda42c31c",
-                "reference": "50e1a2493a470947e7fcb5c28dbf500bda42c31c",
+                "url": "https://api.github.com/repos/helhum/php-error-reporting/zipball/c9f1a0b6fedf7e641bce23b65eeeea946a6f7eb9",
+                "reference": "c9f1a0b6fedf7e641bce23b65eeeea946a6f7eb9",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "phpstan/phpstan-phpunit": "^1.0",
                 "phpstan/phpstan-strict-rules": "^1.0"
             },
-            "time": "2023-01-12T14:11:16+00:00",
+            "time": "2023-01-12T14:49:10+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -113,7 +113,7 @@
             ],
             "support": {
                 "issues": "https://github.com/helhum/php-error-reporting",
-                "source": "https://github.com/helhum/php-error-reporting/tree/v1.0.0"
+                "source": "https://github.com/helhum/php-error-reporting/tree/v1.0.1"
             },
             "install-path": "../helhum/php-error-reporting"
         },
@@ -124,7 +124,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "c7575554b9d2162814093e14ec0820838207307d"
+                "reference": "dde10c10b194a68483e45b6ec69a6ea6f3c562f7"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -255,24 +255,24 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.4.11",
-            "version_normalized": "5.4.11.0",
+            "version": "v5.4.19",
+            "version_normalized": "5.4.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "6e75fe6874cbc7e4773d049616ab450eff537bf1"
+                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/6e75fe6874cbc7e4773d049616ab450eff537bf1",
-                "reference": "6e75fe6874cbc7e4773d049616ab450eff537bf1",
+                "url": "https://api.github.com/repos/symfony/process/zipball/c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
+                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/polyfill-php80": "^1.16"
             },
-            "time": "2022-06-27T16:58:25+00:00",
+            "time": "2023-01-01T08:32:19+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -300,7 +300,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v5.4.11"
+                "source": "https://github.com/symfony/process/tree/v5.4.19"
             },
             "funding": [
                 {

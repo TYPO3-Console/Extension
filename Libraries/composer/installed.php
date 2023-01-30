@@ -3,7 +3,7 @@
         'name' => 'typo3-console/extension',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '0c6a40458de25ccbb39a05ac5232d2742f4416ec',
+        'reference' => '0430908e989f5ab9988eb0dcf6795c0d249cc7a1',
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'helhum/php-error-reporting' => array(
-            'pretty_version' => 'v1.0.0',
-            'version' => '1.0.0.0',
-            'reference' => '50e1a2493a470947e7fcb5c28dbf500bda42c31c',
+            'pretty_version' => 'v1.0.1',
+            'version' => '1.0.1.0',
+            'reference' => 'c9f1a0b6fedf7e641bce23b65eeeea946a6f7eb9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../helhum/php-error-reporting',
             'aliases' => array(),
@@ -31,7 +31,7 @@
         'helhum/typo3-console' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c7575554b9d2162814093e14ec0820838207307d',
+            'reference' => 'dde10c10b194a68483e45b6ec69a6ea6f3c562f7',
             'type' => 'library',
             'install_path' => __DIR__ . '/../helhum/typo3-console',
             'aliases' => array(
@@ -70,9 +70,9 @@
             ),
         ),
         'symfony/process' => array(
-            'pretty_version' => 'v5.4.11',
-            'version' => '5.4.11.0',
-            'reference' => '6e75fe6874cbc7e4773d049616ab450eff537bf1',
+            'pretty_version' => 'v5.4.19',
+            'version' => '5.4.19.0',
+            'reference' => 'c5ba874c9b636dbccf761e22ce750e88ec3f55e1',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/process',
             'aliases' => array(),
@@ -81,7 +81,7 @@
         'typo3-console/extension' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '0c6a40458de25ccbb39a05ac5232d2742f4416ec',
+            'reference' => '0430908e989f5ab9988eb0dcf6795c0d249cc7a1',
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
