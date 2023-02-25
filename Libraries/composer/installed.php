@@ -3,7 +3,7 @@
         'name' => 'typo3-console/extension',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '986c748c9a42fa1ae7476ae975e26ab20a2b24bb',
+        'reference' => '9dc908fe0a877ad57375d137a4535b0e32f4cd55',
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'helhum/typo3-console' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'e8ca3c5c47e5e6b6f941cefc57f98593ad6742b2',
+            'reference' => '2f813ee6a510b28a5a443976b4df47008f985435',
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../helhum/typo3-console',
             'aliases' => array(
@@ -70,9 +70,9 @@
             ),
         ),
         'symfony/process' => array(
-            'pretty_version' => 'v5.4.19',
-            'version' => '5.4.19.0',
-            'reference' => 'c5ba874c9b636dbccf761e22ce750e88ec3f55e1',
+            'pretty_version' => 'v6.2.5',
+            'version' => '6.2.5.0',
+            'reference' => '9ead139f63dfa38c4e4a9049cc64a8b2748c83b7',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/process',
             'aliases' => array(),
@@ -81,7 +81,7 @@
         'typo3-console/extension' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '986c748c9a42fa1ae7476ae975e26ab20a2b24bb',
+            'reference' => '9dc908fe0a877ad57375d137a4535b0e32f4cd55',
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

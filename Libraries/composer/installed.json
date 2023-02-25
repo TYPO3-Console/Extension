@@ -124,13 +124,13 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "e8ca3c5c47e5e6b6f941cefc57f98593ad6742b2"
+                "reference": "2f813ee6a510b28a5a443976b4df47008f985435"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
                 "helhum/config-loader": ">=0.9 <0.13",
                 "helhum/php-error-reporting": "^1.0",
-                "php": ">=7.4.1",
+                "php": ">=8.1",
                 "symfony/console": "^5.0 || ^6.0",
                 "symfony/process": "^5.0 || ^6.0",
                 "typo3/cms-backend": "^11.5.3 || dev-main",
@@ -257,24 +257,23 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.4.19",
-            "version_normalized": "5.4.19.0",
+            "version": "v6.2.5",
+            "version_normalized": "6.2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1"
+                "reference": "9ead139f63dfa38c4e4a9049cc64a8b2748c83b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
-                "reference": "c5ba874c9b636dbccf761e22ce750e88ec3f55e1",
+                "url": "https://api.github.com/repos/symfony/process/zipball/9ead139f63dfa38c4e4a9049cc64a8b2748c83b7",
+                "reference": "9ead139f63dfa38c4e4a9049cc64a8b2748c83b7",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.2.5",
-                "symfony/polyfill-php80": "^1.16"
+                "php": ">=8.1"
             },
-            "time": "2023-01-01T08:32:19+00:00",
+            "time": "2023-01-01T08:38:09+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -302,7 +301,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v5.4.19"
+                "source": "https://github.com/symfony/process/tree/v6.2.5"
             },
             "funding": [
                 {
