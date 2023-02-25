@@ -124,7 +124,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "abb86846876db41e6d634a9c0f5734435bc07453"
+                "reference": "3da660b31f3e086fda91e8601609e430d41e250d"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -145,6 +145,7 @@
                 "typo3-ter/typo3-console": "self.version"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.2",
                 "php-parallel-lint/php-parallel-lint": "^1.2",
                 "phpspec/prophecy": "^1.15",
                 "phpspec/prophecy-phpunit": "^2.0",
