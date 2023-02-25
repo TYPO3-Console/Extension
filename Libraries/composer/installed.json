@@ -124,7 +124,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "2f813ee6a510b28a5a443976b4df47008f985435"
+                "reference": "8aefc82c94d7ceb4d120cc3c477d5c11d53451b1"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -157,8 +157,7 @@
                 "typo3/cms-composer-installers": "^4.0@rc || ^5.0",
                 "typo3/cms-filemetadata": "^11.5.3 || dev-main",
                 "typo3/cms-recordlist": "^11.5.3 || dev-main",
-                "typo3/cms-reports": "^11.5.3 || dev-main",
-                "typo3/testing-framework": "^7.0@dev"
+                "typo3/cms-reports": "^11.5.3 || dev-main"
             },
             "bin": [
                 "typo3cms"
