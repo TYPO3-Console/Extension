@@ -124,7 +124,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "d1c0629a6137276a695067a465864a0861f2cf4b"
+                "reference": "0e25c3c447a3129057d41d0287675cecf2065e49"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -154,6 +154,7 @@
                 "symfony/filesystem": "^5.0 || ^6.0",
                 "typo3-console/create-reference-command": "@dev",
                 "typo3-console/sql-command": "@dev",
+                "typo3/cms-composer-installers": "^4.0@rc || ^5.0",
                 "typo3/cms-filemetadata": "^11.5.3 || dev-main",
                 "typo3/cms-recordlist": "^11.5.3 || dev-main",
                 "typo3/cms-reports": "^11.5.3 || dev-main",
@@ -162,15 +163,14 @@
             "bin": [
                 "typo3cms"
             ],
-            "type": "library",
+            "type": "typo3-cms-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "7.1.x-dev"
+                    "dev-main": "8.0.x-dev"
                 },
                 "typo3/cms": {
-                    "ignore-as-root": false,
-                    "app-dir": ".Build",
-                    "web-dir": ".Build/public"
+                    "extension-key": "typo3_console",
+                    "ignore-as-root": false
                 }
             },
             "installation-source": "dist",
