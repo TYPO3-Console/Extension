@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit982d2c3df2b78f7aa98ad73bcce04cfe
+class ComposerStaticInit0d67a2824337677278fd2c8bb9a65b27
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
@@ -111,10 +111,8 @@ class ComposerStaticInit982d2c3df2b78f7aa98ad73bcce04cfe
         'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradePrepareCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradePrepareCommand.php',
         'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeRunCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeRunCommand.php',
         'Helhum\\Typo3Console\\CompatibilityClassLoader' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Compatibility/CompatibilityClassLoader.php',
-        'Helhum\\Typo3Console\\Composer\\InstallerScript\\PopulateCommandConfiguration' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScript/PopulateCommandConfiguration.php',
         'Helhum\\Typo3Console\\Composer\\InstallerScript\\WarnDevBranchInstall' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScript/WarnDevBranchInstall.php',
         'Helhum\\Typo3Console\\Composer\\InstallerScripts' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/InstallerScripts.php',
-        'Helhum\\Typo3Console\\Composer\\PopulateCommands' => __DIR__ . '/../..' . '/Classes/Console/Composer/PopulateCommands.php',
         'Helhum\\Typo3Console\\Composer\\ScriptHelper' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Composer/ScriptHelper.php',
         'Helhum\\Typo3Console\\Core\\Booting\\ContainerBuildFailedException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/ContainerBuildFailedException.php',
         'Helhum\\Typo3Console\\Core\\Booting\\RunLevel' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Core/Booting/RunLevel.php',
@@ -165,7 +163,6 @@ class ComposerStaticInit982d2c3df2b78f7aa98ad73bcce04cfe
         'Helhum\\Typo3Console\\Install\\Upgrade\\UpgradeWizardResultRenderer' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Upgrade/UpgradeWizardResultRenderer.php',
         'Helhum\\Typo3Console\\Log\\Writer\\ConsoleWriter' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Log/Writer/ConsoleWriter.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\CommandCollection' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/CommandCollection.php',
-        'Helhum\\Typo3Console\\Mvc\\Cli\\CommandConfiguration' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/CommandConfiguration.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\CommandDispatcher' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/CommandDispatcher.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\ConsoleOutput' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/ConsoleOutput.php',
         'Helhum\\Typo3Console\\Mvc\\Cli\\FailedSubProcessCommandException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Mvc/Cli/FailedSubProcessCommandException.php',
@@ -215,9 +212,9 @@ class ComposerStaticInit982d2c3df2b78f7aa98ad73bcce04cfe
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit982d2c3df2b78f7aa98ad73bcce04cfe::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit982d2c3df2b78f7aa98ad73bcce04cfe::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit982d2c3df2b78f7aa98ad73bcce04cfe::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit0d67a2824337677278fd2c8bb9a65b27::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit0d67a2824337677278fd2c8bb9a65b27::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit0d67a2824337677278fd2c8bb9a65b27::$classMap;
 
         }, null, ClassLoader::class);
     }

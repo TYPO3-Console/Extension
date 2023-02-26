@@ -124,7 +124,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "38c50352cfa70d29f2134db4f579b8c5a13793ba"
+                "reference": "485bc6b03de1a84d6aecb21f2c4f23cf38e0f3a6"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
