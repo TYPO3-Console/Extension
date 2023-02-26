@@ -150,7 +150,7 @@ return array(
     'Helhum\\Typo3Console\\Service\\Database\\Exception' => $vendorDir . '/helhum/typo3-console/Classes/Console/Service/Database/Exception.php',
     'Helhum\\Typo3Console\\Service\\Database\\SchemaService' => $vendorDir . '/helhum/typo3-console/Classes/Console/Service/Database/SchemaService.php',
     'Helhum\\Typo3Console\\Service\\Exception' => $vendorDir . '/helhum/typo3-console/Classes/Console/Service/Exception.php',
-    'Helhum\\Typo3Console\\SymfonyCompatibilityBridge' => $vendorDir . '/helhum/typo3-console/Classes/Console/SymfonyCompatibilityBridge.php',
+    'Helhum\\Typo3Console\\SymfonyCompatibilityBridge' => $vendorDir . '/helhum/typo3-console/Classes/Compatibility/SymfonyCompatibilityBridge.php',
     'Symfony\\Component\\Process\\Exception\\ExceptionInterface' => $vendorDir . '/symfony/process/Exception/ExceptionInterface.php',
     'Symfony\\Component\\Process\\Exception\\InvalidArgumentException' => $vendorDir . '/symfony/process/Exception/InvalidArgumentException.php',
     'Symfony\\Component\\Process\\Exception\\LogicException' => $vendorDir . '/symfony/process/Exception/LogicException.php',
