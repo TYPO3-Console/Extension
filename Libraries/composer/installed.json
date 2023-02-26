@@ -124,7 +124,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "bb204d5ad5a18f3ecbf7035c76a8a67b049c2c76"
+                "reference": "55fbf118e8c53cd62dc24c79a07276ff759b679b"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -134,6 +134,7 @@
                 "symfony/console": "^5.0 || ^6.0",
                 "symfony/process": "^5.0 || ^6.0",
                 "typo3/cms-backend": "^11.5.3 || dev-main",
+                "typo3/cms-composer-installers": "^4.0@rc || >=5.0",
                 "typo3/cms-core": "^11.5.3 || dev-main",
                 "typo3/cms-extbase": "^11.5.3 || dev-main",
                 "typo3/cms-extensionmanager": "^11.5.3 || dev-main",
@@ -154,7 +155,6 @@
                 "symfony/filesystem": "^5.0 || ^6.0",
                 "typo3-console/create-reference-command": "@dev",
                 "typo3-console/sql-command": "@dev",
-                "typo3/cms-composer-installers": "^4.0@rc || ^5.0",
                 "typo3/cms-filemetadata": "^11.5.3 || dev-main",
                 "typo3/cms-recordlist": "^11.5.3 || dev-main",
                 "typo3/cms-reports": "^11.5.3 || dev-main"
