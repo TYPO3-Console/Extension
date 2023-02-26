@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitcec09deeff63bfdd2b0d2cd057bb0b69
+class ComposerStaticInit51ee5d638641e1a04070a7ed286ebf5e
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
@@ -108,8 +108,6 @@ class ComposerStaticInitcec09deeff63bfdd2b0d2cd057bb0b69
         'Helhum\\Typo3Console\\Command\\Install\\InstallGeneratePackageStatesCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallGeneratePackageStatesCommand.php',
         'Helhum\\Typo3Console\\Command\\Install\\InstallSetupCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallSetupCommand.php',
         'Helhum\\Typo3Console\\Command\\RelatableCommandInterface' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/RelatableCommandInterface.php',
-        'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeCheckExtensionCompatibilityCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeCheckExtensionCompatibilityCommand.php',
-        'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeCheckExtensionConstraintsCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeCheckExtensionConstraintsCommand.php',
         'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeListCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeListCommand.php',
         'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradePrepareCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradePrepareCommand.php',
         'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeRunCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeRunCommand.php',
@@ -141,9 +139,7 @@ class ComposerStaticInitcec09deeff63bfdd2b0d2cd057bb0b69
         'Helhum\\Typo3Console\\Exception\\ArgumentValidationFailedException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Exception/ArgumentValidationFailedException.php',
         'Helhum\\Typo3Console\\Exception\\CommandNotAvailableException' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Exception/CommandNotAvailableException.php',
         'Helhum\\Typo3Console\\Extension\\DatabaseSchemaUpdateEvent' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/DatabaseSchemaUpdateEvent.php',
-        'Helhum\\Typo3Console\\Extension\\ExtensionCompatibilityCheck' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionCompatibilityCheck.php',
         'Helhum\\Typo3Console\\Extension\\ExtensionConfiguration' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionConfiguration.php',
-        'Helhum\\Typo3Console\\Extension\\ExtensionConstraintCheck' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionConstraintCheck.php',
         'Helhum\\Typo3Console\\Extension\\ExtensionSetupEventDispatcher' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionSetupEventDispatcher.php',
         'Helhum\\Typo3Console\\Hook\\ExtensionInstallation' => __DIR__ . '/../..' . '/Classes/Console/Hook/ExtensionInstallation.php',
         'Helhum\\Typo3Console\\Install\\Action\\CommandsAction' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Action/CommandsAction.php',
@@ -220,9 +216,9 @@ class ComposerStaticInitcec09deeff63bfdd2b0d2cd057bb0b69
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitcec09deeff63bfdd2b0d2cd057bb0b69::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitcec09deeff63bfdd2b0d2cd057bb0b69::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitcec09deeff63bfdd2b0d2cd057bb0b69::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit51ee5d638641e1a04070a7ed286ebf5e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit51ee5d638641e1a04070a7ed286ebf5e::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit51ee5d638641e1a04070a7ed286ebf5e::$classMap;
 
         }, null, ClassLoader::class);
     }
