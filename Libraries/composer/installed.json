@@ -124,7 +124,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "8726c320d150173552b06787292a605887e2f1e6"
+                "reference": "1815311a1f820314aa292ab3348aab25cae7ef38"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -168,6 +168,11 @@
                     "dev-main": "8.0.x-dev"
                 },
                 "typo3/cms": {
+                    "Package": {
+                        "serviceProvider": "Helhum\\Typo3Console\\ServiceProvider",
+                        "protected": true,
+                        "partOfMinimalUsableSystem": true
+                    },
                     "extension-key": "typo3_console",
                     "ignore-as-root": false
                 }

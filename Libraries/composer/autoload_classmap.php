@@ -143,6 +143,7 @@ return array(
     'Helhum\\Typo3Console\\Mvc\\Cli\\Typo3CommandRegistry' => $vendorDir . '/helhum/typo3-console/Classes/Console/Mvc/Cli/Typo3CommandRegistry.php',
     'Helhum\\Typo3Console\\Package\\UncachedPackageManager' => $vendorDir . '/helhum/typo3-console/Classes/Console/Package/UncachedPackageManager.php',
     'Helhum\\Typo3Console\\Property\\TypeConverter\\ArrayConverter' => $vendorDir . '/helhum/typo3-console/Classes/Console/Property/TypeConverter/ArrayConverter.php',
+    'Helhum\\Typo3Console\\ServiceProvider' => $vendorDir . '/helhum/typo3-console/Classes/Console/ServiceProvider.php',
     'Helhum\\Typo3Console\\Service\\CacheLowLevelCleaner' => $vendorDir . '/helhum/typo3-console/Classes/Console/Service/CacheLowLevelCleaner.php',
     'Helhum\\Typo3Console\\Service\\CacheService' => $vendorDir . '/helhum/typo3-console/Classes/Console/Service/CacheService.php',
     'Helhum\\Typo3Console\\Service\\Configuration\\ConfigurationService' => $vendorDir . '/helhum/typo3-console/Classes/Console/Service/Configuration/ConfigurationService.php',
