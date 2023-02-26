@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5c7cdfd6e897ff6daea9dc7893862ae0
+class ComposerStaticInita20d25806f08adf293d252ed92b3db7d
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
@@ -105,7 +105,6 @@ class ComposerStaticInit5c7cdfd6e897ff6daea9dc7893862ae0
         'Helhum\\Typo3Console\\Command\\Install\\InstallEnvironmentAndFoldersCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallEnvironmentAndFoldersCommand.php',
         'Helhum\\Typo3Console\\Command\\Install\\InstallExtensionSetupIfPossibleCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallExtensionSetupIfPossibleCommand.php',
         'Helhum\\Typo3Console\\Command\\Install\\InstallFixFolderStructureCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallFixFolderStructureCommand.php',
-        'Helhum\\Typo3Console\\Command\\Install\\InstallGeneratePackageStatesCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallGeneratePackageStatesCommand.php',
         'Helhum\\Typo3Console\\Command\\Install\\InstallSetupCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Install/InstallSetupCommand.php',
         'Helhum\\Typo3Console\\Command\\RelatableCommandInterface' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/RelatableCommandInterface.php',
         'Helhum\\Typo3Console\\Command\\Upgrade\\UpgradeListCommand' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Command/Upgrade/UpgradeListCommand.php',
@@ -155,7 +154,6 @@ class ComposerStaticInit5c7cdfd6e897ff6daea9dc7893862ae0
         'Helhum\\Typo3Console\\Install\\CliMessageRenderer' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/CliMessageRenderer.php',
         'Helhum\\Typo3Console\\Install\\InstallStepActionExecutor' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/InstallStepActionExecutor.php',
         'Helhum\\Typo3Console\\Install\\InstallStepResponse' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/InstallStepResponse.php',
-        'Helhum\\Typo3Console\\Install\\PackageStatesGenerator' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/PackageStatesGenerator.php',
         'Helhum\\Typo3Console\\Install\\StepsConfig' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/StepsConfig.php',
         'Helhum\\Typo3Console\\Install\\Upgrade\\SilentConfigurationUpgrade' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Upgrade/SilentConfigurationUpgrade.php',
         'Helhum\\Typo3Console\\Install\\Upgrade\\UpgradeHandling' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Upgrade/UpgradeHandling.php',
@@ -216,9 +214,9 @@ class ComposerStaticInit5c7cdfd6e897ff6daea9dc7893862ae0
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5c7cdfd6e897ff6daea9dc7893862ae0::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5c7cdfd6e897ff6daea9dc7893862ae0::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit5c7cdfd6e897ff6daea9dc7893862ae0::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInita20d25806f08adf293d252ed92b3db7d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInita20d25806f08adf293d252ed92b3db7d::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInita20d25806f08adf293d252ed92b3db7d::$classMap;
 
         }, null, ClassLoader::class);
     }
