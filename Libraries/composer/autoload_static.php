@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0d67a2824337677278fd2c8bb9a65b27
+class ComposerStaticInit0aeaa056f54827387ec493117e80039c
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
@@ -138,7 +138,6 @@ class ComposerStaticInit0d67a2824337677278fd2c8bb9a65b27
         'Helhum\\Typo3Console\\Extension\\DatabaseSchemaUpdateEvent' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/DatabaseSchemaUpdateEvent.php',
         'Helhum\\Typo3Console\\Extension\\ExtensionConfiguration' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionConfiguration.php',
         'Helhum\\Typo3Console\\Extension\\ExtensionSetupEventDispatcher' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Extension/ExtensionSetupEventDispatcher.php',
-        'Helhum\\Typo3Console\\Hook\\ExtensionInstallation' => __DIR__ . '/../..' . '/Classes/Console/Hook/ExtensionInstallation.php',
         'Helhum\\Typo3Console\\Install\\Action\\CommandsAction' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Action/CommandsAction.php',
         'Helhum\\Typo3Console\\Install\\Action\\ExtensionSetupAction' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Action/ExtensionSetupAction.php',
         'Helhum\\Typo3Console\\Install\\Action\\InstallActionDispatcher' => __DIR__ . '/..' . '/helhum/typo3-console/Classes/Console/Install/Action/InstallActionDispatcher.php',
@@ -212,9 +211,9 @@ class ComposerStaticInit0d67a2824337677278fd2c8bb9a65b27
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0d67a2824337677278fd2c8bb9a65b27::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0d67a2824337677278fd2c8bb9a65b27::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit0d67a2824337677278fd2c8bb9a65b27::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit0aeaa056f54827387ec493117e80039c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit0aeaa056f54827387ec493117e80039c::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit0aeaa056f54827387ec493117e80039c::$classMap;
 
         }, null, ClassLoader::class);
     }

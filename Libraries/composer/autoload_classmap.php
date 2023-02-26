@@ -100,7 +100,6 @@ return array(
     'Helhum\\Typo3Console\\Extension\\DatabaseSchemaUpdateEvent' => $vendorDir . '/helhum/typo3-console/Classes/Console/Extension/DatabaseSchemaUpdateEvent.php',
     'Helhum\\Typo3Console\\Extension\\ExtensionConfiguration' => $vendorDir . '/helhum/typo3-console/Classes/Console/Extension/ExtensionConfiguration.php',
     'Helhum\\Typo3Console\\Extension\\ExtensionSetupEventDispatcher' => $vendorDir . '/helhum/typo3-console/Classes/Console/Extension/ExtensionSetupEventDispatcher.php',
-    'Helhum\\Typo3Console\\Hook\\ExtensionInstallation' => $baseDir . '/Classes/Console/Hook/ExtensionInstallation.php',
     'Helhum\\Typo3Console\\Install\\Action\\CommandsAction' => $vendorDir . '/helhum/typo3-console/Classes/Console/Install/Action/CommandsAction.php',
     'Helhum\\Typo3Console\\Install\\Action\\ExtensionSetupAction' => $vendorDir . '/helhum/typo3-console/Classes/Console/Install/Action/ExtensionSetupAction.php',
     'Helhum\\Typo3Console\\Install\\Action\\InstallActionDispatcher' => $vendorDir . '/helhum/typo3-console/Classes/Console/Install/Action/InstallActionDispatcher.php',
