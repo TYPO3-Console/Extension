@@ -124,15 +124,15 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "a586c4796939f774ba1c873a087d18072d515469"
+                "reference": "bc1a1e1fce283939640b706c2edb2e09fbdd7e05"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
                 "helhum/config-loader": ">=0.9 <0.13",
                 "helhum/php-error-reporting": "^1.0",
                 "php": ">=8.1",
-                "symfony/console": "^5.4 || ^6.0",
-                "symfony/process": "^5.4 || ^6.0",
+                "symfony/console": "^5.4 || ^6.1",
+                "symfony/process": "^5.4 || ^6.1",
                 "typo3/cms-backend": "^11.5.3 || dev-main",
                 "typo3/cms-composer-installers": "^4.0@rc || >=5.0",
                 "typo3/cms-core": "^11.5.3 || dev-main",
@@ -152,8 +152,8 @@
                 "phpspec/prophecy": "^1.15",
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.5.25",
-                "symfony/expression-language": "^5.4 || ^6.0",
-                "symfony/filesystem": "^5.4 || ^6.0",
+                "symfony/expression-language": "^5.4 || ^6.1",
+                "symfony/filesystem": "^5.4 || ^6.1",
                 "typo3-console/create-reference-command": "@dev",
                 "typo3-console/sql-command": "@dev",
                 "typo3/cms-filemetadata": "^11.5.3 || dev-main",
@@ -259,23 +259,23 @@
         },
         {
             "name": "symfony/process",
-            "version": "v6.2.5",
-            "version_normalized": "6.2.5.0",
+            "version": "v6.2.7",
+            "version_normalized": "6.2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "9ead139f63dfa38c4e4a9049cc64a8b2748c83b7"
+                "reference": "680e8a2ea6b3f87aecc07a6a65a203ae573d1902"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/9ead139f63dfa38c4e4a9049cc64a8b2748c83b7",
-                "reference": "9ead139f63dfa38c4e4a9049cc64a8b2748c83b7",
+                "url": "https://api.github.com/repos/symfony/process/zipball/680e8a2ea6b3f87aecc07a6a65a203ae573d1902",
+                "reference": "680e8a2ea6b3f87aecc07a6a65a203ae573d1902",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.1"
             },
-            "time": "2023-01-01T08:38:09+00:00",
+            "time": "2023-02-24T10:42:00+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -303,7 +303,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v6.2.5"
+                "source": "https://github.com/symfony/process/tree/v6.2.7"
             },
             "funding": [
                 {
