@@ -124,7 +124,7 @@
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "bc1a1e1fce283939640b706c2edb2e09fbdd7e05"
+                "reference": "e6d7aa0c21834a000760f72669567a5284e18a43"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
@@ -133,14 +133,14 @@
                 "php": ">=8.1",
                 "symfony/console": "^5.4 || ^6.1",
                 "symfony/process": "^5.4 || ^6.1",
-                "typo3/cms-backend": "^11.5.3 || dev-main",
+                "typo3/cms-backend": "^11.5.3 || ^12.2 || dev-main",
                 "typo3/cms-composer-installers": "^4.0@rc || >=5.0",
-                "typo3/cms-core": "^11.5.3 || dev-main",
-                "typo3/cms-extbase": "^11.5.3 || dev-main",
-                "typo3/cms-extensionmanager": "^11.5.3 || dev-main",
-                "typo3/cms-fluid": "^11.5.3 || dev-main",
-                "typo3/cms-frontend": "^11.5.3 || dev-main",
-                "typo3/cms-install": "^11.5.3 || dev-main"
+                "typo3/cms-core": "^11.5.3 || ^12.2 || dev-main",
+                "typo3/cms-extbase": "^11.5.3 || ^12.2 || dev-main",
+                "typo3/cms-extensionmanager": "^11.5.3 || ^12.2 || dev-main",
+                "typo3/cms-fluid": "^11.5.3 || ^12.2 || dev-main",
+                "typo3/cms-frontend": "^11.5.3 || ^12.2 || dev-main",
+                "typo3/cms-install": "^11.5.3 || ^12.2 || dev-main"
             },
             "replace": {
                 "typo3-ter/typo3-console": "self.version"
@@ -156,9 +156,9 @@
                 "symfony/filesystem": "^5.4 || ^6.1",
                 "typo3-console/create-reference-command": "@dev",
                 "typo3-console/sql-command": "@dev",
-                "typo3/cms-filemetadata": "^11.5.3 || dev-main",
-                "typo3/cms-recordlist": "^11.5.3 || dev-main",
-                "typo3/cms-reports": "^11.5.3 || dev-main"
+                "typo3/cms-filemetadata": "^11.5.3 || ^12.2 || dev-main",
+                "typo3/cms-recordlist": "^11.5.3 || ^12.2 || dev-main",
+                "typo3/cms-reports": "^11.5.3 || ^12.2 || dev-main"
             },
             "type": "typo3-cms-extension",
             "extra": {

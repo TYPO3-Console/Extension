@@ -3,7 +3,7 @@
         'name' => 'typo3-console/extension',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '062b283be5b827ab39a7151d8cc4b6e83944ac65',
+        'reference' => 'f1ddaec4494c40aaffadca3bf9ce8fae0028e073',
         'type' => 'typo3-cms-extension',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'helhum/typo3-console' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'bc1a1e1fce283939640b706c2edb2e09fbdd7e05',
+            'reference' => 'e6d7aa0c21834a000760f72669567a5284e18a43',
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../helhum/typo3-console',
             'aliases' => array(
@@ -81,7 +81,7 @@
         'typo3-console/extension' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '062b283be5b827ab39a7151d8cc4b6e83944ac65',
+            'reference' => 'f1ddaec4494c40aaffadca3bf9ce8fae0028e073',
             'type' => 'typo3-cms-extension',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
