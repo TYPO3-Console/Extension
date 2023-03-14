@@ -57,13 +57,13 @@ EOH
                 'force',
                 'f',
                 InputOption::VALUE_NONE,
-                'Force installation of TYPO3, even if `LocalConfiguration.php` file already exists.'
+                'Force installation of TYPO3, even if system configuration file already exists.'
             ),
             new InputOption(
                 'skip-integrity-check',
                 null,
                 InputOption::VALUE_NONE,
-                'Skip the checking for clean state before executing setup. This allows a pre-defined `LocalConfiguration.php` to be present. Handle with care. It might lead to unexpected or broken installation results.'
+                'Skip the checking for clean state before executing setup. This allows a pre-defined system configuration file to be present. Handle with care. It might lead to unexpected or broken installation results.'
             ),
             new InputOption(
                 'skip-extension-setup',
@@ -174,7 +174,7 @@ EOH
         ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $force = $input->getOption('force');
         $skipIntegrityCheck = $input->getOption('skip-integrity-check');
@@ -213,8 +213,9 @@ EOH
     private function getNormalizedInstallStepArguments(InputInterface $input): array
     {
         $normalizedArguments = [];
+        $input = new ArgvInput($input);
         foreach ($input->getOptions() as $optionName => $value) {
-            if ($value !== null && $input instanceof ArgvInput && $input->hasGivenOption($optionName)) {
+            if ($value !== null && $input->hasGivenOption($optionName)) {
                 $normalizedArguments[$this->dashedToLowerCamelCase($optionName)] = $value;
             }
         }

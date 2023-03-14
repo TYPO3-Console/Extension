@@ -25,6 +25,16 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ConfigurationShowLocalCommand extends Command implements RelatableCommandInterface
 {
+    public function __construct(private readonly bool $applicationIsReady)
+    {
+        parent::__construct('configuration:showlocal');
+    }
+
+    public function isEnabled(): bool
+    {
+        return $this->applicationIsReady || getenv('TYPO3_CONSOLE_RENDERING_REFERENCE') !== false;
+    }
+
     public function getRelatedCommandNames(): array
     {
         return [
@@ -38,8 +48,8 @@ class ConfigurationShowLocalCommand extends Command implements RelatableCommandI
         $this->setHelp(
             <<<'EOH'
 Shows local configuration option value by path.
-Shows the value which is stored in LocalConfiguration.php.
-Note that this value could be overridden. Use <code>typo3cms configuration:show <path></code> to see if this is the case.
+Shows the value which is stored in system configuration file.
+Note that this value could be overridden. Use <code>typo3 configuration:show <path></code> to see if this is the case.
 
 <b>Example:</b>
 
@@ -61,7 +71,7 @@ EOH
         ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $path = $input->getArgument('path');
         $json = $input->getOption('json');

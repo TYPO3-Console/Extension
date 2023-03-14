@@ -24,7 +24,7 @@ use Symfony\Component\Process\Process;
 /**
  * This class can be used to execute console commands in a sub process
  * It is especially useful during initial TYPO3 setup, but also when commands
- * need a minimal bootstrap first, but the execute some actions with a fill bootstrap
+ * need a minimal bootstrap first, but need to execute some actions with a fill bootstrap
  * like e.g. the cache:flush command
  */
 class CommandDispatcher
@@ -53,27 +53,13 @@ class CommandDispatcher
 
     /**
      * Create the dispatcher from within a composer plugin context
-     *
-     * @param array $arguments
-     * @internal param ScriptEvent $event (deprecated) Possibly given but deprecated event
-     * @internal param array $commandLine
-     * @internal param array $environmentVars
-     * @internal param PhpExecutableFinder $phpFinder
-     * @return CommandDispatcher
      */
-    public static function createFromComposerRun(...$arguments): self
+    public static function createFromComposerRun(ScriptEvent|string $scriptEventOrCommandPath, array $commandLine = [], array $environmentVars = [], PhpExecutableFinder $phpFinder = null): self
     {
-        if (isset($arguments[0]) && $arguments[0] instanceof ScriptEvent) {
-            // Calling createFromComposerRun with ScriptEvent as first argument is deprecated and will be removed with 6.0
-            array_shift($arguments);
+        $typo3CommandPath = $scriptEventOrCommandPath;
+        if ($scriptEventOrCommandPath instanceof ScriptEvent) {
+            $typo3CommandPath = $scriptEventOrCommandPath->getComposer()->getConfig()->get('bin-dir') . '/typo3';
         }
-
-        $commandLine = $arguments[0] ?? [];
-        $environmentVars = $arguments[1] ?? [];
-        $phpFinder = $arguments[2] ?? null;
-
-        // should be Application::COMMAND_NAME, but our Application class currently conflicts with symfony/console 2.7, which is used by Composer
-        $typo3CommandPath = dirname(__DIR__, 4) . '/typo3cms';
         $environmentVars['TYPO3_CONSOLE_PLUGIN_RUN'] = true;
 
         return self::create($typo3CommandPath, $commandLine, $environmentVars, $phpFinder);
@@ -114,7 +100,7 @@ class CommandDispatcher
         if (!isset($_SERVER['argv'][0]) || strpos($_SERVER['argv'][0], 'phpunit') === false) {
             throw new RuntimeException(sprintf('Tried to create %s command runner from wrong context', Application::COMMAND_NAME), 1493570522);
         }
-        $typo3CommandPath = $typo3CommandPath ?: dirname(__DIR__, 4) . '/' . Application::COMMAND_NAME;
+        $typo3CommandPath = $typo3CommandPath ?? dirname(__DIR__, 4) . '/' . Application::COMMAND_NAME;
 
         return self::create($typo3CommandPath);
     }
@@ -244,8 +230,13 @@ class CommandDispatcher
         if (isset($commandParameters[0]) && $commandParameters[0]->getType() !== null) {
             return $commandParameters[0]->getType()->getName() === 'array';
         }
+        $docComment = $constructorReflector->getDocComment();
+        if (!$docComment) {
+            // No annotation, count parameters. Newer versions of symfony/process has 5 parameters.
+            return count($commandParameters) < 6;
+        }
         // No PHP type hint, look in annotation
-        preg_match("/@param[ ]*([^ ]*)[ ]*\\\${$commandParameters[0]->getName()}/", $constructorReflector->getDocComment(), $matches);
+        preg_match("/@param[ ]*([^ ]*)[ ]*\\\${$commandParameters[0]->getName()}/", $docComment, $matches);
 
         return ($matches[1] ?? '') === 'array';
     }

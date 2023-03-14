@@ -29,7 +29,7 @@ class ConfigurationShowCommand extends Command
         $this->setHelp(
             <<<'EOH'
 Shows system configuration value by path.
-If the currently active configuration differs from the value in LocalConfiguration.php
+If the currently active configuration differs from the value in system configuration file
 the difference between these values is shown.
 
 <b>Example:</b>
@@ -46,7 +46,7 @@ EOH
         ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $path = $input->getArgument('path');
         $configurationService = new ConfigurationService();

@@ -30,9 +30,6 @@ class InstallFixFolderStructureCommand extends Command
 Automatically create files and folders, required for a TYPO3 installation.
 
 This command creates the required folder structure needed for TYPO3 including extensions.
-It is recommended to be executed <b>after</b> executing
-<code>typo3cms install:generatepackagestates</code>, to ensure proper generation of
-required folders for all active extensions.
 EOH
         );
     }
@@ -42,8 +39,11 @@ EOH
      * @throws \TYPO3\CMS\Install\FolderStructure\Exception\InvalidArgumentException
      * @throws \TYPO3\CMS\Install\FolderStructure\Exception\RootNodeException
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        // TYPO3 cli bootstrap initializes a user,
+        // which will cause a fatal error when trying to store the flash messages in the user session.
+        unset($GLOBALS['BE_USER']);
         $folderStructureFactory = GeneralUtility::makeInstance(DefaultFactory::class);
         $messages = $folderStructureFactory
             ->getStructure()

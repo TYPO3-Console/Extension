@@ -23,6 +23,16 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ConfigurationSetCommand extends Command
 {
+    public function __construct(private readonly bool $applicationIsReady)
+    {
+        parent::__construct('configuration:set');
+    }
+
+    public function isEnabled(): bool
+    {
+        return $this->applicationIsReady || getenv('TYPO3_CONSOLE_RENDERING_REFERENCE') !== false;
+    }
+
     protected function configure()
     {
         $this->setDescription('Set configuration value');
@@ -61,7 +71,7 @@ EOH
         ]);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $path = $input->getArgument('path');
         $value = $input->getArgument('value');
