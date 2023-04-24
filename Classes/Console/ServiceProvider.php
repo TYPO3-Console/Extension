@@ -24,12 +24,14 @@ use Helhum\Typo3Console\Database\Configuration\ConnectionConfiguration;
 use Helhum\Typo3Console\Mvc\Cli\Symfony\Application;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher as SymfonyEventDispatcher;
+use Symfony\Component\Process\Process;
 use TYPO3\CMS\Core\Adapter\EventDispatcherAdapter as SymfonyEventDispatcherCoreAdapter;
 use TYPO3\CMS\Core\Configuration\ConfigurationManager;
 use TYPO3\CMS\Core\Console\CommandApplication as CoreCommandApplication;
 use TYPO3\CMS\Core\Console\CommandRegistry;
 use TYPO3\CMS\Core\Core\BootService;
 use TYPO3\CMS\Core\Core\Bootstrap;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Package\AbstractServiceProvider;
 use TYPO3\SymfonyPsrEventDispatcherAdapter\EventDispatcherAdapter as SymfonyEventDispatcherAdapter;
 
@@ -47,6 +49,10 @@ class ServiceProvider extends AbstractServiceProvider
 
     public function getFactories(): array
     {
+        if (!class_exists(Process::class) && !Environment::isComposerMode()) {
+            require __DIR__ . '/../../Resources/Private/ExtensionArtifacts/Libraries/autoload.php';
+        }
+
         return [
             ConfigurationRemoveCommand::class => [ static::class, 'getConfigurationRemoveCommand' ],
             ConfigurationSetCommand::class => [ static::class, 'getConfigurationSetCommand' ],
@@ -194,12 +200,12 @@ class ServiceProvider extends AbstractServiceProvider
         $commandRegistry->addLazyCommand('install:setup', InstallSetupCommand::class, 'TYPO3 Setup');
         $commandRegistry->addLazyCommand('install:fixfolderstructure', InstallFixFolderStructureCommand::class, 'Fix folder structure');
         $commandRegistry->addLazyCommand('install:extensionsetupifpossible', InstallExtensionSetupIfPossibleCommand::class, 'Fix folder structure');
-        $commandRegistry->addLazyCommand('install:environmentandfolders', InstallEnvironmentAndFoldersCommand::class, 'Check environment / create folders');
-        $commandRegistry->addLazyCommand('install:databaseconnect', InstallDatabaseConnectCommand::class, 'Connect to database');
-        $commandRegistry->addLazyCommand('install:databasedata', InstallDatabaseDataCommand::class, 'Add database data');
-        $commandRegistry->addLazyCommand('install:databaseselect', InstallDatabaseSelectCommand::class, 'Select database');
-        $commandRegistry->addLazyCommand('install:defaultconfiguration', InstallDefaultConfigurationCommand::class, 'Write default configuration');
-        $commandRegistry->addLazyCommand('install:actionneedsexecution', InstallActionNeedsExecutionCommand::class, 'Calls needs execution on the given action and returns the result');
+        $commandRegistry->addLazyCommand('install:environmentandfolders', InstallEnvironmentAndFoldersCommand::class, 'Check environment / create folders', true);
+        $commandRegistry->addLazyCommand('install:databaseconnect', InstallDatabaseConnectCommand::class, 'Connect to database', true);
+        $commandRegistry->addLazyCommand('install:databasedata', InstallDatabaseDataCommand::class, 'Add database data', true);
+        $commandRegistry->addLazyCommand('install:databaseselect', InstallDatabaseSelectCommand::class, 'Select database', true);
+        $commandRegistry->addLazyCommand('install:defaultconfiguration', InstallDefaultConfigurationCommand::class, 'Write default configuration', true);
+        $commandRegistry->addLazyCommand('install:actionneedsexecution', InstallActionNeedsExecutionCommand::class, 'Calls needs execution on the given action and returns the result', true);
         $commandRegistry->addLazyCommand('install:lock', LockInstallToolCommand::class, 'Lock Install Tool');
         $commandRegistry->addLazyCommand('install:unlock', UnlockInstallToolCommand::class, 'Unlock Install Tool');
 
