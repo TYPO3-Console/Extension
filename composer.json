@@ -118,8 +118,6 @@
             "rm -rf ../extension/Resources/Private/ExtensionArtifacts/Resources ../extension/Resources/Private/ExtensionArtifacts/composer.*",
             "rm -rf ../extension/Resources/Private/Patches/",
             "rm -rf ../extension/Tests/",
-            "rm -rf ../extension/.ddev/",
-            "rm -rf ../extension/.github/",
             "rm ../extension/sonar-project.properties  ../extension/phpunit.xml.dist"
         ],
         "extension-clean": [

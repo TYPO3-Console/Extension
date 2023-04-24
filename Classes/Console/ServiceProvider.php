@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace Helhum\Typo3Console;
 
+use Helhum\ConfigLoader\Processor\PlaceholderValue;
 use Helhum\Typo3Console\Command\CommandApplication;
 use Helhum\Typo3Console\Command\Configuration\ConfigurationRemoveCommand;
 use Helhum\Typo3Console\Command\Configuration\ConfigurationSetCommand;
@@ -24,7 +25,6 @@ use Helhum\Typo3Console\Database\Configuration\ConnectionConfiguration;
 use Helhum\Typo3Console\Mvc\Cli\Symfony\Application;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher as SymfonyEventDispatcher;
-use Symfony\Component\Process\Process;
 use TYPO3\CMS\Core\Adapter\EventDispatcherAdapter as SymfonyEventDispatcherCoreAdapter;
 use TYPO3\CMS\Core\Configuration\ConfigurationManager;
 use TYPO3\CMS\Core\Console\CommandApplication as CoreCommandApplication;
@@ -49,7 +49,7 @@ class ServiceProvider extends AbstractServiceProvider
 
     public function getFactories(): array
     {
-        if (!class_exists(Process::class) && !Environment::isComposerMode()) {
+        if (!class_exists(PlaceholderValue::class) && !Environment::isComposerMode()) {
             require __DIR__ . '/../../Resources/Private/ExtensionArtifacts/Libraries/autoload.php';
         }
 
