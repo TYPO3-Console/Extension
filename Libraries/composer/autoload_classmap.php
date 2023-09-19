@@ -7,6 +7,11 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'ErrorReporting\\DeprecationNotice' => $vendorDir . '/helhum/php-error-reporting/src/DeprecationNotice.php',
+    'ErrorReporting\\Error' => $vendorDir . '/helhum/php-error-reporting/src/Error.php',
+    'ErrorReporting\\ErrorException' => $vendorDir . '/helhum/php-error-reporting/src/ErrorException.php',
+    'ErrorReporting\\Notice' => $vendorDir . '/helhum/php-error-reporting/src/Notice.php',
+    'ErrorReporting\\Warning' => $vendorDir . '/helhum/php-error-reporting/src/Warning.php',
     'Helhum\\ConfigLoader\\CachedConfigurationLoader' => $vendorDir . '/helhum/config-loader/src/CachedConfigurationLoader.php',
     'Helhum\\ConfigLoader\\Config' => $vendorDir . '/helhum/config-loader/src/Config.php',
     'Helhum\\ConfigLoader\\ConfigurationExporter' => $vendorDir . '/helhum/config-loader/src/ConfigurationExporter.php',
@@ -154,6 +159,7 @@ return array(
     'Helhum\\Typo3Console\\Service\\Database\\Exception' => $vendorDir . '/helhum/typo3-console/Classes/Console/Service/Database/Exception.php',
     'Helhum\\Typo3Console\\Service\\Database\\SchemaService' => $vendorDir . '/helhum/typo3-console/Classes/Console/Service/Database/SchemaService.php',
     'Helhum\\Typo3Console\\Service\\Exception' => $vendorDir . '/helhum/typo3-console/Classes/Console/Service/Exception.php',
+    'Helhum\\Typo3Console\\SymfonyCompatibilityBridge' => $vendorDir . '/helhum/typo3-console/Classes/Console/SymfonyCompatibilityBridge.php',
     'Symfony\\Component\\Process\\Exception\\ExceptionInterface' => $vendorDir . '/symfony/process/Exception/ExceptionInterface.php',
     'Symfony\\Component\\Process\\Exception\\InvalidArgumentException' => $vendorDir . '/symfony/process/Exception/InvalidArgumentException.php',
     'Symfony\\Component\\Process\\Exception\\LogicException' => $vendorDir . '/symfony/process/Exception/LogicException.php',

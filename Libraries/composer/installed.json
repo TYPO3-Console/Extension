@@ -62,20 +62,77 @@
             "install-path": "../helhum/config-loader"
         },
         {
+            "name": "helhum/php-error-reporting",
+            "version": "v1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/helhum/php-error-reporting.git",
+                "reference": "c9f1a0b6fedf7e641bce23b65eeeea946a6f7eb9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/helhum/php-error-reporting/zipball/c9f1a0b6fedf7e641bce23b65eeeea946a6f7eb9",
+                "reference": "c9f1a0b6fedf7e641bce23b65eeeea946a6f7eb9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.2",
+                "phpstan/phpstan": "^1.0",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-doctrine": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpstan/phpstan-strict-rules": "^1.0"
+            },
+            "time": "2023-01-12T14:49:10+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "ErrorReporting\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Helmut Hummel",
+                    "email": "typo3@helhum.io"
+                }
+            ],
+            "description": "Create ErrorException with clean trace from PHP error handler errors, inspired by Sentry PHP SDK",
+            "homepage": "https://helhum.io",
+            "keywords": [
+                "error reporting",
+                "sentry"
+            ],
+            "support": {
+                "issues": "https://github.com/helhum/php-error-reporting",
+                "source": "https://github.com/helhum/php-error-reporting/tree/v1.0.1"
+            },
+            "install-path": "../helhum/php-error-reporting"
+        },
+        {
             "name": "helhum/typo3-console",
-            "version": "dev-latest",
-            "version_normalized": "dev-latest",
+            "version": "dev-fix-command-name",
+            "version_normalized": "dev-fix-command-name",
             "dist": {
                 "type": "path",
                 "url": "/home/runner/work/TYPO3-Console/TYPO3-Console/typo3-console",
-                "reference": "daf87f1bd64708faeed0b79177b0c2d0c4527b2e"
+                "reference": "8aac1567121559b3aae1f8f414470e35094a0bc2"
             },
             "require": {
                 "composer-runtime-api": "^2.1",
                 "helhum/config-loader": ">=0.9 <0.13",
+                "helhum/php-error-reporting": "^1.0",
                 "php": ">=7.4.1",
-                "symfony/console": "^4.4 || ^5.0",
-                "symfony/process": "^4.4 || ^5.0",
+                "symfony/console": "^5.0 || ^6.0",
+                "symfony/process": "^5.0 || ^6.0",
                 "typo3/cms-backend": "^11.5.3 || dev-main",
                 "typo3/cms-core": "^11.5.3 || dev-main",
                 "typo3/cms-extbase": "^11.5.3 || dev-main",
@@ -84,23 +141,23 @@
                 "typo3/cms-frontend": "^11.5.3 || dev-main",
                 "typo3/cms-install": "^11.5.3 || dev-main"
             },
-            "conflict": {
-                "doctrine/dbal": "2.13.0 || 2.13.1",
-                "symfony/polyfill-php80": "<1.23.1"
-            },
             "replace": {
                 "typo3-ter/typo3-console": "self.version"
             },
             "require-dev": {
-                "nimut/testing-framework": "^6.0.1",
+                "friendsofphp/php-cs-fixer": "^3.2",
                 "php-parallel-lint/php-parallel-lint": "^1.2",
-                "phpunit/phpunit": "^8.5.18",
-                "symfony/expression-language": "^4.4 || ^5.0",
-                "symfony/filesystem": "^4.4 || ^5.0",
+                "phpspec/prophecy": "^1.15",
+                "phpspec/prophecy-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.5.25",
+                "symfony/expression-language": "^5.0 || ^6.0",
+                "symfony/filesystem": "^5.0 || ^6.0",
                 "typo3-console/create-reference-command": "@dev",
+                "typo3-console/sql-command": "@dev",
                 "typo3/cms-filemetadata": "^11.5.3 || dev-main",
                 "typo3/cms-recordlist": "^11.5.3 || dev-main",
-                "typo3/cms-reports": "^11.5.3 || dev-main"
+                "typo3/cms-reports": "^11.5.3 || dev-main",
+                "typo3/testing-framework": "^7.0@dev"
             },
             "bin": [
                 "typo3cms"
@@ -108,7 +165,6 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-latest": "7.1.x-dev",
                     "dev-main": "7.1.x-dev"
                 },
                 "typo3/cms": {
@@ -201,24 +257,24 @@
         },
         {
             "name": "symfony/process",
-            "version": "v5.4.7",
-            "version_normalized": "5.4.7.0",
+            "version": "v5.4.28",
+            "version_normalized": "5.4.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "38a44b2517b470a436e1c944bf9b9ba3961137fb"
+                "reference": "45261e1fccad1b5447a8d7a8e67aa7b4a9798b7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/38a44b2517b470a436e1c944bf9b9ba3961137fb",
-                "reference": "38a44b2517b470a436e1c944bf9b9ba3961137fb",
+                "url": "https://api.github.com/repos/symfony/process/zipball/45261e1fccad1b5447a8d7a8e67aa7b4a9798b7b",
+                "reference": "45261e1fccad1b5447a8d7a8e67aa7b4a9798b7b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
                 "symfony/polyfill-php80": "^1.16"
             },
-            "time": "2022-03-18T16:18:52+00:00",
+            "time": "2023-08-07T10:36:04+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -246,7 +302,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v5.4.7"
+                "source": "https://github.com/symfony/process/tree/v5.4.28"
             },
             "funding": [
                 {

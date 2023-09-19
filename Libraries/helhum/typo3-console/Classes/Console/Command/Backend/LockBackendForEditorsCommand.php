@@ -23,6 +23,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class LockBackendForEditorsCommand extends Command implements RelatableCommandInterface
 {
     private static $LOCK_TYPE_UNLOCKED = 0;
+
     private static $LOCK_TYPE_ADMIN = 2;
 
     public function getRelatedCommandNames(): array
@@ -39,7 +40,7 @@ class LockBackendForEditorsCommand extends Command implements RelatableCommandIn
 Admins will still be able to log in and work with the backend.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $configurationService = new ConfigurationService();
         if (!$configurationService->localIsActive('BE/adminOnly')) {

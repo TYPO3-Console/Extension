@@ -42,7 +42,7 @@ class UpgradeWizardFactory
      */
     public function __construct(
         ContainerInterface $container = null,
-        array $wizardRegistry = []
+        array $wizardRegistry = null
     ) {
         $this->container = $container ?: new class() implements ContainerInterface {
             public function get(string $id)
@@ -50,12 +50,12 @@ class UpgradeWizardFactory
                 return GeneralUtility::makeInstance($id);
             }
 
-            public function has(string $id)
+            public function has(string $id): bool
             {
                 return true;
             }
         };
-        $this->wizardRegistry = $wizardRegistry ?: $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'];
+        $this->wizardRegistry = $wizardRegistry ?? $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'] ?? [];
     }
 
     /**
