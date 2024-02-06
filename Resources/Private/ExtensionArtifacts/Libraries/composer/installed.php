@@ -3,7 +3,7 @@
         'name' => 'typo3-console/libs',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd1713df382cea7d959a1ebd4057f97d7ceb0e777',
+        'reference' => 'cb69e2e7f9c4d221c9c669698da078c5d98c36ec',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'typo3-console/libs' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd1713df382cea7d959a1ebd4057f97d7ceb0e777',
+            'reference' => 'cb69e2e7f9c4d221c9c669698da078c5d98c36ec',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
