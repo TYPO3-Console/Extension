@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'typo3-console/libs',
-        'pretty_version' => 'dev-latest',
-        'version' => 'dev-latest',
-        'reference' => '84a5aed73cba8afb7749216a5277cd35fcefcfb7',
+        'pretty_version' => '7.x-dev',
+        'version' => '7.9999999.9999999.9999999-dev',
+        'reference' => 'e65d304647fa4a6835a30029573517e60bbf9fcf',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -29,9 +29,9 @@
             'dev_requirement' => false,
         ),
         'typo3-console/libs' => array(
-            'pretty_version' => 'dev-latest',
-            'version' => 'dev-latest',
-            'reference' => '84a5aed73cba8afb7749216a5277cd35fcefcfb7',
+            'pretty_version' => '7.x-dev',
+            'version' => '7.9999999.9999999.9999999-dev',
+            'reference' => 'e65d304647fa4a6835a30029573517e60bbf9fcf',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
