@@ -11,19 +11,19 @@ configuration:remove
 ====================
 
 
-**Remove configuration option**
+**Remove configuration value**
 
 Removes a system configuration option by path.
 
 For this command to succeed, the configuration option(s) must be in
-LocalConfiguration.php and not be overridden elsewhere.
+system configuration file and not be overridden elsewhere.
 
 **Example:**
 
 
 .. code-block:: shell
 
-   typo3cms configuration:remove DB,EXT/EXTCONF/realurl
+   typo3 configuration:remove DB,EXT/EXTCONF/realurl
 
 
 Arguments
