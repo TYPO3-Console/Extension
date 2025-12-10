@@ -7,22 +7,22 @@ namespace Composer\Autoload;
 class ComposerStaticInit9aa9ab5c575507f0bfa9170cf70ae494
 {
     public static $prefixLengthsPsr4 = array (
-        'S' => 
+        'S' =>
         array (
             'Symfony\\Component\\Process\\' => 26,
         ),
-        'H' => 
+        'H' =>
         array (
             'Helhum\\ConfigLoader\\' => 20,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Symfony\\Component\\Process\\' => 
+        'Symfony\\Component\\Process\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
         ),
-        'Helhum\\ConfigLoader\\' => 
+        'Helhum\\ConfigLoader\\' =>
         array (
             0 => __DIR__ . '/..' . '/helhum/config-loader/src',
         ),
