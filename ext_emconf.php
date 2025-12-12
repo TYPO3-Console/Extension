@@ -9,11 +9,11 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Helmut Hummel',
     'author_email' => 'info@helhum.io',
     'author_company' => 'helhum.io',
-    'version' => '8.3.0',
+    'version' => '8.3.1',
     'constraints' => [
         'depends' => [
             'php' => '8.1.0-8.99.99',
-            'typo3' => '11.5.26-13.4.99',
+            'typo3' => '11.5.26-14.99.99',
         ],
         'conflicts' => [
         ],
