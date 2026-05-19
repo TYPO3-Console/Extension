@@ -1,0 +1,120 @@
+<?php
+declare(strict_types=1);
+namespace Helhum\Typo3Console\Command\Database;
+
+/*
+ * This file is part of the TYPO3 Console project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read
+ * LICENSE file that was distributed with this source code.
+ *
+ */
+
+use Helhum\Typo3Console\Database\Configuration\ConnectionConfigurationFactory;
+use Helhum\Typo3Console\Database\Process\MysqlCommand;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class DatabaseExportCommand extends Command
+{
+    public function __construct(private readonly bool $applicationIsReady, private readonly ConnectionConfigurationFactory $connectionConfigurationFactory)
+    {
+        parent::__construct('database:export');
+    }
+
+    public function isEnabled(): bool
+    {
+        return $this->applicationIsReady || getenv('TYPO3_CONSOLE_RENDERING_REFERENCE') !== false;
+    }
+
+    protected function configure(): void
+    {
+        $this->setDescription('Export database to stdout');
+        $this->setHelp(
+            <<<'EOH'
+Export the database (all tables) directly to stdout.
+The mysqldump binary must be available in the path for this command to work.
+This obviously only works when MySQL is used as DBMS.
+
+Tables to be excluded from the export can be specified fully qualified or with wildcards:
+
+<b>Example:</b>
+
+  <code>%command.full_name% -c Default -e 'cf_*' -e 'cache_*' -e '[bf]e_sessions' -e sys_log</code>
+  <code>%command.full_name% database:export -c Default -- --column-statistics=0</code>
+EOH
+        );
+        $this->setDefinition([
+            new InputOption(
+                'exclude',
+                '-e',
+                InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
+                'Full table name or wildcard expression to exclude from the export.',
+                []
+            ),
+            new InputOption(
+                'connection',
+                '-c',
+                InputOption::VALUE_REQUIRED,
+                'TYPO3 database connection name (defaults to all configured MySQL connections)',
+                null
+            ),
+            new InputArgument(
+                'additionalMysqlDumpArguments',
+                InputArgument::IS_ARRAY,
+                'Pass one or more additional arguments to the mysqldump command; see examples',
+                []
+            ),
+        ]);
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output): int
+    {
+        $additionalMysqlDumpArguments = $input->getArgument('additionalMysqlDumpArguments');
+        $connection = $input->getOption('connection');
+        $excludes = $input->getOption('exclude');
+
+        $availableConnectionNames = $connectionNames = $this->connectionConfigurationFactory->getAvailableConnectionNames();
+        $failureReason = '';
+        if ($connection !== null) {
+            $availableConnectionNames = array_intersect($connectionNames, [$connection]);
+            $failureReason = sprintf(' Given connection "%s" is not configured as MySQL connection.', $connection);
+        }
+        if (empty($availableConnectionNames)) {
+            $output->writeln(sprintf('<error>No MySQL connections found to export.%s</error>', $failureReason));
+
+            return self::INVALID;
+        }
+        if ($output->isVerbose()) {
+            $additionalMysqlDumpArguments[] = '--verbose';
+        }
+        foreach ($availableConnectionNames as $mysqlConnectionName) {
+            $mysqlCommand = new MysqlCommand(
+                $this->connectionConfigurationFactory->build(
+                    $mysqlConnectionName,
+                    $this->getName(),
+                ),
+                $output,
+            );
+            $exitCode = $mysqlCommand->mysqldump(
+                $additionalMysqlDumpArguments,
+                $excludes
+            );
+
+            if ($exitCode !== 0) {
+                $output->writeln(sprintf('<error>Could not dump SQL for connection "%s",</error>', $mysqlConnectionName));
+
+                return $exitCode;
+            }
+        }
+
+        return self::SUCCESS;
+    }
+}
