@@ -14,15 +14,15 @@ configuration:showlocal
 **Show local configuration value**
 
 Shows local configuration option value by path.
-Shows the value which is stored in LocalConfiguration.php.
-Note that this value could be overridden. Use `typo3cms configuration:show <path>` to see if this is the case.
+Shows the value which is stored in system configuration file.
+Note that this value could be overridden. Use `typo3 configuration:show <path>` to see if this is the case.
 
 **Example:**
 
 
 .. code-block:: shell
 
-   typo3cms configuration:showlocal DB
+   typo3 configuration:showlocal DB
 
 
 Arguments
